@@ -79,7 +79,7 @@ namespace Hotel_Management.Areas.Hotel.Controllers
                 model.HotelName = (string)dataTable.Rows[0]["HotelName"];
                 model.HotelAddress = (string)dataTable.Rows[0]["HotelAddress"];
                 model.HotelEmail = (string)dataTable.Rows[0]["HotelEmail"];
-                model.Rating = (decimal)dataTable.Rows[0].["Rating"];
+                model.Rating = (decimal)dataTable.Rows[0]["Rating"];
                 model.OwnerName = (string)dataTable.Rows[0]["OwnerName"];
                 model.HotelPhoneNumber = (string)dataTable.Rows[0]["HotelPhoneNumber"];
                 model.Created = (DateTime)dataTable.Rows[0]["Created"];
@@ -88,5 +88,10 @@ namespace Hotel_Management.Areas.Hotel.Controllers
             }
 
         }
+
+        /*public IActionResult Save(LOC_HotelModel hot) 
+        {
+
+        }*/
     }
 }

@@ -1,0 +1,67 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+@model IEnumerable<Hotel_Management.Areas.Staff.Models.LOC_StaffModel>;
+
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Staff Search</h5>
+                        <form class="d-flex w-80" role="search">
+                            <input class="form-control me-2 m-3" type="text" placeholder="User Name" aria-label="Search" name="CountryName">
+                            <button class="btn btn-outline-success my-3 h-50" type="submit">Search</button>
+                        </form>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="text-center">Name</th>
+                                        <th scope="col" class="text-center">Role</th>
+                                        <th scope="col" class="text-center">Email</th>
+                                        <th scope="col" class="text-center">Action</th>
+                                    </tr>
+                                </thead>
+                                @foreach (var row in Model)
+                                {
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">@row.FirstName @row.LastName</td>
+                                            <td class="text-center">@row.Role</td>
+                                            <td class="text-center">@row.StaffEmail</td>
+                                            <td>
+                                                <div class="row">
+                                                    <form method="post" class="form-group col-6" asp-area="Staff" asp-controller="LOC_Staff" asp-action="DeleteByStaffID" asp-route-StaffID="@row.StaffID">
+                                                        <button type="submit" class="btn btn-danger btn-block">Delete</button>
+                                                    </form>
+                                                    <a class="form-group col-6 text-right" asp-area="Staff" asp-controller="LOC_Staff" asp-action="StaffDetail" asp-route-StaffID="@row.StaffID">
+                                                        <button type="button" class="btn btn-success btn-block"> Detaiil</button>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="floating-container">
+    <a asp-area="Staff" asp-controller="LOC_Staff" asp-action="StaffAddEdit"><div class="floating-button">+</div></a>
+    @* <div class="element-container">
+
+    <a href="google.com">
+    <span class="float-element tooltip-left">
+    <i class="material-icons">
+    phone
+    </i>
+    </span>
+    </a>
+    </div> *@
+</div>

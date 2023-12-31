@@ -17,6 +17,18 @@ namespace Hotel_Management.Controllers
         {
             return View();
         }
+        public IActionResult LoginPageView()
+        {
+            return View();
+        }
+        public IActionResult RegistorView()
+        {
+            return View();
+        }
+        public IActionResult AdminPannel()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {
