@@ -43,5 +43,12 @@ namespace Hotel_Management.BAL
             return dal.MST_Staff_Update(model);
         }
         #endregion
+        #region MST_Staff_Search
+        public List<LOC_StaffModel> MST_Staff_Search(string FirstName, string StaffEmail, string Role)
+        {
+            Staff_DALBase dal = new Staff_DALBase();
+            return dal.MST_Staff_Search(FirstName, StaffEmail, Role);
+        }
+        #endregion
     }
 }

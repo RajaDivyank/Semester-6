@@ -33,7 +33,7 @@
 </head>
 
 <body>
-    <div class="container-xxl bg-white p-0">
+    <div class="container bg-white">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -95,7 +95,6 @@
                                 <a href="contact.html" class="nav-item nav-link">Contact</a>
                                 <a asp-area="" asp-controller="Home" asp-action="AdminPannel" class="nav-item nav-link">Admin</a>
                             </div>
-                            <a href="https://htmlcodex.com/hotel-html-template-pro" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Premium Version<i class="fa fa-arrow-right ms-3"></i></a>
                         </div>
                     </nav>
                 </div>
@@ -142,7 +141,7 @@
             </div>
         </div>
         <!-- Carousel End -->
-        <div>@RenderBody()</div>
+        <div class="container-fluid">@RenderBody()</div>
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-light footer wow fadeIn" data-wow-delay="0.1s">
             <div class="container pb-5">

@@ -16,6 +16,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Semester-6\Project\Hotel_Management\Hotel_Management
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Role/Views/LOC_Role/RoleAddEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUm9sZVxWaWV3c1xMT0NfUm9sZVxSb2xlQWRkRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Role/Views/LOC_Role/RoleView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUm9sZVxWaWV3c1xMT0NfUm9sZVxSb2xlVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Role/Views/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUm9sZVxWaWV3c1xfVmFsaWRhdGlvblNjcmlwdHNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Role/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUm9sZVxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Staff/Views/LOC_Staff/StaffAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3RhZmZcVmlld3NcTE9DX1N0YWZmXFN0YWZmQWRkRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

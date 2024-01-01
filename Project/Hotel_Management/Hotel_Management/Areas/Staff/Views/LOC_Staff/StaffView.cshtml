@@ -10,10 +10,16 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Staff Search</h5>
-                        <form class="d-flex w-80" role="search">
+                        <form method="post" asp-controller="LOC_Staff" asp-action="StaffSearch" asp-area="Staff" class="d-flex w-80" role="search">
+                            <input class="form-control me-2 m-3" type="text" placeholder="First Name" name="FirstName" />
+                            <input class="form-control me-2 m-3" type="text" placeholder="Email" name="StaffEmail" />
+                            <input class="form-control me-2 m-3" type="text" placeholder="Role" name="Role" />
+                            <button type="submit" class="btn btn-outline-success my-3 h-50">Filter</button>
+                        </form>
+                        @* <form class="d-flex w-80" role="search">
                             <input class="form-control me-2 m-3" type="text" placeholder="User Name" aria-label="Search" name="CountryName">
                             <button class="btn btn-outline-success my-3 h-50" type="submit">Search</button>
-                        </form>
+                        </form> *@
                         <div class="table-responsive">
                             <table class="table table-striped">
                                 <thead>

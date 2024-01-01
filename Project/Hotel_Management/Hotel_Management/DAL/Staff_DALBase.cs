@@ -3,6 +3,7 @@ using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 using System.Data.Common;
 using System.Data;
 using Hotel_Management.Areas.Staff.Models;
+using System.Collections.Generic;
 
 namespace Hotel_Management.DAL
 {
@@ -55,6 +56,7 @@ namespace Hotel_Management.DAL
                     model.RoleID = Convert.ToInt32(reader["RoleID"]);
                     model.FirstName = reader["FirstName"].ToString();
                     model.LastName = reader["LastName"].ToString();
+                    model.Role = reader["Role"].ToString();
                     model.Salary = Convert.ToDecimal(reader["Salary"].ToString());
                     model.DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]);
                     model.StaffNumber = reader["StaffNumber"].ToString();
@@ -144,6 +146,41 @@ namespace Hotel_Management.DAL
             {
                 return false;
             }
+        }
+        #endregion
+        #region MST_Staff_Search
+        public List<LOC_StaffModel> MST_Staff_Search(string FirstName,string StaffEmail,string Role)
+        {
+            List<LOC_StaffModel> list = new List<LOC_StaffModel>();
+            SqlDatabase db = new SqlDatabase(ConnStr);
+            DbCommand cmd = db.GetStoredProcCommand("PR_Staff_Filter");
+            db.AddInParameter(cmd, "@FirstName", SqlDbType.VarChar, FirstName);
+            db.AddInParameter(cmd, "@StaffEmail", SqlDbType.VarChar, StaffEmail);
+            db.AddInParameter(cmd, "@Role", SqlDbType.VarChar, Role);
+            using (IDataReader reader = db.ExecuteReader(cmd))
+            {
+                while (reader.Read())
+                {
+                    LOC_StaffModel model = new LOC_StaffModel();
+                    model.StaffID = Convert.ToInt32(reader["StaffID"]);
+                    model.RoleID = Convert.ToInt32(reader["RoleID"]);
+                    model.FirstName = reader["FirstName"].ToString();
+                    model.LastName = reader["LastName"].ToString();
+                    model.Role = reader["Role"].ToString();
+                    model.StaffImage = reader["StaffImage"].ToString();
+                    model.Salary = Convert.ToDecimal(reader["Salary"].ToString());
+                    model.StaffNumber = reader["StaffNumber"].ToString();
+                    model.StaffEmail = reader["StaffEmail"].ToString();
+                    model.IDProof = reader["IDProof"].ToString();
+                    model.IDProofPhotoPath = reader["IDProofPhotoPath"].ToString();
+                    model.DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]);
+                    model.DateOfJoining = Convert.ToDateTime(reader["DateOfJoining"]);
+                    model.Created = Convert.ToDateTime(reader["Created"]);
+                    model.Modified = Convert.ToDateTime(reader["Modified"]);
+                    list.Add(model);
+                }
+            }
+            return list;
         }
         #endregion
     }

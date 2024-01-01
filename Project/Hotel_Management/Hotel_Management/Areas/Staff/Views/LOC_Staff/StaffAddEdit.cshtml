@@ -24,20 +24,20 @@
                             <label>Salary</label>
                             <input type="text" class="form-control form-control-rounded" placeholder="Amount" asp-for="Salary">
                         </div>
-                        <div class="form-group">
+                        @* <div class="form-group">
                             <label>RoleID</label>
                             <input type="text" class="form-control form-control-rounded" placeholder="roleid" asp-for="RoleID">
-                        </div>
-                        @* <div class="form-group">
+                        </div> *@
+                        <div class="form-group">
                             <label>Role</label>
                             <select class="btn btn-outline-primary btn-md dropdown-toggle" asp-for="RoleID">
                                 <option value="none" selected disabled hidden>Select Role</option>
-                                @foreach (LOC_RoleModel abc in Model.Roles)
+                                @foreach (var abc in Model.roles)
                                 {
-                                    <option class="bg-light text-dark" value="@abc.CountryId">@abc.CountryName</option>
+                                    <option class="bg-light text-dark" value="@abc.RoleID">@abc.Role</option>
                                 }
                             </select>
-                        </div> *@
+                        </div>
                         <div class="form-group">
                             <label>Email</label>
                             <input type="text" class="form-control form-control-rounded" placeholder="Email" asp-for="StaffEmail">

@@ -5,6 +5,5 @@
         public int? RoleID { get; set; }
         public string? Role { get; set; }
         public int SelectedRoleID { get; set; }
-        public List<LOC_RoleModel> roles { get; set; }
     }
 }
