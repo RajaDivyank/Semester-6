@@ -14,7 +14,8 @@
         public string? StaffEmail { get; set; }
         public DateTime? DateOfJoining { get; set; }
         public string? IDProof {  get; set; }
-        public string? IDProofPhotoPath {  get; set; }
+        public IFormFile? IDProofPhotoFile {  get; set; }
+        public string? IDProofPhotoPath { get; set; }
         public DateTime? Created {  get; set; }
         public DateTime? Modified { get; set; }
         public List<LOC_RoleModel> roles { get; set; }

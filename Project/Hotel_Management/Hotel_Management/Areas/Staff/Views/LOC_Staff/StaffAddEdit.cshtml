@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <div class="card-title">Round Vertical Form</div>
                     <hr>
-                    <form method="post" asp-area="Staff" asp-controller="LOC_Staff" asp-action="SaveForAddEdit">
+                    <form method="post" asp-area="Staff" asp-controller="LOC_Staff" asp-action="SaveForAddEdit" enctype="multipart/form-data">
                         <input type="hidden" asp-for="StaffID" />
                         <div class="form-group">
                             <label>First Name</label>
@@ -59,8 +59,10 @@
                             <input type="text" class="form-control form-control-rounded" placeholder="Proof" asp-for="IDProof">
                         </div>
                         <div class="form-group">
-                            <label for="input-8">ID Proof Photo</label>
-                            <input type="text" class="form-control form-control-rounded" placeholder="Photo" asp-for="IDProofPhotoPath">
+                            <label asp-for="IDProofPhotoPath">Select File</label>
+                            <input type="file" name="File" class="form-control" asp-for="IDProofPhotoPath"/>
+                            @* <label for="input-8">ID Proof Photo</label>
+                            <input type="text" class="form-control form-control-rounded" placeholder="Photo" asp-for="IDProofPhotoPath"> *@
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-light btn-round px-5">Save</button>
