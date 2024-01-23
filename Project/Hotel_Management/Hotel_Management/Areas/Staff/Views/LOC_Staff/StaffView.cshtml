@@ -1,9 +1,63 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout2.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 @model IEnumerable<Hotel_Management.Areas.Staff.Models.LOC_StaffModel>;
-
-<div class="content-wrapper">
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Staff Search</h5>
+                <form method="post" asp-controller="LOC_Staff" asp-action="StaffSearch" asp-area="Staff" class="d-flex w-80" role="search">
+                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="First Name" name="FirstName" />
+                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Email" name="StaffEmail" />
+                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Role" name="Role" />
+                    <button type="submit" class="btn btn-outline-success my-3 h-50">Filter</button>
+                </form>
+                <div class="table-responsive pt-3">
+                    <table class="table table-striped project-orders-table">
+                        <thead>
+                            <tr>
+                                <th class="ml-5">Staff ID</th>
+                                <th>Name</th>
+                                <th>Role</th>
+                                <th>Email</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        @foreach (var row in Model)
+                        {
+                            <tbody>
+                                <tr>
+                                    <td>@row.StaffID</td>
+                                    <td>@row.FirstName @row.LastName</td>
+                                    <td>@row.Role</td>
+                                    <td>@row.StaffEmail</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <form method="post" asp-area="Staff" asp-controller="LOC_Staff" asp-action="StaffDetail" asp-route-StaffID="@row.StaffID">
+                                                <button type="submit" class="btn btn-success btn-sm btn-icon-text mr-3">
+                                                    Detail
+                                                    <i class="typcn typcn-edit btn-icon-append"></i>
+                                                </button>
+                                            </form>
+                                            <form method="post" asp-area="Staff" asp-controller="LOC_Staff" asp-action="DeleteByStaffID" asp-route-StaffID="@row.StaffID" onclick="return confirmDelete()">
+                                                <button type="submit" class="btn btn-danger btn-sm btn-icon-text">
+                                                    Delete
+                                                    <i class="typcn typcn-delete-outline btn-icon-append"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@* <div class="content-wrapper">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
@@ -16,10 +70,6 @@
                             <input class="form-control me-2 m-3" type="text" placeholder="Role" name="Role" />
                             <button type="submit" class="btn btn-outline-success my-3 h-50">Filter</button>
                         </form>
-                        @* <form class="d-flex w-80" role="search">
-                            <input class="form-control me-2 m-3" type="text" placeholder="User Name" aria-label="Search" name="CountryName">
-                            <button class="btn btn-outline-success my-3 h-50" type="submit">Search</button>
-                        </form> *@
                         <div class="table-responsive">
                             <table class="table table-striped">
                                 <thead>
@@ -57,17 +107,34 @@
             </div>
         </div>
     </div>
-</div>
+</div> *@
+
 <div class="floating-container">
     <a asp-area="Staff" asp-controller="LOC_Staff" asp-action="StaffAddEdit"><div class="floating-button">+</div></a>
-    @* <div class="element-container">
-
-    <a href="google.com">
-    <span class="float-element tooltip-left">
-    <i class="material-icons">
-    phone
-    </i>
-    </span>
-    </a>
-    </div> *@
 </div>
+
+<script>
+    function confirmDelete() {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                });
+                return true;
+            } else {
+                return false;
+            }
+        });
+        return false
+    }
+</script>

@@ -2,10 +2,12 @@
 using Hotel_Management.Areas.User.Models;
 using Hotel_Management.BAL;
 using Hotel_Management.DAL;
+using Humanizer;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Data.SqlClient;
 using System.Security.Cryptography.X509Certificates;
+using static NuGet.Packaging.PackagingConstants;
 
 namespace Hotel_Management.Areas.Staff.Controllers
 {
@@ -84,6 +86,53 @@ namespace Hotel_Management.Areas.Staff.Controllers
         #region SaveForAddEdit
         public IActionResult SaveForAddEdit(LOC_StaffModel model)
         {
+            if (model.StaffID != 0)
+            {
+                if (model.IDProofPhotoFile == null && TempData["IDProofPhotoPath"] != null)
+                {
+                    model.IDProofPhotoPath = TempData["IDProofPhotoPath"].ToString();
+                }
+                if (model.StaffImageFile == null && TempData["StaffImage"] != null)
+                {
+                    model.StaffImage = TempData["StaffImage"].ToString();
+                }
+            }
+            if (model.IDProofPhotoFile != null)
+            {
+                string filePath =
+               System.IO.Path.GetExtension(model.IDProofPhotoFile.FileName);
+
+                string directoryPath = @"D:\Semester-6\Project\Hotel_Management\Hotel_Management\wwwroot\Images";
+
+                if (!Directory.Exists(directoryPath))
+                {
+                    Directory.CreateDirectory(directoryPath);
+                }
+                string folderPath = Path.Combine("wwwroot/Images/", model.IDProofPhotoFile.FileName);
+                using (FileStream fs = System.IO.File.Create(folderPath))
+                {
+                    model.IDProofPhotoFile.CopyTo(fs);
+                }
+                model.IDProofPhotoPath = "/Images/" + model.IDProofPhotoFile.FileName;
+            }
+            if (model.StaffImageFile != null)
+            {
+                string filePath =
+               System.IO.Path.GetExtension(model.StaffImageFile.FileName);
+
+                string directoryPath = @"D:\Semester-6\Project\Hotel_Management\Hotel_Management\wwwroot\Images";
+
+                if (!Directory.Exists(directoryPath))
+                {
+                    Directory.CreateDirectory(directoryPath);
+                }
+                string folderPath = Path.Combine("wwwroot/Images/", model.StaffImageFile.FileName);
+                using (FileStream fs = System.IO.File.Create(folderPath))
+                {
+                    model.StaffImageFile.CopyTo(fs);
+                }
+                model.StaffImage = "/Images/" + model.StaffImageFile.FileName;
+            }
             bool ans = false;
 
             Staff_BALBase bal = new Staff_BALBase();

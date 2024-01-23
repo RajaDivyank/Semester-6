@@ -47,7 +47,7 @@
             <ul class="sidebar-menu do-nicescrol">
                 <li class="sidebar-header">MAIN NAVIGATION</li>
                 <li>
-                    <a asp-area="" asp-controller="Home" asp-action="AdmminPannel">
+                    <a asp-area="" asp-controller="Home" asp-action="AdminPannel">
                         <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
                     </a>
                 </li>
@@ -68,7 +68,16 @@
                         <i class="zmdi zmdi-format-list-bulleted"></i> <span>Role</span>
                     </a>
                 </li>
-
+                <li>
+                    <a asp-area="Roomtype" asp-controller="LOC_RoomType" asp-action="RoomTypeView">
+                        <i class="zmdi zmdi-format-list-bulleted"></i> <span>Room Type</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-area="Roomstatus" asp-controller="RoomStatus" asp-action="StatusView">
+                        <i class="zmdi zmdi-format-list-bulleted"></i> <span>Room Status</span>
+                    </a>
+                </li>
                 @* <li>
                     <a href="tables.html">
                         <i class="zmdi zmdi-grid"></i> <span>Tables</span>

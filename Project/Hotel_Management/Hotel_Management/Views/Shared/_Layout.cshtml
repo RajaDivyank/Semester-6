@@ -1,4 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@using Hotel_Management.BAL;
+@{
+    bool isAdmin = true;
+    bool isManager = true;
+    if (CommonVariables.IsAdmin() || CommonVariables.IsManager())
+    {
+        isAdmin = true;
+        isManager = true;
+    }
+}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -80,7 +90,7 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-                                <a href="index.html" class="nav-item nav-link active">Home</a>
+                                <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-item nav-link active">Home</a>
                                 <a href="about.html" class="nav-item nav-link">About</a>
                                 <a href="service.html" class="nav-item nav-link">Services</a>
                                 <a href="room.html" class="nav-item nav-link">Rooms</a>
@@ -93,7 +103,12 @@
                                     </div>
                                 </div>
                                 <a href="contact.html" class="nav-item nav-link">Contact</a>
-                                <a asp-area="" asp-controller="Home" asp-action="AdminPannel" class="nav-item nav-link">Admin</a>
+                                @if (isAdmin==true || isManager==true)
+                                {
+                                    <a asp-area="" asp-controller="Home" asp-action="AdminPannel" class="nav-item nav-link">Admin</a>
+                                }
+                                <a asp-area="User" asp-controller="SEC_User" asp-action="Login" class="nav-item nav-link">Login</a>
+                                <a asp-area="User" asp-controller="SEC_User" asp-action="SignUp" class=" nav-link float-right">Register</a>
                             </div>
                         </div>
                     </nav>

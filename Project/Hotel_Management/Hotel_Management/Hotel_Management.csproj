@@ -10,6 +10,9 @@
     <Folder Include="Areas\Hotel\Data\" />
     <Folder Include="Areas\Hotel\Views\" />
     <Folder Include="Areas\Role\Data\" />
+    <Folder Include="Areas\Roomstatus\Data\" />
+    <Folder Include="Areas\Roomtype\Data\" />
+    <Folder Include="Areas\Room\Data\" />
     <Folder Include="Areas\Staff\Data\" />
     <Folder Include="Areas\User\Data\" />
   </ItemGroup>

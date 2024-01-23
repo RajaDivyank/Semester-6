@@ -22,6 +22,7 @@ namespace Hotel_Management.DAL
                 {
                     LOC_StaffModel model = new LOC_StaffModel();
                     model.StaffID = Convert.ToInt32(reader["StaffID"]);
+                    model.UserID = Convert.ToInt32(reader["UserID"]);
                     model.RoleID = Convert.ToInt32(reader["RoleID"]);
                     model.FirstName = reader["FirstName"].ToString();
                     model.LastName = reader["LastName"].ToString();
@@ -31,7 +32,7 @@ namespace Hotel_Management.DAL
                     model.StaffNumber = reader["StaffNumber"].ToString();
                     model.StaffEmail = reader["StaffEmail"].ToString();
                     model.IDProof = reader["IDProof"].ToString();
-                    /*model.IDProofPhotoPath = reader["IDProofPhotoPath"].ToString();*/
+                    model.IDProofPhotoPath = reader["IDProofPhotoPath"].ToString();
                     model.DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]);
                     model.DateOfJoining = Convert.ToDateTime(reader["DateOfJoining"]);
                     model.Created = Convert.ToDateTime(reader["Created"]);
@@ -55,6 +56,7 @@ namespace Hotel_Management.DAL
                 {
                     model.StaffID = Convert.ToInt32(reader["StaffID"]);
                     model.RoleID = Convert.ToInt32(reader["RoleID"]);
+                    model.UserID = Convert.ToInt32(reader["UserID"]);
                     model.FirstName = reader["FirstName"].ToString();
                     model.LastName = reader["LastName"].ToString();
                     model.Role = reader["Role"].ToString();
@@ -65,6 +67,7 @@ namespace Hotel_Management.DAL
                     model.StaffImage = reader["StaffImage"].ToString();
                     model.DateOfJoining = Convert.ToDateTime(reader["DateOfJoining"]);
                     model.IDProof = reader["IDProof"].ToString();
+                    model.IDProofPhotoPath = reader["IDProofPhotoPath"].ToString();
                     model.Created = Convert.ToDateTime(reader["Created"]);
                     model.Modified = Convert.ToDateTime(reader["Modified"]);
                 }
@@ -91,7 +94,6 @@ namespace Hotel_Management.DAL
         }
         #endregion
         #region MST_Staff_Add
-        [HttpPost]
         public bool MST_Staff_Add(LOC_StaffModel model)
         {
             try
@@ -99,6 +101,7 @@ namespace Hotel_Management.DAL
                 SqlDatabase db = new SqlDatabase(ConnStr);
                 DbCommand cmd = db.GetStoredProcCommand("PR_Staff_InsertRecord");
                 db.AddInParameter(cmd, "@RoleID", SqlDbType.Int, model.RoleID);
+                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, model.UserID);
                 db.AddInParameter(cmd, "@FirstName", SqlDbType.VarChar, model.FirstName);
                 db.AddInParameter(cmd, "@LastName", SqlDbType.VarChar, model.LastName);
                 db.AddInParameter(cmd, "@Salary", SqlDbType.Decimal, model.Salary);
@@ -107,14 +110,6 @@ namespace Hotel_Management.DAL
                 db.AddInParameter(cmd, "@StaffEmail", SqlDbType.VarChar, model.StaffEmail);
                 db.AddInParameter(cmd, "@DateOfBirth", SqlDbType.Date, model.DateOfBirth);
                 db.AddInParameter(cmd, "@DateOfJoining", SqlDbType.Date, model.DateOfJoining);
-                if (model.IDProofPhotoFile != null && model.IDProofPhotoFile.Length > 0)
-                {
-                    // Save the file to the server or process it as needed
-                    string filePath = SaveFileToServer(model.IDProofPhotoFile);
-
-                    // Store the file path in your model
-                    model.IDProofPhotoPath = filePath;
-                }
                 db.AddInParameter(cmd, "@IDProofPhotoPath", SqlDbType.VarChar, model.IDProofPhotoPath);
                 db.AddInParameter(cmd, "@IDProof", SqlDbType.VarChar, model.IDProof);
                 int noOfRows = db.ExecuteNonQuery(cmd);
@@ -127,30 +122,6 @@ namespace Hotel_Management.DAL
                 return false;
             }
         }
-        private string SaveFileToServer(IFormFile file)
-        {
-            if (file == null || file.Length == 0)
-            {
-                return null; // No file to save
-            }
-
-            string uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads");
-
-            if (!Directory.Exists(uploadsFolder))
-            {
-                Directory.CreateDirectory(uploadsFolder);
-            }
-
-            string uniqueFileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-            string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-            using (var stream = new FileStream(filePath, FileMode.Create))
-            {
-                file.CopyTo(stream);
-            }
-
-            return "/uploads/" + uniqueFileName;
-        }
         #endregion
         #region MST_Staff_Update
         public bool MST_Staff_Update(LOC_StaffModel model)
@@ -160,6 +131,7 @@ namespace Hotel_Management.DAL
                 SqlDatabase db = new SqlDatabase(ConnStr);
                 DbCommand cmd = db.GetStoredProcCommand("PR_Staff_UpdateRecord");
                 db.AddInParameter(cmd, "@StaffID", SqlDbType.Int, model.StaffID);
+                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, model.UserID);
                 db.AddInParameter(cmd, "@RoleID", SqlDbType.Int, model.RoleID);
                 db.AddInParameter(cmd, "@FirstName", SqlDbType.VarChar, model.FirstName);
                 db.AddInParameter(cmd, "@LastName", SqlDbType.VarChar, model.LastName);
@@ -198,6 +170,7 @@ namespace Hotel_Management.DAL
                     LOC_StaffModel model = new LOC_StaffModel();
                     model.StaffID = Convert.ToInt32(reader["StaffID"]);
                     model.RoleID = Convert.ToInt32(reader["RoleID"]);
+                    model.UserID = Convert.ToInt32(reader["UserID"]);
                     model.FirstName = reader["FirstName"].ToString();
                     model.LastName = reader["LastName"].ToString();
                     model.Role = reader["Role"].ToString();
