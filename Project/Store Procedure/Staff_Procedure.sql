@@ -29,7 +29,7 @@ END
 
 --========================================================
 
-CREATE PROCEDURE [dbo].[PR_Staff_SelectByStaffID]
+CREATE OR ALTER PROCEDURE [dbo].[PR_Staff_SelectByStaffID]
 @StaffID int
 AS
 BEGIN
@@ -44,6 +44,7 @@ BEGIN
 		[dbo].[MST_Staff].[StaffEmail],
 		[dbo].[MST_Staff].[DateOfJoining],
 		[dbo].[MST_Staff].[IDProof],
+		[dbo].[MST_Staff].[IDProofPhotoPath],
 		[dbo].[MST_Staff].[Created],
 		[dbo].[MST_Staff].[Modified]
 	from [dbo].[MST_Staff]
