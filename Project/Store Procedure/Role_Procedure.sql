@@ -1,4 +1,4 @@
-CREATE PROCEDURE [dbo].[PR_Role_SelectAll]
+CREATE OR ALTER PROCEDURE [dbo].[PR_Role_SelectAll]
 AS
 BEGIN
 SELECT [dbo].[MST_Role].[RoleID],
@@ -11,7 +11,7 @@ END
 
 --===============================================
 
-CREATE PROCEDURE [dbo].[PR_Role_DeleteByRoleID] 15
+CREATE OR ALTER PROCEDURE [dbo].[PR_Role_DeleteByRoleID]
 @RoleID  int
 AS
 BEGIN
@@ -21,7 +21,7 @@ END
 
 --===============================================
 
-CREATE PROCEDURE [dbo].[PR_Role_SelectByRoleID]
+CREATE OR ALTER PROCEDURE [dbo].[PR_Role_SelectByRoleID]
 @RoleID int
 AS
 BEGIN

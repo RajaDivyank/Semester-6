@@ -1,0 +1,57 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model Hotel_Management.Areas.Room.Models.LOC_RoomModel;
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Room Detail</h4>
+            <div class="row">
+                <div class="col-4 mx-2">
+                    <div style="width: 20rem;" class="rounded-circle">
+                        <div class="text-center my-3" style="font-size:large">Room Photo</div>
+                        <img class="card-img-top" style="height:50vh" src="@Model.RoomImage" alt="@Model.RoomImage" />
+                    </div>
+                </div>
+                <div class="col-6 py-5">
+                    <div class="form-group row">
+                        <div class="col-sm-4">Room Type</div>
+                        <div class="col-sm-8 form-control form-control-rounded">@Model.TypeName</div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4">Room Status</div>
+                        <div class="col-sm-8 form-control form-control-rounded">@Model.Status</div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4">Child Capacity</div>
+                        <div class="col-sm-8 form-control form-control-rounded">@Model.ChildCapacity</div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4">Adult Capacity</div>
+                        <div class="col-sm-8 form-control form-control-rounded">@Model.AdultCapacity</div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4">Price Per Day</div>
+                        <div class="col-sm-8 form-control form-control-rounded">@Model.PricePerDay</div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4">Description</div>
+                        <textarea class="col-sm-8 form-control form-control-rounded" rows="4"  >@Model.Description</textarea>
+                        @* <label for="exampleTextarea1">Description</label>
+                        <div class="form-control border border-dark" id="exampleTextarea1" rows="4">@Model.Description</div> *@
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <a asp-area="Room" asp-controller="LOC_Room" asp-action="RoomAddEdit" asp-route-RoomID="@Model.RoomID" class="btn btn-success btn-sm btn-icon-text mr-3">
+                            Edit
+                            <i class="typcn typcn-edit btn-icon-append"></i>
+                        </a>
+                        <a onclick="history.back()" class="btn btn-info btn-sm btn-icon-text mr-3">
+                            back
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

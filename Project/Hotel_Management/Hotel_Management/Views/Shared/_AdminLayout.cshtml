@@ -1,14 +1,27 @@
-﻿<!DOCTYPE html>
+﻿@using Hotel_Management.BAL;
+@{
+    bool isAdmin = true;
+    bool isManager = true;
+    if (CommonVariables.IsAdmin())
+    {
+        isAdmin = true;
+    }
+    if (CommonVariables.IsManager())
+    {
+        isManager = true;
+    }
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>PolluxUI Admin</title>
+    <title>Admin</title>
     <!-- base:css -->
     <link rel="stylesheet" href="~/Adminassets/vendors/typicons/typicons.css">
     <link rel="stylesheet" href="~/Adminassets/vendors/css/vendor.bundle.base.css">
-    <link rel="stylesheet" href="~/Adminassets/css/floatingbutton.css"/>
+    <link rel="stylesheet" href="~/Adminassets/css/floatingbutton.css" />
     <!-- endinject -->
     <!-- plugin css for this page -->
     <!-- End plugin css for this page -->
@@ -17,18 +30,6 @@
     <!-- endinject -->
     <link rel="shortcut icon" href="~/Adminassets/images/favicon.png" />
 
-    <!-- Extra links -->
-    @* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.css"> -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker-standalone.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/js/bootstrap-datetimepicker.min.js"></script> *@
-
 </head>
 <body>
     <div class="container-scroller">
@@ -36,8 +37,8 @@
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="navbar-brand-wrapper d-flex justify-content-center">
                 <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-                    <a class="navbar-brand brand-logo" href="index.html"><img src="~/Adminassets/images/logo.svg" alt="logo" /></a>
-                    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="~/Adminassets/images/logo-mini.svg" alt="logo" /></a>
+                    <a class="navbar-brand brand-logo" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/Adminassets/images/logo.svg" alt="logo" /></a>
+                    <a class="navbar-brand brand-logo-mini" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/Adminassets/images/logo-mini.svg" alt="logo" /></a>
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                         <span class="typcn typcn-th-menu"></span>
                     </button>
@@ -55,7 +56,7 @@
                                 <i class="typcn typcn-cog-outline text-primary"></i>
                                 Settings
                             </a>
-                            <a class="dropdown-item">
+                            <a class="dropdown-item" asp-area="User" asp-controller="SEC_User" asp-action="Logout">
                                 <i class="typcn typcn-eject text-primary"></i>
                                 Logout
                             </a>
@@ -354,18 +355,21 @@
                             <div class="badge badge-danger">new</div>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-user" aria-expanded="false" aria-controls="ui-user">
-                            <i class="typcn typcn-document-text menu-icon"></i>
-                            <span class="menu-title">User</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="ui-user">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-area="User" asp-controller="SEC_User" asp-action="UserView">User List</a></li>
-                            </ul>
-                        </div>
-                    </li>
+                    @if (isAdmin == true && isManager == true)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#ui-user" aria-expanded="false" aria-controls="ui-user">
+                                <i class="typcn typcn-document-text menu-icon"></i>
+                                <span class="menu-title">User</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="ui-user">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link" asp-area="User" asp-controller="SEC_User" asp-action="UserView">User List</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    }
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                             <i class="typcn typcn-document-text menu-icon"></i>
@@ -375,12 +379,11 @@
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" asp-area="Staff" asp-controller="LOC_Staff" asp-action="StaffView">Staff List</a></li>
-                                @* <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li> *@
+                                <li class="nav-item"> <a class="nav-link" asp-area="Role" asp-controller="LOC_Role" asp-action="RoleView">Role List</a></li>
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item">
+                    @* <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#ui-role" aria-expanded="false" aria-controls="ui-role">
                             <i class="typcn typcn-document-text menu-icon"></i>
                             <span class="menu-title">Role</span>
@@ -389,12 +392,10 @@
                         <div class="collapse" id="ui-role">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" asp-area="Role" asp-controller="LOC_Role" asp-action="RoleView">Role List</a></li>
-                                @* <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li> *@
                             </ul>
                         </div>
-                    </li>
-                    <li class="nav-item">
+                    </li> *@
+                    @* <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#ui-status" aria-expanded="false" aria-controls="ui-status">
                             <i class="typcn typcn-document-text menu-icon"></i>
                             <span class="menu-title">Room Status</span>
@@ -405,8 +406,8 @@
                                 <li class="nav-item"> <a class="nav-link" asp-area="Roomstatus" asp-controller="RoomStatus" asp-action="StatusView">Room Status List</a></li>
                             </ul>
                         </div>
-                    </li>
-                    <li class="nav-item">
+                    </li> *@
+                    @* <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#ui-roomtype" aria-expanded="false" aria-controls="ui-roomtype">
                             <i class="typcn typcn-document-text menu-icon"></i>
                             <span class="menu-title">Room Type</span>
@@ -417,11 +418,63 @@
                                 <li class="nav-item"> <a class="nav-link" asp-area="Roomtype" asp-controller="LOC_RoomType" asp-action="RoomTypeView">Room Type List</a></li>
                             </ul>
                         </div>
-                    </li>
-
-                    <!--Extra                      -->
-                    
+                    </li> *@
                     <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-room" aria-expanded="false" aria-controls="ui-room">
+                            <i class="typcn typcn-document-text menu-icon"></i>
+                            <span class="menu-title">Room</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="ui-room">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" asp-area="Room" asp-controller="LOC_Room" asp-action="RoomView">Room List</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-area="Roomstatus" asp-controller="RoomStatus" asp-action="StatusView">Room Status List</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-area="Roomtype" asp-controller="LOC_RoomType" asp-action="RoomTypeView">Room Type List</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-area="Booking" asp-controller="LOC_Booking" asp-action="bookingView">Booking List</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    @* <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-booking" aria-expanded="false" aria-controls="ui-booking">
+                            <i class="typcn typcn-document-text menu-icon"></i>
+                            <span class="menu-title">Room Booking</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="ui-booking">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" asp-area="Booking" asp-controller="LOC_Booking" asp-action="bookingView">Booking List</a></li>
+                            </ul>
+                        </div>
+                    </li> *@
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-payment" aria-expanded="false" aria-controls="ui-payment">
+                            <i class="typcn typcn-document-text menu-icon"></i>
+                            <span class="menu-title">Payment</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="ui-payment">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" asp-area="Payment" asp-controller="LOC_Payment" asp-action="PaymentView">Payment List</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-area="PaymentMethod" asp-controller="LOC_PaymentMethod" asp-action="PaymentMethodView">Method List</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    @* <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-paymentmethod" aria-expanded="false" aria-controls="ui-paymentmethod">
+                            <i class="typcn typcn-document-text menu-icon"></i>
+                            <span class="menu-title">Payment Method</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="ui-paymentmethod">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" asp-area="PaymentMethod" asp-controller="LOC_PaymentMethod" asp-action="PaymentMethodView">Method List</a></li>
+                            </ul>
+                        </div>
+                    </li> *@
+
+                    <!--Extra-->
+
+                    @* <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
                             <i class="typcn typcn-film menu-icon"></i>
                             <span class="menu-title">Form elements</span>
@@ -494,13 +547,8 @@
                                 <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
                             </ul>
                         </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://bootstrapdash.com/demo/polluxui-free/docs/documentation.html">
-                            <i class="typcn typcn-mortar-board menu-icon"></i>
-                            <span class="menu-title">Documentation</span>
-                        </a>
-                    </li>
+                    </li> *@
+                    
                 </ul>
             </nav>
             <!-- partial -->
@@ -509,14 +557,14 @@
                 <!-- content-wrapper ends -->
                 <!-- partial:partials/_footer.html -->
                 @* <footer class="footer">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2020 <a href="https://www.bootstrapdash.com/" class="text-muted" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
-                                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-muted">Free <a href="https://www.bootstrapdash.com/" class="text-muted" target="_blank">Bootstrap dashboard</a> templates from Bootstrapdash.com</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="card">
+                <div class="card-body">
+                <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2020 <a href="https://www.bootstrapdash.com/" class="text-muted" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
+                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-muted">Free <a href="https://www.bootstrapdash.com/" class="text-muted" target="_blank">Bootstrap dashboard</a> templates from Bootstrapdash.com</span>
+                </div>
+                </div>
+                </div>
                 </footer> *@
                 <!-- partial -->
             </div>
@@ -537,6 +585,7 @@
     <script src="~/Adminassets/js/template.js"></script>
     <script src="~/Adminassets/js/settings.js"></script>
     <script src="~/Adminassets/js/todolist.js"></script>
+    <script src="~/Adminassets/js/file-upload.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page-->
     <script src="~/Adminassets/js/dashboard.js"></script>

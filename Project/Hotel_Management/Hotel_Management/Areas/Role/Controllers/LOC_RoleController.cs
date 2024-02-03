@@ -1,9 +1,9 @@
 ﻿using Hotel_Management.Areas.Role.Models;
-using Hotel_Management.BAL;
 using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 using System.Data;
 using System.Collections.Generic;
+using Hotel_Management.BAL;
 
 namespace Hotel_Management.Areas.Role.Controllers
 {

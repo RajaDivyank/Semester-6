@@ -114,7 +114,7 @@ namespace Hotel_Management.DAL
         }
         #endregion
         #region MST_RoomType_Search
-        public List<LOC_RoomTypeModel> MST_RoomType_Search(string TypeName , decimal PricePerDay)
+        public List<LOC_RoomTypeModel> MST_RoomType_Search(string? TypeName , decimal? PricePerDay)
         {
             List<LOC_RoomTypeModel> list = new List<LOC_RoomTypeModel>();
             SqlDatabase db = new SqlDatabase(ConnStr);
@@ -131,6 +131,7 @@ namespace Hotel_Management.DAL
                     model.PricePerDay = Convert.ToDecimal(reader["PricePerDay"]);
                     model.Created = Convert.ToDateTime(reader["Created"]);
                     model.Modified = Convert.ToDateTime(reader["Modified"]);
+                    list.Add(model);
                 }
             }
             return list;

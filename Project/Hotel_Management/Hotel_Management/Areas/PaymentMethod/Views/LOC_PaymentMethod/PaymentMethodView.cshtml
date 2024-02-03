@@ -1,0 +1,61 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model IEnumerable<Hotel_Management.Areas.PaymentMethod.Models.LOC_PaymentMethodModel>;
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Payment Method Search</h5>
+                <form method="post" asp-area="PaymentMethod" asp-controller="LOC_PaymentMethod" asp-action="PaymentMethodSearch" class="d-flex w-80" role="search">
+                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Method" name="Method" />
+                    <button type="submit" class="btn btn-outline-success my-3 h-50">Filter</button>
+                </form>
+                <div class="table-responsive pt-3">
+                    <table class="table table-striped project-orders-table">
+                        <thead>
+                            <tr>
+                                <th class="ml-5">Method ID</th>
+                                <th>Method</th>
+                                <th>Created</th>
+                                <th>Modified</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        @foreach (var row in Model)
+                        {
+                            <tbody>
+                                <tr>
+                                    <td>@row.PaymentMethodID</td>
+                                    <td>@row.Method</td>
+                                    <td>@Convert.ToDateTime(row.Created).ToString("dd-MM-yyyy")</td>
+                                    <td>@Convert.ToDateTime(row.Created).ToString("dd-MM-yyyy")</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <form method="post" asp-area="PaymentMethod" asp-controller="LOC_PaymentMethod" asp-action="PaymentMethodAddEdit" asp-route-PaymentMethodID="@row.PaymentMethodID">
+                                                <button type="submit" class="btn btn-success btn-sm btn-icon-text mr-3">
+                                                    Edit
+                                                    <i class="typcn typcn-edit btn-icon-append"></i>
+                                                </button>
+                                            </form>
+                                            <form method="post" asp-area="PaymentMethod" asp-controller="LOC_PaymentMethod" asp-action="DeleteByPaymentMethodID" asp-route-PaymentMethodID="@row.PaymentMethodID">
+                                                <button type="submit" class="btn btn-danger btn-sm btn-icon-text">
+                                                    Delete
+                                                    <i class="typcn typcn-delete-outline btn-icon-append"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="floating-container">
+    <a asp-area="PaymentMethod" asp-controller="LOC_PaymentMethod" asp-action="PaymentMethodAddEdit"><div class="floating-button">+</div></a>
+</div>

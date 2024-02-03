@@ -1,5 +1,5 @@
 ﻿using Hotel_Management.Areas.Roomtype.Models;
-using Hotel_Management.BAL;
+/*using Hotel_Management.BAL;*/
 using Hotel_Management.DAL;
 using Microsoft.AspNetCore.Mvc;
 
@@ -70,7 +70,7 @@ namespace Hotel_Management.Areas.Roomtype.Controllers
         }
         #endregion
         #region MST_RoomType_Search
-        public IActionResult RoomTypeSearch(string TypeName, decimal PricePerDay)
+        public IActionResult RoomTypeSearch(string? TypeName, decimal? PricePerDay)
         {
             RoomType_DALBase dal = new RoomType_DALBase();
             return View("RoomTypeView", dal.MST_RoomType_Search(TypeName,PricePerDay));

@@ -1,5 +1,15 @@
-﻿@{
+﻿@using Hotel_Management.BAL;
+@{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@{
+    bool isAdmin = false;
+    bool isManager = false;
+    if (CommonVariables.IsAdmin() || CommonVariables.IsManager())
+    {
+        isAdmin = true;
+        isManager = true;
+    }
 }
 <div class="content-wrapper">
     <div class="row">

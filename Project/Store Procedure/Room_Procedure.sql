@@ -3,34 +3,29 @@ AS
 BEGIN
 	SELECT 
 		[dbo].[MST_Room].[RoomID],
-		[dbo].[MST_Room].[HotelID],
 		[dbo].[MST_Room].[UserID],
 		[dbo].[MST_Room].[RoomTypeID],
 		[dbo].[MST_Room].[StatusID],
 		[dbo].[MST_Room].[RoomImage],
 		[dbo].[MST_Room].[ChildCapacity],
 		[dbo].[MST_Room].[AdultCapacity],
-		[dbo].[MST_Room].[CheckInDate],
-		[dbo].[MST_Room].[CheckOutDate],
 		[dbo].[MST_Room].[Created],
 		[dbo].[MST_Room].[Modified],
 		[dbo].[MST_RoomType].[TypeName],
+		[dbo].[MST_RoomType].[Description],
+		[dbo].[MST_RoomType].[PricePerDay],
 		[dbo].[MST_RoomStatus].[Status],
-		[dbo].[MST_User].[UserName],
-		[dbo].[MST_Hotel].[HotelName]
+		[dbo].[MST_User].[UserName]
 	FROM [dbo].[MST_Room]
 
-	INNER JOIN [dbo].[MST_RoomType]
+	Left outer JOIN [dbo].[MST_RoomType]
 	on [dbo].[MST_Room].[RoomTypeID] = [dbo].[MST_RoomType].[RoomTypeID]
 
-	INNER JOIN [dbo].[MST_RoomStatus]
+	Left outer JOIN [dbo].[MST_RoomStatus]
 	on [dbo].[MST_Room].[StatusID] = [dbo].[MST_RoomStatus].[StatusID]
 
-	INNER JOIN [dbo].[MST_User]
+	Left Outer JOIN [dbo].[MST_User]
 	on [dbo].[MST_Room].[UserID] = [dbo].[MST_User].[UserID]
-
-	INNER JOIN [dbo].[MST_Hotel]
-	on [dbo].[MST_Room].[HotelID] = [dbo].[MST_Hotel].[HotelID]
 
 	ORDER BY [dbo].[MST_Room].[RoomID]
 END
@@ -44,28 +39,60 @@ BEGIN
 	Delete from [dbo].[MST_Room]
 	where [dbo].[MST_Room].[RoomID] = @RoomID
 END
+--==============================================================
+
+CREATE OR ALTER PROCEDURE [dbo].[PR_Room_SelectByRoomID]
+@RoomID int
+AS
+BEGIN
+	SELECT 
+		[dbo].[MST_Room].[RoomID],
+		[dbo].[MST_Room].[UserID],
+		[dbo].[MST_Room].[RoomTypeID],
+		[dbo].[MST_Room].[StatusID],
+		[dbo].[MST_Room].[RoomImage],
+		[dbo].[MST_Room].[ChildCapacity],
+		[dbo].[MST_Room].[AdultCapacity],
+		[dbo].[MST_Room].[Created],
+		[dbo].[MST_Room].[Modified],
+		[dbo].[MST_RoomType].[Description],
+		[dbo].[MST_RoomType].[PricePerDay],
+		[dbo].[MST_RoomType].[TypeName],
+		[dbo].[MST_RoomStatus].[Status],
+		[dbo].[MST_User].[UserName]
+	FROM [dbo].[MST_Room]
+	INNER JOIN [dbo].[MST_RoomType]
+	on [dbo].[MST_Room].[RoomTypeID] = [dbo].[MST_RoomType].[RoomTypeID]
+
+	INNER JOIN [dbo].[MST_RoomStatus]
+	on [dbo].[MST_Room].[StatusID] = [dbo].[MST_RoomStatus].[StatusID]
+
+	INNER JOIN [dbo].[MST_User]
+	on [dbo].[MST_Room].[UserID] = [dbo].[MST_User].[UserID]
+
+	WHERE [dbo].[MST_Room].[RoomID] = @RoomID
+	
+End
 
 --==============================================================
 
-CREATE OR ALTER PROCEDURE [dbo].[PR_Room_InsertRecord]
+CREATE OR ALTER PROCEDURE [dbo].[PR_Room_InsertRecord] 
 	@RoomTypeID		int,
 	@StatusID		int,
+	@UserID			int,
 	@RoomImage		varchar(500),
 	@AdultCapacity	int,
-	@ChildCapacity	int,
-	@CheckInDate	datetime,
-	@CheckOutDate	datetime
+	@ChildCapacity	int
 AS
 BEGIN
 INSERT INTO [dbo].[MST_Room]
 (
 	[dbo].[MST_Room].[RoomTypeID]
    ,[dbo].[MST_Room].[StatusID]
+   ,[dbo].[MST_Room].[UserID]
    ,[dbo].[MST_Room].[RoomImage]
    ,[dbo].[MST_Room].[AdultCapacity]
    ,[dbo].[MST_Room].[ChildCapacity]
-   ,[dbo].[MST_Room].[CheckInDate]
-   ,[dbo].[MST_Room].[CheckOutDate]
    ,[dbo].[MST_Room].[Created]
    ,[dbo].[MST_Room].[Modified]
 )
@@ -73,38 +100,37 @@ VALUES
 (
 	@RoomTypeID,
 	@StatusID,
+	@UserID,
 	@RoomImage,
 	@AdultCapacity,
 	@ChildCapacity,
-	@CheckInDate,
-	@CheckOutDate,
 	GETDATE(),
 	GETDATE()
 )
 END
 
+Exec PR_Room_InsertRecord 2,2,2,'edsfnkskx',1,2
+
 --==========================================================
 
 CREATE OR ALTER PROCEDURE [dbo].[PR_Room_UpdateRecord]
-	@RoomID  int,
+	@RoomID			int,
+	@UserID			int,
 	@RoomTypeID		int,
 	@StatusID		int,
 	@RoomImage		varchar(500),
 	@AdultCapacity	int,
-	@ChildCapacity	int,
-	@CheckInDate	datetime,
-	@CheckOutDate	datetime
+	@ChildCapacity	int
 AS
 BEGIN
 	UPDATE [dbo].[MST_Room]
 	SET
 		[dbo].[MST_Room].[RoomTypeID] = @RoomTypeID,
 		[dbo].[MST_Room].[StatusID] = @StatusID,
+		[dbo].[MST_Room].[UserID] = @UserID,
 		[dbo].[MST_Room].[RoomImage] = @RoomImage,
 		[dbo].[MST_Room].[AdultCapacity] = @AdultCapacity,
 		[dbo].[MST_Room].[ChildCapacity] = @ChildCapacity,
-		[dbo].[MST_Room].[CheckInDate] = @CheckInDate,
-		[dbo].[MST_Room].[CheckOutDate] = @CheckOutDate,
 		[dbo].[MST_Room].[Created] = (Select [dbo].[MST_Room].[Created] from [dbo].[MST_Room] where [dbo].[MST_Room].[RoomID] = @RoomID),
 		[dbo].[MST_Room].[Modified] = GETDATE()
 	WHERE [dbo].[MST_Room].[RoomID] = @RoomID
@@ -121,21 +147,17 @@ AS
 BEGIN
 	SELECT 
 		[dbo].[MST_Room].[RoomID],
-		[dbo].[MST_Room].[HotelID],
 		[dbo].[MST_Room].[UserID],
 		[dbo].[MST_Room].[RoomTypeID],
 		[dbo].[MST_Room].[StatusID],
 		[dbo].[MST_Room].[RoomImage],
 		[dbo].[MST_Room].[ChildCapacity],
 		[dbo].[MST_Room].[AdultCapacity],
-		[dbo].[MST_Room].[CheckInDate],
-		[dbo].[MST_Room].[CheckOutDate],
 		[dbo].[MST_Room].[Created],
 		[dbo].[MST_Room].[Modified],
 		[dbo].[MST_RoomType].[TypeName],
 		[dbo].[MST_RoomStatus].[Status],
-		[dbo].[MST_User].[UserName],
-		[dbo].[MST_Hotel].[HotelName]
+		[dbo].[MST_User].[UserName]
 	FROM [dbo].[MST_Room]
 
 	INNER JOIN [dbo].[MST_RoomType]
@@ -146,9 +168,6 @@ BEGIN
 
 	INNER JOIN [dbo].[MST_User]
 	on [dbo].[MST_Room].[UserID] = [dbo].[MST_User].[UserID]
-
-	INNER JOIN [dbo].[MST_Hotel]
-	on [dbo].[MST_Room].[HotelID] = [dbo].[MST_Hotel].[HotelID]
 
 WHERE (@TypeName is null OR [dbo].[MST_RoomType].[TypeName] like '%'+@TypeName+'%')
 AND   (@Status is null OR [dbo].[MST_RoomStatus].[Status] like '%'+@Status+'%')

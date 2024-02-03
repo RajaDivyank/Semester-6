@@ -2,7 +2,7 @@
 using System.Data.SqlClient;
 using System.Data;
 using Hotel_Management.Areas.User.Models;
-using Hotel_Management.BAL;
+/*using Hotel_Management.BAL;*/
 using System.Reflection;
 using Hotel_Management.DAL;
 

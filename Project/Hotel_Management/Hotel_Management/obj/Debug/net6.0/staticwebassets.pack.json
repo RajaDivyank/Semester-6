@@ -3865,6 +3865,22 @@
       "PackagePath": "staticwebassets\\Images\\IMG20230930204546.jpg"
     },
     {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\IMG_1596 - Copy - Copy.JPG",
+      "PackagePath": "staticwebassets\\Images\\IMG_1596 - Copy - Copy.JPG"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\IMG_1596 - Copy.JPG",
+      "PackagePath": "staticwebassets\\Images\\IMG_1596 - Copy.JPG"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\IMG_1598 - Copy.JPG",
+      "PackagePath": "staticwebassets\\Images\\IMG_1598 - Copy.JPG"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\IMG_1598.JPG",
+      "PackagePath": "staticwebassets\\Images\\IMG_1598.JPG"
+    },
+    {
       "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\IMG_20231017_210958.jpg",
       "PackagePath": "staticwebassets\\Images\\IMG_20231017_210958.jpg"
     },
@@ -3891,6 +3907,54 @@
     {
       "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\WhatsApp Image 2023-09-30 at 2.12.48 PM.jpeg",
       "PackagePath": "staticwebassets\\Images\\WhatsApp Image 2023-09-30 at 2.12.48 PM.jpeg"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\about-1.jpg",
+      "PackagePath": "staticwebassets\\Images\\about-1.jpg"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\carousel-1.jpg",
+      "PackagePath": "staticwebassets\\Images\\carousel-1.jpg"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\carousel-2.jpg",
+      "PackagePath": "staticwebassets\\Images\\carousel-2.jpg"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\room-1.jpg",
+      "PackagePath": "staticwebassets\\Images\\room-1.jpg"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\room-2.jpg",
+      "PackagePath": "staticwebassets\\Images\\room-2.jpg"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\team-1.jpg",
+      "PackagePath": "staticwebassets\\Images\\team-1.jpg"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\team-2.jpg",
+      "PackagePath": "staticwebassets\\Images\\team-2.jpg"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\team-3.jpg",
+      "PackagePath": "staticwebassets\\Images\\team-3.jpg"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\team-4.jpg",
+      "PackagePath": "staticwebassets\\Images\\team-4.jpg"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\testimonial-1.jpg",
+      "PackagePath": "staticwebassets\\Images\\testimonial-1.jpg"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\testimonial-2.jpg",
+      "PackagePath": "staticwebassets\\Images\\testimonial-2.jpg"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\testimonial-4.jpg",
+      "PackagePath": "staticwebassets\\Images\\testimonial-4.jpg"
     },
     {
       "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\assets\\css\\animate.css",
@@ -6371,6 +6435,54 @@
     {
       "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\lib\\easing\\easing.min.js",
       "PackagePath": "staticwebassets\\lib\\easing\\easing.min.js"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
       "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\lib\\owlcarousel\\LICENSE",

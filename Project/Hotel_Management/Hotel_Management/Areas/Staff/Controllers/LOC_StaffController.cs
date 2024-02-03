@@ -1,7 +1,6 @@
 ﻿using Hotel_Management.Areas.Staff.Models;
-using Hotel_Management.Areas.User.Models;
-using Hotel_Management.BAL;
 using Hotel_Management.DAL;
+using Hotel_Management.BAL;
 using Humanizer;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
@@ -14,11 +13,7 @@ namespace Hotel_Management.Areas.Staff.Controllers
     [Area("Staff")]
     public class LOC_StaffController : Controller
     {
-        private readonly IConfiguration _configuration;
-        public LOC_StaffController(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
+        #region Admin_Side
         #region MST_Staff_SelectAll
         public IActionResult StaffView()
         {
@@ -50,35 +45,20 @@ namespace Hotel_Management.Areas.Staff.Controllers
         #region MST_Staff_AddEdit
         public IActionResult StaffAddEdit(int StaffID)
         {
-            String connectionStr = this._configuration.GetConnectionString("myConnectionString");
-            DataTable dt = new DataTable();
-            SqlConnection conn = new SqlConnection(connectionStr);
-            conn.Open();
-            SqlCommand objCmd = conn.CreateCommand();
-            objCmd.CommandType = CommandType.Text;
-            objCmd.CommandText = "Select * from MST_Role";
-            SqlDataReader objDataReader = objCmd.ExecuteReader();
-            List<LOC_RoleModel> list = new List<LOC_RoleModel>();
-            while (objDataReader.Read())
-            {
-                LOC_RoleModel mod = new LOC_RoleModel();
-                mod.Role = objDataReader["Role"].ToString();
-                mod.RoleID = Convert.ToInt32(objDataReader["RoleID"]);
-                list.Add(mod);
-            }
-            dt.Load(objDataReader);
-            conn.Close();
+            Role_DALBase roledal = new Role_DALBase();
             if (StaffID == null)
             {
                 LOC_StaffModel model = new LOC_StaffModel();
-                model.roles = list;
+                model.roles = roledal.MST_Role_SelectAll();
                 return View();
             }
             else
             {
                 Staff_BALBase bal = new Staff_BALBase();
                 LOC_StaffModel model = bal.MST_Staff_SelectByStaffID(StaffID);
-                model.roles = list;
+                model.roles = roledal.MST_Role_SelectAll();
+                TempData["IDProofPhotoPath"] = model.IDProofPhotoPath;
+                TempData["StaffImage"] = model.StaffImage;
                 return View(model);
             }
         }
@@ -136,13 +116,16 @@ namespace Hotel_Management.Areas.Staff.Controllers
             bool ans = false;
 
             Staff_BALBase bal = new Staff_BALBase();
-            if (model.StaffID != null)
+            if(ModelState.IsValid)
             {
-                ans = bal.MST_Staff_Update(model);
-            }
-            else
-            {
-                ans = bal.MST_Staff_Add(model);
+                if (model.StaffID != null)
+                {
+                    ans = bal.MST_Staff_Update(model);
+                }
+                else
+                {
+                    ans = bal.MST_Staff_Add(model);
+                }
             }
             if (ans)
             {
@@ -150,7 +133,7 @@ namespace Hotel_Management.Areas.Staff.Controllers
             }
             else
             {
-                return RedirectToAction("StaffView");
+                return RedirectToAction("StaffAddEdit");
             }
         }
         #endregion
@@ -159,6 +142,14 @@ namespace Hotel_Management.Areas.Staff.Controllers
         {
             Staff_BALBase bal = new Staff_BALBase();
             return View("StaffView", bal.MST_Staff_Search(FirstName, StaffEmail, Role));
+        }
+        #endregion
+        #endregion
+        #region User_Side
+        public IActionResult UserSideStaffView()
+        {
+            Staff_BALBase bal = new Staff_BALBase();
+            return View(bal.MST_Staff_SelectAll());
         }
         #endregion
     }

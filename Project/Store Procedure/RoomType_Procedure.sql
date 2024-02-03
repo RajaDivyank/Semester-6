@@ -1,4 +1,4 @@
-CREATE PROCEDURE [dbo].[PR_RoomType_SelectAll]
+CREATE OR ALTER PROCEDURE [dbo].[PR_RoomType_SelectAll]
 AS
 BEGIN
 SELECT [dbo].[MST_RoomType].[RoomTypeID],
@@ -13,7 +13,7 @@ END
 
 --====================================================
 
-CREATE PROCEDURE [dbo].[PR_RoomType_SelectByRoomTypeID]
+CREATE OR ALTER PROCEDURE [dbo].[PR_RoomType_SelectByRoomTypeID]
 @RoomTypeID int
 AS
 BEGIN
@@ -29,7 +29,7 @@ End
 
 --==========================================================
 
-CREATE PROCEDURE [dbo].[PR_RoomType_DeleteByRoomTypeID]
+CREATE OR ALTER PROCEDURE [dbo].[PR_RoomType_DeleteByRoomTypeID]
 @RoomTypeID  int
 AS
 BEGIN
@@ -39,7 +39,7 @@ END
 
 --==========================================================
 
-CREATE PROCEDURE [dbo].[PR_RoomType_InsertRecord]
+CREATE OR ALTER PROCEDURE [dbo].[PR_RoomType_InsertRecord]
 	@TypeName	varchar(100),
 	@Description varchar(500),
 	@PricePerDay decimal(10,2)
@@ -65,7 +65,7 @@ END
 
 --=======================================================
 
-CREATE PROCEDURE [dbo].[PR_RoomType_UpdateRecord]
+CREATE OR ALTER PROCEDURE [dbo].[PR_RoomType_UpdateRecord]
 	@RoomTypeID 	int,
 	@TypeName		varchar(100),
 	@Description	varchar(500),
@@ -84,7 +84,7 @@ END
 
 --=======================================================
 
-CREATE PROCEDURE [dbo].[PR_RoomType_Filter]
+CREATE OR ALTER PROCEDURE [dbo].[PR_RoomType_Filter] 
 	@TypeName		varchar(100) = null,
 	@PricePerDay	decimal(10,2) = null
 AS
@@ -97,6 +97,6 @@ SELECT [dbo].[MST_RoomType].[RoomTypeID],
 	   [dbo].[MST_RoomType].[Modified]
 		FROM [dbo].[MST_RoomType]
 		WHERE (@TypeName is null OR [dbo].[MST_RoomType].[TypeName] like '%'+@TypeName+'%')
-		AND (PricePerDay is null OR [dbo].[MST_RoomType].[PricePerDay] like '%'+@PricePerDay+'%')
+		AND (@PricePerDay is null OR [dbo].[MST_RoomType].[PricePerDay] = @PricePerDay)
 ORDER BY [dbo].[MST_RoomType].[RoomTypeID]
 END

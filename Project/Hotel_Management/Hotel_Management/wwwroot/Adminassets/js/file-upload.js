@@ -6,7 +6,7 @@
       file.trigger('click');
     });
     $('.file-upload-default').on('change', function() {
-      $(this).parent().find('.form-control').val($(this).val().replace(/C:\\fakepath\\/i, ''));
+        $(this).parent().find('.form-control').val($(this).val().replace('D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images', ''));
     });
   });
 })(jQuery);

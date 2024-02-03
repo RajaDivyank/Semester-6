@@ -1,5 +1,4 @@
 ﻿using Hotel_Management.Areas.Roomstatus.Models;
-using Hotel_Management.BAL;
 using Hotel_Management.DAL;
 using Microsoft.AspNetCore.Mvc;
 

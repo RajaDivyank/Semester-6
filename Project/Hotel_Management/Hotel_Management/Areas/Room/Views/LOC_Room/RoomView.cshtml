@@ -1,1 +1,70 @@
-﻿
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model IEnumerable<Hotel_Management.Areas.Room.Models.LOC_RoomModel>;
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Room Search</h5>
+                <form method="post" asp-controller="LOC_Room" asp-action="RoomSearch" asp-area="Room" class="d-flex w-80" role="search">
+                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Type" name="TypeName" />
+                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Status" name="Status" />
+                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Child" name="child" />
+                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Adult" name="Adult" />
+                    <button type="submit" class="btn btn-outline-success my-3 h-50">Filter</button>
+                </form>
+                <div class="table-responsive pt-3">
+                    <table class="table table-striped project-orders-table">
+                        <thead>
+                            <tr>
+                                <th class="ml-5">Room ID</th>
+                                <th>Type of room</th>
+                                <th>Status</th>
+                                <th>Child Capacity</th>
+                                <th>Adult Capacity</th>
+                                <th>Created</th>
+                                <th>Modified</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        @foreach (var row in Model)
+                        {
+                            <tbody>
+                                <tr>
+                                    <td>@row.RoomID</td>
+                                    <td>@row.TypeName</td>
+                                    <td>@row.Status</td>
+                                    <td>@row.ChildCapacity</td>
+                                    <td>@row.AdultCapacity</td>
+                                    <td>@Convert.ToDateTime(row.Created).ToString("dd-MM-yyyy")</td>
+                                    <td>@Convert.ToDateTime(row.Created).ToString("dd-MM-yyyy")</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <a asp-area="Room" asp-controller="LOC_Room" asp-action="RoomAddEdit" asp-route-RoomID="@row.RoomID" class="btn btn-success btn-sm btn-icon-text mr-3">
+                                                Edit
+                                                <i class="typcn typcn-edit btn-icon-append"></i>
+                                            </a>
+                                            <a asp-area="Room" asp-controller="LOC_Room" asp-action="DeleteByRoomID" asp-route-RoomID="@row.RoomID" class="btn btn-danger btn-sm btn-icon-text mr-3">
+                                                Delete
+                                                <i class="typcn typcn-delete-outline btn-icon-append"></i>
+                                            </a>
+                                            <a asp-area="Room" asp-controller="LOC_Room" asp-action="RoomDetail" asp-route-RoomID="@row.RoomID" class="btn btn-info btn-sm btn-icon-text">
+                                                Detali
+                                                <i class="typcn typcn-delete-outline btn-icon-append"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="floating-container">
+    <a asp-area="Room" asp-controller="LOC_Room" asp-action="RoomAddEdit"><div class="floating-button">+</div></a>
+</div>

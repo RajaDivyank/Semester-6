@@ -1,0 +1,67 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model IEnumerable<Hotel_Management.Areas.Booking.Models.LOC_BookingModel>;
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Room Search</h5>
+                <form method="post" asp-controller="LOC_Booking" asp-action="" asp-area="Booking" class="d-flex w-80" role="search">
+                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Name" name="RegistrationName" />
+                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Number" name="Number" />
+                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="TotalDays" name="TotalDays" />
+                    <button type="submit" class="btn btn-outline-success my-3 h-50">Filter</button>
+                </form>
+                <div class="table-responsive pt-3">
+                    <table class="table table-striped project-orders-table">
+                        <thead>
+                            <tr>
+                                <th class="ml-5">Booking ID</th>
+                                <th>RegistrationName</th>
+                                <th>Mobile Number</th>
+                                <th>totalDays</th>
+                                <th>Check In Date</th>
+                                <th>Check Out Date</th>
+                                <th>Created</th>
+                                <th>Modified</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        @foreach (var row in Model)
+                        {
+                            <tbody>
+                                <tr>
+                                    <td>@row.BookingID</td>
+                                    <td>@row.RegistrationName</td>
+                                    <td>@row.MobileNumber</td>
+                                    <td>@row.TotalDays</td>
+                                    <td>@Convert.ToDateTime(row.CheckIn).ToString("dd-MM-yyyy")</td>
+                                    <td>@Convert.ToDateTime(row.CheckOut).ToString("dd-MM-yyyy")</td>
+                                    <td>@Convert.ToDateTime(row.Created).ToString("dd-MM-yyyy")</td>
+                                    <td>@Convert.ToDateTime(row.Created).ToString("dd-MM-yyyy")</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <a asp-area="Booking" asp-controller="LOC_Booking" asp-action="BookingAddEdit" asp-route-BookingID="@row.BookingID" class="btn btn-success btn-sm btn-icon-text mr-3">
+                                                Edit
+                                                <i class="typcn typcn-edit btn-icon-append"></i>
+                                            </a>
+                                            <a asp-area="Booking" asp-controller="LOC_Booking" asp-action="DeleteByBookingID" asp-route-BookingID="@row.BookingID" class="btn btn-danger btn-sm btn-icon-text">
+                                                Delete
+                                                <i class="typcn typcn-delete-outline btn-icon-append"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="floating-container">
+    <a asp-area="Booking" asp-controller="LOC_Booking" asp-action="BookingAddEdit"><div class="floating-button">+</div></a>
+</div>

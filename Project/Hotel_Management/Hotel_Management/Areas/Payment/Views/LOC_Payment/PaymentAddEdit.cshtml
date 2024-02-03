@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model Hotel_Management.Areas.Payment.Models.LOC_PaymentModel;
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Payment Add/Edit</h4>
+            <form method="post" asp-area="Payment" asp-controller="LOC_Payment" asp-action="SaveForAddEdit">
+                <input type="hidden" asp-for="PaymentID" />
+                <input type="hidden" asp-for="paymentmethods"/>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Book ID<span class="">*</span></label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control border border-dark" asp-for="BookingID" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">User ID</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control border border-dark" asp-for="UserID" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Type</label>
+                            <div class="col-sm-9">
+                                <select class="form-control border border-dark" asp-for="PaymentMethodID">
+                                    <option value="none" selected disabled hidden>Select Type</option>
+                                    @foreach (var abc in Model.paymentmethods)
+                                    {
+                                        <option class="bg-light text-dark" value="@abc.PaymentMethodID">@abc.Method</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Amount</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control border border-dark" asp-for="Amount" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Save</button>
+                <button class="btn btn-info" onclick="history.back()">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>

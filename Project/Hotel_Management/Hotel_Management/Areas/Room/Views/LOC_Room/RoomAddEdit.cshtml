@@ -1,0 +1,136 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model Hotel_Management.Areas.Room.Models.LOC_RoomModel;
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Room Add/Edit</h4>
+            <form class="form-sample" enctype="multipart/form-data" method="post" asp-area="Room" asp-controller="LOC_Room" asp-action="SaveForAddEdit">
+                <input type="hidden" asp-for="@Model.RoomID" />
+                <div class="row">
+                    <div class="form-group col-12">
+                        <label for="exampleFormControlSelect1" asp-for="@Model.RoomImage">Select File</label>
+                        <input type="file" class="form-control" asp-for="@Model.RoomImageFile" />
+                        @if (Model != null)
+                        {
+                            <div>
+                                <label>@Model.RoomImage</label>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Type</label>
+                            <div class="col-sm-9">
+                                <select class="form-control border border-dark" asp-for="RoomTypeID">
+                                    <option value="none" selected disabled hidden>Select Type</option>
+                                    @foreach (var abc in Model.typenames)
+                                    {
+                                        <option class="bg-light text-dark" value="@abc.RoomTypeID">@abc.TypeName</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Status</label>
+                            <div class="col-sm-9">
+                                <select class="form-control border border-dark" asp-for="StatusID">
+                                    <option value="none" selected disabled hidden>Select Status</option>
+                                    @foreach (var abc in Model.status)
+                                    {
+                                        <option class="bg-light text-dark" value="@abc.StatusID">@abc.Status</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Child Capacity</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control border border-dark" asp-for="ChildCapacity" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Adult Capacity</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control border border-dark" asp-for="AdultCapacity" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">User ID</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control border border-dark" asp-for="UserID" />
+                            </div>
+                        </div>
+                    </div>
+                    @* <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label" for="exampleInputEmail1">Email</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control border border-dark" id="exampleInputEmail1" placeholder="Email" asp-for="StaffEmail">
+                            </div>
+                        </div>
+                    </div> *@
+                </div>
+               @*  <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Role</label>
+                            <div class="col-sm-9">
+                                <select class="form-control border border-dark" asp-for="RoleID">
+                                    <option value="none" selected disabled hidden>Select Role</option>
+                                    @foreach (var abc in Model.roles)
+                                    {
+                                        <option class="bg-light text-dark" value="@abc.RoleID">@abc.Role</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">User ID</label>
+                            <div class="col-sm-9">
+                                <input class="form-control border border-dark" placeholder="UserID" asp-for="UserID" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Salary</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control border border-dark" asp-for="Salary" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">ID Proof</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control border border-dark" asp-for="IDProof" />
+                            </div>
+                        </div>
+                    </div>
+                </div> *@
+                <button type="submit" class="btn btn-primary mr-2">Save</button>
+                <button class="btn btn-info" onclick="history.back()">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>

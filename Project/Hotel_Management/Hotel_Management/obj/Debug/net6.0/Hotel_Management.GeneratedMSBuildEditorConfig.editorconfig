@@ -16,6 +16,66 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Semester-6\Project\Hotel_Management\Hotel_Management
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Booking/Views/LOC_Booking/BookingAddEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQm9va2luZ1xWaWV3c1xMT0NfQm9va2luZ1xCb29raW5nQWRkRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Booking/Views/LOC_Booking/BookingView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQm9va2luZ1xWaWV3c1xMT0NfQm9va2luZ1xCb29raW5nVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Booking/Views/LOC_Booking/UserSideBookingView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQm9va2luZ1xWaWV3c1xMT0NfQm9va2luZ1xVc2VyU2lkZUJvb2tpbmdWaWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Booking/Views/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQm9va2luZ1xWaWV3c1xfVmFsaWRhdGlvblNjcmlwdHNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Booking/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQm9va2luZ1xWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Contact/Views/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ29udGFjdFxWaWV3c1xfVmFsaWRhdGlvblNjcmlwdHNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Contact/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ29udGFjdFxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/PaymentMethod/Views/LOC_PaymentMethod/PaymentMethodAddEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGF5bWVudE1ldGhvZFxWaWV3c1xMT0NfUGF5bWVudE1ldGhvZFxQYXltZW50TWV0aG9kQWRkRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/PaymentMethod/Views/LOC_PaymentMethod/PaymentMethodView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGF5bWVudE1ldGhvZFxWaWV3c1xMT0NfUGF5bWVudE1ldGhvZFxQYXltZW50TWV0aG9kVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/PaymentMethod/Views/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGF5bWVudE1ldGhvZFxWaWV3c1xfVmFsaWRhdGlvblNjcmlwdHNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/PaymentMethod/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGF5bWVudE1ldGhvZFxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Payment/Views/LOC_Payment/PaymentAddEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGF5bWVudFxWaWV3c1xMT0NfUGF5bWVudFxQYXltZW50QWRkRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Payment/Views/LOC_Payment/PaymentView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGF5bWVudFxWaWV3c1xMT0NfUGF5bWVudFxQYXltZW50Vmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Payment/Views/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGF5bWVudFxWaWV3c1xfVmFsaWRhdGlvblNjcmlwdHNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Payment/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGF5bWVudFxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Role/Views/LOC_Role/RoleAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUm9sZVxWaWV3c1xMT0NfUm9sZVxSb2xlQWRkRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -64,8 +124,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUm9vbXR5cGVcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Room/Views/LOC_Room/RoomAddEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUm9vbVxWaWV3c1xMT0NfUm9vbVxSb29tQWRkRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Room/Views/LOC_Room/RoomDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUm9vbVxWaWV3c1xMT0NfUm9vbVxSb29tRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Room/Views/LOC_Room/RoomView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUm9vbVxWaWV3c1xMT0NfUm9vbVxSb29tVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Room/Views/LOC_Room/UserSideRoomView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUm9vbVxWaWV3c1xMT0NfUm9vbVxVc2VyU2lkZVJvb21WaWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Room/Views/_ValidationScriptsPartial.cshtml]
@@ -86,6 +158,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Staff/Views/LOC_Staff/StaffView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3RhZmZcVmlld3NcTE9DX1N0YWZmXFN0YWZmVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Staff/Views/LOC_Staff/UserSideStaffView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3RhZmZcVmlld3NcTE9DX1N0YWZmXFVzZXJTaWRlU3RhZmZWaWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Staff/Views/_ValidationScriptsPartial.cshtml]

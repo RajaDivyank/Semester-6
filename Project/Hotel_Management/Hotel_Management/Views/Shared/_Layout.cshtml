@@ -45,11 +45,11 @@
 <body>
     <div class="bg-white">
         <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        @* <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
-        </div>
+        </div> *@
         <!-- Spinner End -->
         <!-- Header Start -->
         <div class="container-fluid bg-dark px-0">
@@ -93,21 +93,23 @@
                                 <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-item nav-link active">Home</a>
                                 <a href="about.html" class="nav-item nav-link">About</a>
                                 <a href="service.html" class="nav-item nav-link">Services</a>
-                                <a href="room.html" class="nav-item nav-link">Rooms</a>
-                                <div class="nav-item dropdown">
+                                <a asp-area="Room" asp-controller="LOC_Room" asp-action="UserSideRoomView" class="nav-item nav-link">Rooms</a>
+                                <a asp-area="Booking" asp-controller="LOC_Booking" asp-action="UserSideBookingView" class="nav-item nav-link">Booking</a>
+                                <a asp-area="Staff" asp-controller="LOC_Staff" asp-action="UserSideStaffView" class="nav-item nav-link">Our Team</a>
+                               @*  <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                     <div class="dropdown-menu rounded-0 m-0">
                                         <a href="booking.html" class="dropdown-item">Booking</a>
                                         <a href="team.html" class="dropdown-item">Our Team</a>
                                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                                     </div>
-                                </div>
+                                </div> *@
                                 <a href="contact.html" class="nav-item nav-link">Contact</a>
                                 @if (isAdmin==true || isManager==true)
                                 {
                                     <a asp-area="" asp-controller="Home" asp-action="AdminPannel" class="nav-item nav-link">Admin</a>
                                 }
-                                <a asp-area="User" asp-controller="SEC_User" asp-action="Login" class="nav-item nav-link">Login</a>
+                                <a asp-area="User" asp-controller="SEC_User" asp-action="Login" class="nav-item nav-link" style="float-end">Login</a>
                                 <a asp-area="User" asp-controller="SEC_User" asp-action="SignUp" class=" nav-link float-right">Register</a>
                             </div>
                         </div>
@@ -117,7 +119,7 @@
         </div>
         <!-- Header End -->
         <!-- Carousel Start -->
-        <div class="container-fluid p-0 mb-5">
+        @* <div class="container-fluid p-0 mb-5">
             <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -154,9 +156,26 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-        </div>
+        </div> *@
         <!-- Carousel End -->
-        <div class="container-fluid">@RenderBody()</div>
+        <div>@RenderBody()</div>
+        <!-- Newsletter Start -->
+        <div class="container newsletter mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 border rounded p-1">
+                    <div class="border rounded text-center p-1">
+                        <div class="bg-white rounded text-center p-5">
+                            <h4 class="mb-4">Subscribe Our <span class="text-primary text-uppercase">Newsletter</span></h4>
+                            <div class="position-relative mx-auto" style="max-width: 400px;">
+                                <input class="form-control w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter your email">
+                                <button type="button" class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Newsletter Start -->
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-light footer wow fadeIn" data-wow-delay="0.1s">
             <div class="container pb-5">
@@ -203,7 +222,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
+            @* <div class="container">
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
@@ -222,7 +241,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> *@
         </div>
         <!-- Footer End -->
         <!-- Back to Top -->
