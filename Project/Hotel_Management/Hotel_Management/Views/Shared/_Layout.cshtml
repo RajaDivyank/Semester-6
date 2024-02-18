@@ -1,7 +1,7 @@
 ﻿@using Hotel_Management.BAL;
 @{
-    bool isAdmin = true;
-    bool isManager = true;
+    bool isAdmin = false;
+    bool isManager = false;
     if (CommonVariables.IsAdmin() || CommonVariables.IsManager())
     {
         isAdmin = true;
@@ -91,11 +91,11 @@
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
                                 <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-item nav-link active">Home</a>
-                                <a href="about.html" class="nav-item nav-link">About</a>
-                                <a href="service.html" class="nav-item nav-link">Services</a>
-                                <a asp-area="Room" asp-controller="LOC_Room" asp-action="UserSideRoomView" class="nav-item nav-link">Rooms</a>
-                                <a asp-area="Booking" asp-controller="LOC_Booking" asp-action="UserSideBookingView" class="nav-item nav-link">Booking</a>
-                                <a asp-area="Staff" asp-controller="LOC_Staff" asp-action="UserSideStaffView" class="nav-item nav-link">Our Team</a>
+                                <a asp-area="" asp-controller="Hotel" asp-action="About" class="nav-item nav-link">About</a>
+                                <a asp-area="" asp-controller="Hotel" asp-action="Servise" class="nav-item nav-link">Services</a>
+                                <a asp-area="Room" asp-controller="LOC_UserSideRoom" asp-action="UserSideRoomView" class="nav-item nav-link">Rooms</a>
+                                <a asp-area="Booking" asp-controller="LOC_UserSideBooking" asp-action="BookingDetail" class="nav-item nav-link">Booking</a>
+                                <a asp-area="Staff" asp-controller="LOC_UserSideStaff" asp-action="UserSideStaffView" class="nav-item nav-link">Our Team</a>
                                @*  <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                     <div class="dropdown-menu rounded-0 m-0">
@@ -104,7 +104,7 @@
                                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                                     </div>
                                 </div> *@
-                                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                                <a asp-area="Contact" asp-controller="LOC_UserSideContact" asp-action="UserSideContactAdd" class="nav-item nav-link">Contact</a>
                                 @if (isAdmin==true || isManager==true)
                                 {
                                     <a asp-area="" asp-controller="Home" asp-action="AdminPannel" class="nav-item nav-link">Admin</a>

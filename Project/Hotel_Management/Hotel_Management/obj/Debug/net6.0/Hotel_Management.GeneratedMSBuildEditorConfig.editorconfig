@@ -20,12 +20,20 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQm9va2luZ1xWaWV3c1xMT0NfQm9va2luZ1xCb29raW5nQWRkRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Booking/Views/LOC_Booking/BookingDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQm9va2luZ1xWaWV3c1xMT0NfQm9va2luZ1xCb29raW5nRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Booking/Views/LOC_Booking/BookingView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQm9va2luZ1xWaWV3c1xMT0NfQm9va2luZ1xCb29raW5nVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Booking/Views/LOC_Booking/UserSideBookingView.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQm9va2luZ1xWaWV3c1xMT0NfQm9va2luZ1xVc2VyU2lkZUJvb2tpbmdWaWV3LmNzaHRtbA==
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Booking/Views/LOC_UserSideBooking/BookingDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQm9va2luZ1xWaWV3c1xMT0NfVXNlclNpZGVCb29raW5nXEJvb2tpbmdEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Booking/Views/LOC_UserSideBooking/UserSideBookingView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQm9va2luZ1xWaWV3c1xMT0NfVXNlclNpZGVCb29raW5nXFVzZXJTaWRlQm9va2luZ1ZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Booking/Views/_ValidationScriptsPartial.cshtml]
@@ -34,6 +42,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Booking/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQm9va2luZ1xWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Contact/Views/LOC_Contact/ContactAddEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ29udGFjdFxWaWV3c1xMT0NfQ29udGFjdFxDb250YWN0QWRkRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Contact/Views/LOC_Contact/ContactView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ29udGFjdFxWaWV3c1xMT0NfQ29udGFjdFxDb250YWN0Vmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Contact/Views/LOC_UserSideContact/UserSideContactAdd.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ29udGFjdFxWaWV3c1xMT0NfVXNlclNpZGVDb250YWN0XFVzZXJTaWRlQ29udGFjdEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Contact/Views/_ValidationScriptsPartial.cshtml]
@@ -136,8 +156,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUm9vbVxWaWV3c1xMT0NfUm9vbVxSb29tVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Room/Views/LOC_Room/UserSideRoomView.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUm9vbVxWaWV3c1xMT0NfUm9vbVxVc2VyU2lkZVJvb21WaWV3LmNzaHRtbA==
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Room/Views/LOC_UserSideRoom/UserSideRoomView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUm9vbVxWaWV3c1xMT0NfVXNlclNpZGVSb29tXFVzZXJTaWRlUm9vbVZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Room/Views/_ValidationScriptsPartial.cshtml]
@@ -160,8 +180,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3RhZmZcVmlld3NcTE9DX1N0YWZmXFN0YWZmVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Staff/Views/LOC_Staff/UserSideStaffView.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3RhZmZcVmlld3NcTE9DX1N0YWZmXFVzZXJTaWRlU3RhZmZWaWV3LmNzaHRtbA==
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Staff/Views/LOC_UserSideStaff/UserSideStaffView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3RhZmZcVmlld3NcTE9DX1VzZXJTaWRlU3RhZmZcVXNlclNpZGVTdGFmZlZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Staff/Views/_ValidationScriptsPartial.cshtml]
@@ -200,12 +220,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/Semester-6/Project/Hotel_Management/Hotel_Management/Views/Home/RegistorView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3RvclZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Views/Hotel/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcQWJvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Views/Hotel/Servise.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcU2VydmlzZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Views/MultipleDelete/MultipleDeleteDemo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXVsdGlwbGVEZWxldGVcTXVsdGlwbGVEZWxldGVEZW1vLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Semester-6/Project/Hotel_Management/Hotel_Management/Views/Shared/Error.cshtml]

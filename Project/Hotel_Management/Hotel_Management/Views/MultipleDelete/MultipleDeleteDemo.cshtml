@@ -1,0 +1,47 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model List<Hotel_Management.Models.MultipleDeleteModel>;
+<form method="post" asp-area="" asp-controller="MultipleDelete" asp-action="DeleteMultiple">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Multiple Delete</h5>
+                    <div class="table-responsive pt-3">
+                        <table class="table table-striped project-orders-table">
+                            <thead>
+                                <tr>
+                                    <th class="ml-5">Name ID</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Move tbody outside the loop -->
+                                @foreach (var row in Model)
+                                {
+                                    <tr>
+                                        <td>@row.NameID</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" asp-for="@row.IsChecked" type="checkbox" id="checkbox_@row.NameID"> <!-- Unique ID for checkbox -->
+                                                    <input type="hidden" asp-for="@row.NameID">
+                                                    <input type="hidden" asp-for="@row.Name">
+                                                    <label class="form-check-label" for="checkbox_@row.NameID">
+                                                        @row.Name
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="submit"> Submit</button>
+</form>

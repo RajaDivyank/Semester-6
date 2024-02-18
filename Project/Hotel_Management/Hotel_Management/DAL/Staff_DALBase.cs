@@ -99,8 +99,8 @@ namespace Hotel_Management.DAL
                 SqlDatabase db = new SqlDatabase(ConnStr);
                 DbCommand cmd = db.GetStoredProcCommand("PR_Staff_InsertRecord");
                 db.AddInParameter(cmd, "@RoleID", SqlDbType.Int, model.RoleID);
-                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, model.UserID);
-                /*db.AddInParameter(cmd, "@UserID", SqlDbType.Int, CommonVariables.UserID());*/
+                /* db.AddInParameter(cmd, "@UserID", SqlDbType.Int, model.UserID);*/
+                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, CommonVariables.UserID());
                 db.AddInParameter(cmd, "@FirstName", SqlDbType.VarChar, model.FirstName);
                 db.AddInParameter(cmd, "@LastName", SqlDbType.VarChar, model.LastName);
                 db.AddInParameter(cmd, "@Salary", SqlDbType.Decimal, model.Salary);
@@ -130,7 +130,7 @@ namespace Hotel_Management.DAL
                 SqlDatabase db = new SqlDatabase(ConnStr);
                 DbCommand cmd = db.GetStoredProcCommand("PR_Staff_UpdateRecord");
                 db.AddInParameter(cmd, "@StaffID", SqlDbType.Int, model.StaffID);
-                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, model.UserID);
+                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, CommonVariables.UserID());
                 db.AddInParameter(cmd, "@RoleID", SqlDbType.Int, model.RoleID);
                 db.AddInParameter(cmd, "@FirstName", SqlDbType.VarChar, model.FirstName);
                 db.AddInParameter(cmd, "@LastName", SqlDbType.VarChar, model.LastName);

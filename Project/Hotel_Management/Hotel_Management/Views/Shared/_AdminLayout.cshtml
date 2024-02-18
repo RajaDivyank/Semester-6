@@ -1,7 +1,7 @@
 ﻿@using Hotel_Management.BAL;
 @{
-    bool isAdmin = true;
-    bool isManager = true;
+    bool isAdmin = false;
+    bool isManager = false;
     if (CommonVariables.IsAdmin())
     {
         isAdmin = true;
@@ -29,6 +29,9 @@
     <link rel="stylesheet" href="~/Adminassets/css/vertical-layout-light/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="~/Adminassets/images/favicon.png" />
+
+    <!--For enctript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 
 </head>
 <body>
@@ -177,7 +180,7 @@
         </nav>
         <div class="container-fluid page-body-wrapper">
             <!-- partial:partials/_settings-panel.html -->
-            <div class="theme-setting-wrapper">
+            @* <div class="theme-setting-wrapper">
                 <div id="settings-trigger"><i class="typcn typcn-cog-outline"></i></div>
                 <div id="theme-settings" class="settings-panel">
                     <i class="settings-close typcn typcn-times"></i>
@@ -343,7 +346,7 @@
                     </div>
                     <!-- chat tab ends -->
                 </div>
-            </div>
+            </div> *@
             <!-- partial -->
             <!-- partial:partials/_sidebar.html -->
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
@@ -383,42 +386,8 @@
                             </ul>
                         </div>
                     </li>
-                    @* <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-role" aria-expanded="false" aria-controls="ui-role">
-                            <i class="typcn typcn-document-text menu-icon"></i>
-                            <span class="menu-title">Role</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="ui-role">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-area="Role" asp-controller="LOC_Role" asp-action="RoleView">Role List</a></li>
-                            </ul>
-                        </div>
-                    </li> *@
-                    @* <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-status" aria-expanded="false" aria-controls="ui-status">
-                            <i class="typcn typcn-document-text menu-icon"></i>
-                            <span class="menu-title">Room Status</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="ui-status">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-area="Roomstatus" asp-controller="RoomStatus" asp-action="StatusView">Room Status List</a></li>
-                            </ul>
-                        </div>
-                    </li> *@
-                    @* <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-roomtype" aria-expanded="false" aria-controls="ui-roomtype">
-                            <i class="typcn typcn-document-text menu-icon"></i>
-                            <span class="menu-title">Room Type</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="ui-roomtype">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-area="Roomtype" asp-controller="LOC_RoomType" asp-action="RoomTypeView">Room Type List</a></li>
-                            </ul>
-                        </div>
-                    </li> *@
+                   
+                   
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#ui-room" aria-expanded="false" aria-controls="ui-room">
                             <i class="typcn typcn-document-text menu-icon"></i>
@@ -434,18 +403,7 @@
                             </ul>
                         </div>
                     </li>
-                    @* <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-booking" aria-expanded="false" aria-controls="ui-booking">
-                            <i class="typcn typcn-document-text menu-icon"></i>
-                            <span class="menu-title">Room Booking</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="ui-booking">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-area="Booking" asp-controller="LOC_Booking" asp-action="bookingView">Booking List</a></li>
-                            </ul>
-                        </div>
-                    </li> *@
+                    
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#ui-payment" aria-expanded="false" aria-controls="ui-payment">
                             <i class="typcn typcn-document-text menu-icon"></i>
@@ -459,95 +417,31 @@
                             </ul>
                         </div>
                     </li>
-                    @* <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-paymentmethod" aria-expanded="false" aria-controls="ui-paymentmethod">
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-contact" aria-expanded="false" aria-controls="ui-contact">
                             <i class="typcn typcn-document-text menu-icon"></i>
-                            <span class="menu-title">Payment Method</span>
+                            <span class="menu-title">Contact</span>
                             <i class="menu-arrow"></i>
                         </a>
-                        <div class="collapse" id="ui-paymentmethod">
+                        <div class="collapse" id="ui-contact">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-area="PaymentMethod" asp-controller="LOC_PaymentMethod" asp-action="PaymentMethodView">Method List</a></li>
-                            </ul>
-                        </div>
-                    </li> *@
-
-                    <!--Extra-->
-
-                    @* <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
-                            <i class="typcn typcn-film menu-icon"></i>
-                            <span class="menu-title">Form elements</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="form-elements">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-area="Contact" asp-controller="LOC_Contact" asp-action="ContactView">Contact List</a></li>
                             </ul>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-                            <i class="typcn typcn-chart-pie-outline menu-icon"></i>
-                            <span class="menu-title">Charts</span>
+                        <a class="nav-link" data-toggle="collapse" href="#ui-delete" aria-expanded="false" aria-controls="ui-delete">
+                            <i class="typcn typcn-document-text menu-icon"></i>
+                            <span class="menu-title">Multiple Delete</span>
                             <i class="menu-arrow"></i>
                         </a>
-                        <div class="collapse" id="charts">
+                        <div class="collapse" id="ui-delete">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-area="" asp-controller="MultipleDelete" asp-action="MultipleDeleteDemo">Name List</a></li>
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-                            <i class="typcn typcn-th-small-outline menu-icon"></i>
-                            <span class="menu-title">Tables</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="tables">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
-                            <i class="typcn typcn-compass menu-icon"></i>
-                            <span class="menu-title">Icons</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="icons">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                            <i class="typcn typcn-user-add-outline menu-icon"></i>
-                            <span class="menu-title">User Pages</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="auth">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
-                            <i class="typcn typcn-globe-outline menu-icon"></i>
-                            <span class="menu-title">Error pages</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="error">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-                            </ul>
-                        </div>
-                    </li> *@
+                    
                     
                 </ul>
             </nav>

@@ -2,6 +2,7 @@
 using System.Data.Common;
 using System.Data;
 using Hotel_Management.Areas.Roomtype.Models;
+using Hotel_Management.BAL;
 
 namespace Hotel_Management.DAL
 {
@@ -19,6 +20,7 @@ namespace Hotel_Management.DAL
                 {
                     LOC_RoomTypeModel model = new LOC_RoomTypeModel();
                     model.RoomTypeID = Convert.ToInt32(reader["RoomTypeID"]);
+                    model.UserID = Convert.ToInt32(reader["UserID"]);
                     model.TypeName = reader["TypeName"].ToString();
                     model.Description = reader["Description"].ToString();
                     model.PricePerDay = Convert.ToDecimal(reader["PricePerDay"]);
@@ -42,6 +44,7 @@ namespace Hotel_Management.DAL
                 while (reader.Read())
                 {
                     model.RoomTypeID = Convert.ToInt32(reader["RoomTypeID"]);
+                    model.UserID = Convert.ToInt32(reader["UserID"]);
                     model.TypeName = reader["TypeName"].ToString();
                     model.Description = reader["Description"].ToString();
                     model.PricePerDay = Convert.ToDecimal(reader["PricePerDay"]);
@@ -77,6 +80,7 @@ namespace Hotel_Management.DAL
             {
                 SqlDatabase db = new SqlDatabase(ConnStr);
                 DbCommand cmd = db.GetStoredProcCommand("PR_RoomType_InsertRecord");
+                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, CommonVariables.UserID());
                 db.AddInParameter(cmd, "@TypeName", SqlDbType.VarChar, model.TypeName);
                 db.AddInParameter(cmd, "@Description", SqlDbType.VarChar, model.Description);
                 db.AddInParameter(cmd, "@PricePerDay", SqlDbType.Decimal, model.PricePerDay);
@@ -99,6 +103,7 @@ namespace Hotel_Management.DAL
                 SqlDatabase db = new SqlDatabase(ConnStr);
                 DbCommand cmd = db.GetStoredProcCommand("PR_RoomType_UpdateRecord");
                 db.AddInParameter(cmd, "@RoomTypeID", SqlDbType.Int, model.RoomTypeID);
+                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, CommonVariables.UserID());
                 db.AddInParameter(cmd, "@TypeName", SqlDbType.VarChar, model.TypeName);
                 db.AddInParameter(cmd, "@Description", SqlDbType.VarChar, model.Description);
                 db.AddInParameter(cmd, "@PricePerDay", SqlDbType.Decimal, model.PricePerDay);

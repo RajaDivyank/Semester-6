@@ -1,0 +1,62 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model IEnumerable<Hotel_Management.Areas.Contact.Models.LOC_ContactModel>;
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Contact Search</h5>
+                <form method="post" asp-controller="LOC_Contact" asp-action="ContactSearch" asp-area="Contact" class="d-flex w-80" role="search">
+                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Name" name="Name" />
+                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Email" name="Email" />
+                    <button type="submit" class="btn btn-outline-success my-3 h-50">Filter</button>
+                </form>
+                <div class="table-responsive pt-3">
+                    <table class="table table-striped project-orders-table">
+                        <thead>
+                            <tr>
+                                <th class="ml-5">Contact ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Created</th>
+                                <th>Modified</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        @foreach (var row in Model)
+                        {
+                            <tbody>
+                                <tr>
+                                    <td>@row.ContactID</td>
+                                    <td>@row.Name</td>
+                                    <td>@row.Email</td>
+                                    <td>@row.Subject</td>
+                                    <td>@Convert.ToDateTime(row.Created).ToString("dd-MM-yyyy")</td>
+                                    <td>@Convert.ToDateTime(row.Created).ToString("dd-MM-yyyy")</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <a asp-area="Contact" asp-controller="LOC_Contact" asp-action="ContactAddEdit" asp-route-ContactID="@row.ContactID" class="btn btn-success btn-sm btn-icon-text mr-3">
+                                                Edit
+                                                <i class="typcn typcn-edit btn-icon-append"></i>
+                                            </a>
+                                            <a asp-area="Contact" asp-controller="LOC_Contact" asp-action="DeleteByContactID" asp-route-ContactID="@row.ContactID" class="btn btn-danger btn-sm btn-icon-text">
+                                                Delete
+                                                <i class="typcn typcn-delete-outline btn-icon-append"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="floating-container">
+    <a asp-area="Contact" asp-controller="LOC_Contact" asp-action="ContactAddEdit"><div class="floating-button">+</div></a>
+</div>

@@ -2,6 +2,7 @@
 using System.Data.Common;
 using System.Data;
 using Hotel_Management.Areas.Room.Models;
+using Hotel_Management.BAL;
 
 namespace Hotel_Management.DAL
 {
@@ -94,7 +95,7 @@ namespace Hotel_Management.DAL
                 SqlDatabase db = new SqlDatabase(ConnStr);
                 DbCommand cmd = db.GetStoredProcCommand("PR_Room_InsertRecord");
                 db.AddInParameter(cmd, "@RoomTypeID", SqlDbType.Int, model.RoomTypeID);
-                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, model.UserID);
+                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, CommonVariables.UserID());
                 db.AddInParameter(cmd, "@StatusID", SqlDbType.Int, model.StatusID);
                 db.AddInParameter(cmd, "@RoomImage", SqlDbType.VarChar, model.RoomImage);
                 db.AddInParameter(cmd, "@AdultCapacity", SqlDbType.Int, model.AdultCapacity);
@@ -118,7 +119,7 @@ namespace Hotel_Management.DAL
                 SqlDatabase db = new SqlDatabase(ConnStr);
                 DbCommand cmd = db.GetStoredProcCommand("PR_Room_UpdateRecord");
                 db.AddInParameter(cmd, "@RoomID", SqlDbType.Int, model.RoomID);
-                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, model.UserID);
+                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, CommonVariables.UserID());
                 db.AddInParameter(cmd, "@RoomTypeID", SqlDbType.Int, model.RoomTypeID);
                 db.AddInParameter(cmd, "@StatusID", SqlDbType.Int, model.StatusID);
                 db.AddInParameter(cmd, "@RoomImage", SqlDbType.VarChar, model.RoomImage);

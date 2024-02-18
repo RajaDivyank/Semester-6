@@ -22,6 +22,7 @@ namespace Hotel_Management.Areas.Role.Controllers
         {
             try
             {
+                TempData["Message"] = "Role Delete Successfully";
                 Role_BALBase bal = new Role_BALBase();
                 bool deleted = bal.MST_Role_DeleteByRoleID(RoleID);
             }
@@ -40,6 +41,7 @@ namespace Hotel_Management.Areas.Role.Controllers
             {
                 Role_BALBase bal = new Role_BALBase();
                 LOC_RoleModel model = bal.MST_Role_SelectByRoleID(RoleID);
+                TempData["Message"] = "Role Not Edit Successfully";
                 return View(model);
             }
 
@@ -54,20 +56,24 @@ namespace Hotel_Management.Areas.Role.Controllers
                 Role_BALBase bal = new Role_BALBase();
                 if (model.RoleID != null)
                 {
+                    TempData["Message"] = "Role Edit Successfully";
                     ans = bal.MST_Role_Update(model);
                 }
                 else
                 {
+                    TempData["Message"] = "Role Add Successfully";
                     ans = bal.MST_Role_Add(model);
                 }
             }
             if (ans)
             {
+                TempData["Bool"] = true;
                 return RedirectToAction("RoleView");
             }
             else
             {
-                return RedirectToAction("RoleView");
+                TempData["Bool"] = false;
+                return RedirectToAction("RoleAddEdit");
             }
         }
         #endregion
@@ -78,5 +84,6 @@ namespace Hotel_Management.Areas.Role.Controllers
             return View("RoleView", bal.MST_Role_Search(Role));
         }
         #endregion
+
     }
 }

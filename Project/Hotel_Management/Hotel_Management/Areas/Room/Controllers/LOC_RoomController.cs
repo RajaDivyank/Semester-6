@@ -22,6 +22,7 @@ namespace Hotel_Management.Areas.Room.Controllers
         {
             try
             {
+                TempData["Message"] = "Room Delete Successfully";
                 Room_DALBase dal = new Room_DALBase();
                 bool deleted = dal.MST_Room_DeleteByRoomID(RoomID);
             }
@@ -57,6 +58,7 @@ namespace Hotel_Management.Areas.Room.Controllers
                 model.status = status_DALBase.MST_RoomStatus_SelectAll();
                 model.typenames = roomType_DALBase.MST_RoomType_SelectAll();
                 TempData["RoomImage"] = model.RoomImage;
+                TempData["Message"] = "Room Not Edit Successfully";
                 return View(model);
             }
         }
@@ -92,21 +94,29 @@ namespace Hotel_Management.Areas.Room.Controllers
             bool ans = false;
 
             Room_DALBase dal = new Room_DALBase();
-            if (model.RoomID != null)
+            if (ModelState.IsValid)
             {
-                ans = dal.MST_Room_Update(model);
+                if (model.RoomID != null)
+                {
+                    TempData["Message"] = "Room Edit Successfully";
+                    ans = dal.MST_Room_Update(model);
+                }
+                else
+                {
+                    TempData["Message"] = "Room Add Successfully";
+                    ans = dal.MST_Room_Add(model);
+                }
             }
-            else
-            {
-                ans = dal.MST_Room_Add(model);
-            }
+            
             if (ans)
             {
+                TempData["Bool"] = true;
                 return RedirectToAction("RoomView");
             }
             else
             {
-                return RedirectToAction("RoomView");
+                TempData["Bool"] = false;
+                return RedirectToAction("RoomAddEdit");
             }
         }
         #endregion
@@ -118,12 +128,6 @@ namespace Hotel_Management.Areas.Room.Controllers
         }
         #endregion
 
-        #region User_side_RoomView
-        public IActionResult UserSideRoomView()
-        {
-            Room_DALBase bal = new Room_DALBase();
-            return View(bal.MST_Room_SelectAll());
-        }
-        #endregion
+        
     }
 }

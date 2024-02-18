@@ -3,25 +3,43 @@
 }
 @model Hotel_Management.Areas.Booking.Models.LOC_BookingModel;
 <div class="col-12 grid-margin">
+    @if (TempData["Message"] != null)
+    {
+        @if (!Convert.ToBoolean(TempData["Bool"]))
+        {
+            <div class="alert alert-danger">
+                @TempData["Message"]
+            </div>
+        }
+    }
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Room Add/Edit</h4>
-            <form class="form-sample" method="post" asp-area="Booking" asp-controller="LOC_Booking" asp-action="SaveForAddEdit">
+            @if (Model.BookingID == null)
+            {
+                <h4 class="card-title">Add Booking</h4>
+            }
+            else
+            {
+                <h4 class="card-title">Edit Booking</h4>
+            }
+            <form  method="post" enctype="multipart/form-data" asp-area="Booking" asp-controller="LOC_Booking" asp-action="SaveForAddEdit">
                 <input type="hidden" asp-for="@Model.BookingID" />
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Name</label>
+                            <label class="col-sm-3 col-form-label">Name<span class="text-danger">*</span></label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control border border-dark" asp-for="RegistrationName" />
+                                <span class="text-danger" asp-validation-for="RegistrationName"></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Number</label>
+                            <label class="col-sm-3 col-form-label">Number<span class="text-danger">*</span></label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control border border-dark" asp-for="MobileNumber" />
+                                <span class="text-danger" asp-validation-for="MobileNumber"></span>
                             </div>
                         </div>
                     </div>
@@ -29,22 +47,24 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Check In Date</label>
+                            <label class="col-sm-3 col-form-label">Check In Date<span class="text-danger">*</span></label>
                             <div class="col-sm-9">
                                 <input class="form-control border border-dark" placeholder="dd/mm/yyyy" asp-for="CheckIn" />
+                                <span class="text-danger" asp-validation-for="CheckIn"></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Check Out Date</label>
+                            <label class="col-sm-3 col-form-label">Check Out Date<span class="text-danger">*</span></label>
                             <div class="col-sm-9">
                                 <input class="form-control border border-dark" placeholder="dd/mm/yyyy" asp-for="CheckOut" />
+                                <span class="text-danger" asp-validation-for="CheckOut"></span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                @* <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">User ID</label>
@@ -61,56 +81,60 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> *@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Total Days</label>
+                            <label for="exampleFormControlSelect1" asp-for="@Model.IdProofphoto">Select Profile Photo<span class="text-danger">*</span></label>
+                            <input type="file" class="form-control" asp-for="@Model.IdProofFile" />
+                            @* <label class="col-sm-3 col-form-label">Total Days<span class="text-danger">*</span></label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control border border-dark" asp-for="TotalDays" />
-                            </div>
+                                <input type="number" class="form-control border border-dark" asp-for="TotalDays" />
+                                <span class="text-danger" asp-validation-for="TotalDays"></span>
+                            </div> *@
                         </div>
                     </div>
-                    @* <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Room ID</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control border border-dark" asp-for="RoomID">
-                            </div>
-                        </div>
-                    </div> *@
-                </div>
-                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">ID Proof</label>
+                            <label class="col-sm-3 col-form-label">ID Proof<span class="text-danger">*</span></label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control border border-dark" asp-for="IdProofName" />
+                                <span class="text-danger" asp-validation-for="IdProofName"></span>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label>Profile Image</label>
-                            <input type="file" class="file-upload-default" asp-for="@Model.IdProofFile">
-                            <div class="input-group col-xs-12">
-                                <input type="text" class="form-control file-upload-info" disable placeholder="Upload Image" asp-for="@Model.IdProofphoto">
-                                <span class="input-group-append">
-                                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                                </span>
-                            </div>
-                            @if (Model != null)
-                            {
-                                <div>
-                                    <label>@Model.IdProofphoto</label>
-                                </div>
-                            }
                         </div>
                     </div>
                 </div>
+               @*  <div class="form-group">
+                    <label for="exampleFormControlSelect1" asp-for="@Model.IdProofphoto">Select Profile Photo<span class="text-danger">*</span></label>
+                    <input type="file" class="form-control" asp-for="@Model.IdProofFile" />
+
+                </div> *@
+                @* <div class="col-md-6">
+                <div class="form-group row">
+                <label>Profile Image</label>
+                <input type="file" class="file-upload-default" asp-for="@Model.IdProofFile">
+                <div class="input-group col-xs-12">
+                <input type="text" class="form-control file-upload-info" disable placeholder="Upload Image" asp-for="@Model.IdProofphoto">
+                <span class="input-group-append">
+                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                </span>
+                </div>
+                @if (Model != null)
+                {
+                <div>
+                <label>@Model.IdProofphoto</label>
+                </div>
+                }
+                </div>
+                </div> *@
                 <button type="submit" class="btn btn-primary mr-2">Save</button>
                 <button class="btn btn-info" onclick="history.back()">Cancel</button>
             </form>
         </div>
     </div>
 </div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

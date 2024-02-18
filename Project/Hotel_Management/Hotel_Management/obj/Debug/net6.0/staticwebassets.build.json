@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Y+5A4shRo70ENFZQ7VVr3LHRGHCEaX6noiATUTpSIzg=",
+  "Hash": "c2neMqUqTemHiHfSYEWfPjU6EDXma7O7Xo9lwJbLV0c=",
   "Source": "Hotel_Management",
   "BasePath": "_content/Hotel_Management",
   "Mode": "Default",
@@ -26469,6 +26469,40 @@
       "OriginalItemSpec": "wwwroot\\Images\\about-1.jpg"
     },
     {
+      "Identity": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\about-2.jpg",
+      "SourceId": "Hotel_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\",
+      "BasePath": "_content/Hotel_Management",
+      "RelativePath": "Images/about-2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\about-2.jpg"
+    },
+    {
+      "Identity": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\about-3.jpg",
+      "SourceId": "Hotel_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\",
+      "BasePath": "_content/Hotel_Management",
+      "RelativePath": "Images/about-3.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\about-3.jpg"
+    },
+    {
       "Identity": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\carousel-1.jpg",
       "SourceId": "Hotel_Management",
       "SourceType": "Discovered",
@@ -26824,6 +26858,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\room-2.jpg"
+    },
+    {
+      "Identity": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\Screenshot (121).png",
+      "SourceId": "Hotel_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\",
+      "BasePath": "_content/Hotel_Management",
+      "RelativePath": "Images/Screenshot (121).png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Screenshot (121).png"
     },
     {
       "Identity": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\team-1.jpg",

@@ -2,6 +2,7 @@ CREATE OR ALTER PROCEDURE [dbo].[PR_RoomType_SelectAll]
 AS
 BEGIN
 SELECT [dbo].[MST_RoomType].[RoomTypeID],
+	   [dbo].[MST_RoomType].[UserID],
 	   [dbo].[MST_RoomType].[TypeName],
 	   [dbo].[MST_RoomType].[Description],
 	   [dbo].[MST_RoomType].[PricePerDay],
@@ -18,6 +19,7 @@ CREATE OR ALTER PROCEDURE [dbo].[PR_RoomType_SelectByRoomTypeID]
 AS
 BEGIN
 	SELECT	[dbo].[MST_RoomType].[RoomTypeID],
+			[dbo].[MST_RoomType].[UserID],
 			[dbo].[MST_RoomType].[TypeName],
 			[dbo].[MST_RoomType].[Description],
 			[dbo].[MST_RoomType].[PricePerDay],
@@ -41,6 +43,7 @@ END
 
 CREATE OR ALTER PROCEDURE [dbo].[PR_RoomType_InsertRecord]
 	@TypeName	varchar(100),
+	@UserID		int,
 	@Description varchar(500),
 	@PricePerDay decimal(10,2)
 AS
@@ -48,6 +51,7 @@ BEGIN
 INSERT INTO [dbo].[MST_RoomType]
 (
 	[dbo].[MST_RoomType].[TypeName]
+   ,[dbo].[MST_RoomType].[UserID] 
    ,[dbo].[MST_RoomType].[Description]
    ,[dbo].[MST_RoomType].[PricePerDay]
    ,[dbo].[MST_RoomType].[Created]
@@ -56,6 +60,7 @@ INSERT INTO [dbo].[MST_RoomType]
 VALUES
 (
 	@TypeName,
+	@UserID,
 	@Description,
 	@PricePerDay,
 	GETDATE(),
@@ -67,6 +72,7 @@ END
 
 CREATE OR ALTER PROCEDURE [dbo].[PR_RoomType_UpdateRecord]
 	@RoomTypeID 	int,
+	@UserID			int,
 	@TypeName		varchar(100),
 	@Description	varchar(500),
 	@PricePerDay	decimal(10,2)
@@ -75,6 +81,7 @@ BEGIN
 	UPDATE [dbo].[MST_RoomType]
 	SET
 		[dbo].[MST_RoomType].[TypeName] = @TypeName,
+		[dbo].[MST_RoomType].[UserID] = @UserID,
 		[dbo].[MST_RoomType].[Description] = @Description,
 		[dbo].[MST_RoomType].[PricePerDay] = @PricePerDay,
 		[dbo].[MST_RoomType].[Created] = (Select [dbo].[MST_RoomType].[Created] from [dbo].[MST_RoomType] where [dbo].[MST_RoomType].[RoomTypeID] = @RoomTypeID),

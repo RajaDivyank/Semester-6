@@ -2,6 +2,7 @@
 using System.Data.Common;
 using System.Data;
 using Hotel_Management.Areas.Roomstatus.Models;
+using Hotel_Management.BAL;
 
 namespace Hotel_Management.DAL
 {
@@ -19,6 +20,7 @@ namespace Hotel_Management.DAL
                 {
                     LOC_RoomStatusModel model = new LOC_RoomStatusModel();
                     model.StatusID = Convert.ToInt32(reader["StatusID"]);
+                    model.UserID = Convert.ToInt32(reader["UserID"]);
                     model.Status = reader["Status"].ToString();
                     model.Created = Convert.ToDateTime(reader["Created"]);
                     model.Modified = Convert.ToDateTime(reader["Modified"]);
@@ -40,6 +42,7 @@ namespace Hotel_Management.DAL
                 while (reader.Read())
                 {
                     model.StatusID = Convert.ToInt32(reader["StatusID"]);
+                    model.UserID = Convert.ToInt32(reader["UserID"]);
                     model.Status = reader["Status"].ToString();
                     model.Created = Convert.ToDateTime(reader["Created"]);
                     model.Modified = Convert.ToDateTime(reader["Modified"]);
@@ -73,6 +76,7 @@ namespace Hotel_Management.DAL
             {
                 SqlDatabase db = new SqlDatabase(ConnStr);
                 DbCommand cmd = db.GetStoredProcCommand("PR_RoomStatus_InsertRecord");
+                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, CommonVariables.UserID());
                 db.AddInParameter(cmd, "@Status", SqlDbType.VarChar, model.Status);
                 int noOfRows = db.ExecuteNonQuery(cmd);
                 if (noOfRows > 0) { return true; }
@@ -93,6 +97,7 @@ namespace Hotel_Management.DAL
                 SqlDatabase db = new SqlDatabase(ConnStr);
                 DbCommand cmd = db.GetStoredProcCommand("PR_RoomStatus_UpdateRecord");
                 db.AddInParameter(cmd, "@StatusID", SqlDbType.Int, model.StatusID);
+                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, CommonVariables.UserID());
                 db.AddInParameter(cmd, "@Status", SqlDbType.VarChar, model.Status);
                 int noOfRows = db.ExecuteNonQuery(cmd);
                 if (noOfRows > 0) { return true; }

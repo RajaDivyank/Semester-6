@@ -1,4 +1,4 @@
-CREATE PROCEDURE [dbo].[PR_LOC_Hotel_SelectAll]
+CREATE OR ALTER PROCEDURE [dbo].[PR_LOC_Hotel_SelectAll]
 AS
 BEGIN
 		SELECT  [dbo].[MST_Hotel].[HotelID],
@@ -11,8 +11,7 @@ BEGIN
 				[dbo].[MST_Hotel].[Modified],
 				[dbo].[MST_Hotel].[Created]
 FROM [dbo].[MST_Hotel]
-ORDER BY [dbo].[MST_Hotel].[HotelName],
-		 [dbo].[MST_Hotel].[OwnerName]
+ORDER BY [dbo].[MST_Hotel].[HotelID]
 END
 
 --================================================================

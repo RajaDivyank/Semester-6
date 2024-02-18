@@ -1,4 +1,4 @@
-﻿using Hotel_Management.Areas.Roomstatus.Models;
+﻿ using Hotel_Management.Areas.Roomstatus.Models;
 using Hotel_Management.DAL;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,6 +19,7 @@ namespace Hotel_Management.Areas.Roomstatus.Controllers
         {
             try
             {
+                TempData["Message"] = "Status Delete Successfully";
                 RoomStatus_DALBase dal = new RoomStatus_DALBase();
                 bool deleted = dal.MST_RoomStatus_DeleteByStatusID(StatusID);
             }
@@ -37,6 +38,7 @@ namespace Hotel_Management.Areas.Roomstatus.Controllers
             {
                 RoomStatus_DALBase bal = new RoomStatus_DALBase();
                 LOC_RoomStatusModel model = bal.MST_RoomStatus_SelectByStatusID(StatusID);
+                TempData["Message"] = "Status Not Edit Successfully";
                 return View(model);
             }
 
@@ -51,20 +53,24 @@ namespace Hotel_Management.Areas.Roomstatus.Controllers
                 RoomStatus_DALBase dal = new RoomStatus_DALBase();
                 if (model.StatusID != null)
                 {
+                    TempData["Message"] = "Status Edit Successfully";
                     ans = dal.MST_RoomStatus_Update(model);
                 }
                 else
                 {
+                    TempData["Message"] = "Status Add Successfully";
                     ans = dal.MST_RoomStatus_Add(model);
                 }
             }
             if (ans)
             {
+                TempData["Bool"] = true;
                 return RedirectToAction("StatusView");
             }
             else
             {
-                return RedirectToAction("StatusView");
+                TempData["Bool"] = false;
+                return RedirectToAction("StatusAddEdit");
             }
         }
         #endregion

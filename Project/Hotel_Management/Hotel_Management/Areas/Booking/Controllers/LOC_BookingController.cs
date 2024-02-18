@@ -10,7 +10,6 @@ namespace Hotel_Management.Areas.Booking.Controllers
     [Area("Booking")]
     public class LOC_BookingController : Controller
     {
-        #region Admin Side
         #region MST_Booking_SelectAll
         public IActionResult BookingView()
         {
@@ -23,6 +22,7 @@ namespace Hotel_Management.Areas.Booking.Controllers
         {
             try
             {
+                TempData["Message"] = "Booking Delete Successfully";
                 Booking_DALBase dal = new Booking_DALBase();
                 bool deleted = dal.MST_Booking_DeleteByBookingID(BookingID);
             }
@@ -49,6 +49,8 @@ namespace Hotel_Management.Areas.Booking.Controllers
             {
                 Booking_DALBase dal = new Booking_DALBase();
                 LOC_BookingModel model = dal.MST_Booking_SelectByBookingID(BookingID);
+                TempData["IdProofphoto"] = model.IdProofphoto;
+                TempData["Message"] = "Booking Not Edit Successfully";
                 return View(model);
             }
         }
@@ -86,11 +88,36 @@ namespace Hotel_Management.Areas.Booking.Controllers
             Booking_DALBase dal = new Booking_DALBase();
             if (model.BookingID != null)
             {
+                TempData["Message"] = "Booking Edit Successfully";
                 ans = dal.MST_Booking_Update(model);
             }
             else
             {
+                TempData["Message"] = "Booking Add Successfully";
                 ans = dal.MST_Booking_Add(model);
+            }
+            if (ans)
+            {
+                TempData["Bool"] = true;
+                return RedirectToAction("BookingView");
+            }
+            else
+            {
+                TempData["Bool"] = true;
+                return RedirectToAction("BookingAddEdit");
+            }
+        }
+        #endregion
+        #region Convert_Status
+        public IActionResult BookingBooked(int BookingID)
+        {
+            bool ans = false;
+            Booking_DALBase dal = new Booking_DALBase();
+            if (BookingID != null)
+            {
+                LOC_BookingModel model = new LOC_BookingModel();
+                model.BookingID = BookingID;
+                ans = dal.MST_Booking_Status_Booked(model);
             }
             if (ans)
             {
@@ -98,18 +125,28 @@ namespace Hotel_Management.Areas.Booking.Controllers
             }
             else
             {
-                return RedirectToAction("BookingView");
+                return RedirectToAction("BookingDetail", "LOC_Booking");
             }
         }
-        #endregion
-        #endregion
-        #region User Side
-        #region MST_UserSideBookingView
-        public IActionResult UserSideBookingView()
+        public IActionResult BookingCancel(int BookingID)
         {
-            return View();
+            bool ans = false;
+            Booking_DALBase dal = new Booking_DALBase();
+            if (BookingID != null)
+            {
+                LOC_BookingModel model = new LOC_BookingModel();
+                model.BookingID = BookingID;
+                ans = dal.MST_Booking_Status_Cancel(model);
+            }
+            if (ans)
+            {
+                return RedirectToAction("BookingView");
+            }
+            else
+            {
+                return RedirectToAction("BookingDetail", "LOC_Booking");
+            }
         }
-        #endregion
         #endregion
     }
 }

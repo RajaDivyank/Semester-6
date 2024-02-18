@@ -3901,6 +3901,10 @@
       "PackagePath": "staticwebassets\\Images\\IMG_20231018_210041.jpg"
     },
     {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\Screenshot (121).png",
+      "PackagePath": "staticwebassets\\Images\\Screenshot (121).png"
+    },
+    {
       "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\WhatsApp Image 2022-01-29 at 4.53.25 PM.jpeg",
       "PackagePath": "staticwebassets\\Images\\WhatsApp Image 2022-01-29 at 4.53.25 PM.jpeg"
     },
@@ -3911,6 +3915,14 @@
     {
       "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\about-1.jpg",
       "PackagePath": "staticwebassets\\Images\\about-1.jpg"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\about-2.jpg",
+      "PackagePath": "staticwebassets\\Images\\about-2.jpg"
+    },
+    {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\about-3.jpg",
+      "PackagePath": "staticwebassets\\Images\\about-3.jpg"
     },
     {
       "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\carousel-1.jpg",

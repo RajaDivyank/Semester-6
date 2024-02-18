@@ -3,8 +3,8 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 @{
-    bool isAdmin = true;
-    bool isManager = true;
+    bool isAdmin = false;
+    bool isManager = false;
     if (CommonVariables.IsAdmin())
     {
         isAdmin = true;
@@ -18,14 +18,30 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card">
+            @if (TempData["Message"] != null)
+            {
+                @if (Convert.ToBoolean(TempData["Bool"]))
+                {
+                    <div class="alert alert-success">
+                        @TempData["Message"]
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-success">
+                        @TempData["Message"]
+                    </div>
+                }
+            }
             <div class="card-body">
                 <h5 class="card-title">Staff Search</h5>
-                <form method="post" asp-controller="LOC_Staff" asp-action="StaffSearch" asp-area="Staff" class="d-flex w-80" role="search">
-                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="First Name" name="FirstName" />
-                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Email" name="StaffEmail" />
-                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Role" name="Role" />
-                    <button type="submit" class="btn btn-outline-success my-3 h-50">Filter</button>
-                </form>
+                <input id="filter-text" class="form-control me-2 m-3 border border-info" onkeyup="filterTable(this)" placeholder="Search" type="text" fdprocessedid="ee7wrj">
+                @*  <form method="post" asp-controller="LOC_Staff" asp-action="StaffSearch" asp-area="Staff" class="d-flex w-80" role="search">
+                <input class="form-control me-2 m-3 border border-info" type="text" placeholder="First Name" name="FirstName" />
+                <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Email" name="StaffEmail" />
+                <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Role" name="Role" />
+                <button type="submit" class="btn btn-outline-success my-3 h-50">Filter</button>
+                </form> *@
                 <div class="table-responsive pt-3">
                     <table class="table table-striped project-orders-table">
                         <thead>
@@ -34,20 +50,25 @@
                                 <th>Name</th>
                                 <th>Role</th>
                                 <th>Email</th>
+                                <th>Created</th>
+                                <th>Modified</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         @foreach (var row in Model)
                         {
-                            <tbody>
+                            <tbody id="ItemTableBody">
                                 <tr>
                                     <td>@row.StaffID</td>
                                     <td>@row.FirstName @row.LastName</td>
                                     <td>@row.Role</td>
                                     <td>@row.StaffEmail</td>
+                                    <td>@Convert.ToDateTime(row.Created).ToString("dd-MM-yyyy")</td>
+                                    <td>@Convert.ToDateTime(row.Modified).ToString("dd-MM-yyyy")</td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            @if(isAdmin==true && isManager==true){
+                                            @if (CommonVariables.UserID() == @row.UserID)
+                                            {
                                                 <a asp-area="Staff" asp-controller="LOC_Staff" asp-action="StaffAddEdit" asp-route-StaffID="@row.StaffID" class="btn btn-success btn-sm btn-icon-text mr-3">
                                                     Edit
                                                     <i class="typcn typcn-edit btn-icon-append"></i>
@@ -72,84 +93,32 @@
         </div>
     </div>
 </div>
-@* <div class="content-wrapper">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Staff Search</h5>
-                        <form method="post" asp-controller="LOC_Staff" asp-action="StaffSearch" asp-area="Staff" class="d-flex w-80" role="search">
-                            <input class="form-control me-2 m-3" type="text" placeholder="First Name" name="FirstName" />
-                            <input class="form-control me-2 m-3" type="text" placeholder="Email" name="StaffEmail" />
-                            <input class="form-control me-2 m-3" type="text" placeholder="Role" name="Role" />
-                            <button type="submit" class="btn btn-outline-success my-3 h-50">Filter</button>
-                        </form>
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="text-center">Name</th>
-                                        <th scope="col" class="text-center">Role</th>
-                                        <th scope="col" class="text-center">Email</th>
-                                        <th scope="col" class="text-center">Action</th>
-                                    </tr>
-                                </thead>
-                                @foreach (var row in Model)
-                                {
-                                    <tbody>
-                                        <tr>
-                                            <td class="text-center">@row.FirstName @row.LastName</td>
-                                            <td class="text-center">@row.Role</td>
-                                            <td class="text-center">@row.StaffEmail</td>
-                                            <td>
-                                                <div class="row">
-                                                    <form method="post" class="form-group col-6" asp-area="Staff" asp-controller="LOC_Staff" asp-action="DeleteByStaffID" asp-route-StaffID="@row.StaffID">
-                                                        <button type="submit" class="btn btn-danger btn-block">Delete</button>
-                                                    </form>
-                                                    <a class="form-group col-6 text-right" asp-area="Staff" asp-controller="LOC_Staff" asp-action="StaffDetail" asp-route-StaffID="@row.StaffID">
-                                                        <button type="button" class="btn btn-success btn-block"> Detaiil</button>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                }
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+@if (isAdmin == true)
+{
+    <div class="floating-container">
+        <a asp-area="Staff" asp-controller="LOC_Staff" asp-action="StaffAddEdit"><div class="floating-button">+</div></a>
     </div>
-</div> *@
 
-<div class="floating-container">
-    <a asp-area="Staff" asp-controller="LOC_Staff" asp-action="StaffAddEdit"><div class="floating-button">+</div></a>
-</div>
+}
 
 <script>
-    function confirmDelete() {
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success"
-                });
-                return true;
+    function filterTable(searchText) {
+        console.log(searchText.value);
+        var stext = searchText.value.toLowerCase();
+        $('#ItemTableBody tr').each(function () {
+            var row = $(this);
+            var id = row.find('td:eq(0)').text().toLowerCase();
+            var name = row.find('td:eq(1)').text().toLowerCase();
+            var role = row.find('td:eq(2)').text().toLowerCase();
+            var email = row.find('td:eq(3)').text().toLowerCase();
+            var created = row.find('td:eq(4)').text().toLowerCase();
+            var modified = row.find('td:eq(5)').text().toLowerCase();
+
+            if (id.includes(stext) || name.includes(stext) || role.includes(stext) || email.includes(stext) || created.includes(stext) || modified.includes(stext)) {
+                row.show();
             } else {
-                return false;
+                row.hide();
             }
         });
-        return false
     }
 </script>

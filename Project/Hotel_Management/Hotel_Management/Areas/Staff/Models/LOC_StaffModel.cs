@@ -6,6 +6,7 @@ namespace Hotel_Management.Areas.Staff.Models
     public class LOC_StaffModel
     {
         public int? StaffID { get; set; }
+        [Required(ErrorMessage ="Role is required")]
         public int? RoleID { get; set; }
         public int? UserID { get; set; }
         [Required(ErrorMessage = "First name is required")]
@@ -13,6 +14,7 @@ namespace Hotel_Management.Areas.Staff.Models
         [Required(ErrorMessage = "Last name is required")]
         public string? LastName { get; set; }
         public string? Role {  get; set; }
+       /* [Required(ErrorMessage ="Image is required")]*/
         public string? StaffImage { get; set; }
         public IFormFile? StaffImageFile { get; set; }
         [Required(ErrorMessage = "Salary is required")]
@@ -32,8 +34,8 @@ namespace Hotel_Management.Areas.Staff.Models
         public DateTime? DateOfJoining { get; set; }
         [Required(ErrorMessage = "ID name is required")]
         public string? IDProof {  get; set; }
-        [Required(ErrorMessage = "Image is required")]
         public IFormFile? IDProofPhotoFile { get; set; }
+       /* [Required(ErrorMessage = "Image is required")]*/
         public string? IDProofPhotoPath { get; set; }
         public DateTime? Created {  get; set; }
         public DateTime? Modified { get; set; }

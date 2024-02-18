@@ -2,6 +2,7 @@ CREATE OR ALTER PROCEDURE [dbo].[PR_RoomStatus_SelectAll]
 AS
 BEGIN
 SELECT [dbo].[MST_RoomStatus].[StatusID],
+	   [dbo].[MST_RoomStatus].[UserID],
 	   [dbo].[MST_RoomStatus].[Status],
 	   [dbo].[MST_RoomStatus].[Created],
 	   [dbo].[MST_RoomStatus].[Modified]
@@ -16,6 +17,7 @@ CREATE OR ALTER PROCEDURE [dbo].[PR_RoomStatus_SelectByStatusID]
 AS
 BEGIN
 SELECT [dbo].[MST_RoomStatus].[StatusID],
+	   [dbo].[MST_RoomStatus].[UserID],
 	   [dbo].[MST_RoomStatus].[Status],
 	   [dbo].[MST_RoomStatus].[Created],
 	   [dbo].[MST_RoomStatus].[Modified]
@@ -36,18 +38,21 @@ END
 --==================================================================
 
 CREATE OR ALTER PROCEDURE [dbo].[PR_RoomStatus_InsertRecord]
-	@Status 	varchar(100)
+	@Status 	varchar(100),
+	@UserID		int
 AS
 BEGIN
 INSERT INTO [dbo].[MST_RoomStatus]
 (
 	[dbo].[MST_RoomStatus].[Status]
+   ,[dbo].[MST_RoomStatus].[UserID]
    ,[dbo].[MST_RoomStatus].[Created]
    ,[dbo].[MST_RoomStatus].[Modified]
 )
 VALUES
 (
 	@Status,
+	@UserID,
 	GETDATE(),
 	GETDATE()
 )
@@ -57,11 +62,13 @@ END
 
 CREATE OR ALTER PROCEDURE [dbo].[PR_RoomStatus_UpdateRecord]
 	@StatusID  	int,
+	@UserID		int,
 	@Status		varchar(100)
 AS
 BEGIN
 	UPDATE [dbo].[MST_RoomStatus]
 	SET
+		[dbo].[MST_RoomStatus].[UserID]=@UserID,
 		[dbo].[MST_RoomStatus].[Status] = @Status,
 		[dbo].[MST_RoomStatus].[Created] = (Select [dbo].[MST_RoomStatus].[Created] from [dbo].[MST_RoomStatus] where [dbo].[MST_RoomStatus].[StatusID] = @StatusID),
 		[dbo].[MST_RoomStatus].[Modified] = GETDATE()

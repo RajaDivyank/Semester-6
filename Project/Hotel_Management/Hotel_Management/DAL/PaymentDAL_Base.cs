@@ -2,6 +2,7 @@
 using System.Data.Common;
 using System.Data;
 using Hotel_Management.Areas.Payment.Models;
+using Hotel_Management.BAL;
 
 namespace Hotel_Management.DAL
 {
@@ -87,7 +88,7 @@ namespace Hotel_Management.DAL
                 DbCommand cmd = db.GetStoredProcCommand("PR_Payment_InsertRecord");
                 db.AddInParameter(cmd, "@BookingID", SqlDbType.Int, model.BookingID);
                 db.AddInParameter(cmd, "@PaymentMethodID", SqlDbType.Int, model.PaymentMethodID);
-                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, model.UserID);
+                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, CommonVariables.UserID());
                 db.AddInParameter(cmd, "@Amount", SqlDbType.Decimal, model.Amount);
                 int noOfRows = db.ExecuteNonQuery(cmd);
                 if (noOfRows > 0) { return true; }
@@ -110,7 +111,7 @@ namespace Hotel_Management.DAL
                 db.AddInParameter(cmd, "@PaymentID", SqlDbType.Int, model.PaymentID);
                 db.AddInParameter(cmd, "@BookingID", SqlDbType.Int, model.BookingID);
                 db.AddInParameter(cmd, "@PaymentMethodID", SqlDbType.Int, model.PaymentMethodID);
-                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, model.UserID);
+                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, CommonVariables.UserID());
                 db.AddInParameter(cmd, "@Amount", SqlDbType.Decimal, model.Amount);
                 int noOfRows = db.ExecuteNonQuery(cmd);
                 if (noOfRows > 0) { return true; }

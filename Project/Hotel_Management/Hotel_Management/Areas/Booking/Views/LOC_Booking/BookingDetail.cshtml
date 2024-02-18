@@ -1,0 +1,72 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model Hotel_Management.Areas.Booking.Models.LOC_BookingModel;
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Staff Detail</h4>
+            <div class="row">
+                <div class="col-4 mx-2">
+                    <div style="width: 20rem;" class="rounded-circle">
+                        <div class="text-center my-3" style="font-size:large">Room Photo</div>
+                        <img class="card-img-top" style="height:50vh" src="@Model.RoomImage" alt="@Model.RoomImage" />
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group row">
+                        <div class="col-sm-4">Full Name</div>
+                        <div class="col-sm-8 form-control form-control-rounded">@Model.RegistrationName</div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4">Phone Number</div>
+                        <div class="col-sm-8 form-control form-control-rounded">@Model.MobileNumber</div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4">Phone Number</div>
+                        <div class="col-sm-8 form-control form-control-rounded">@Model.BookingStatus</div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4">Child Capacity</div>
+                        <div class="col-sm-8 form-control form-control-rounded">@Model.ChildCapacity</div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4">Adult Capacity</div>
+                        <div class="col-sm-8 form-control form-control-rounded">@Model.AdultCapacity</div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4">Check In</div>
+                        <div class="col-sm-8 form-control form-control-rounded">@Model.CheckIn</div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4">Check Out</div>
+                        <div class="col-sm-8 form-control form-control-rounded">@Model.CheckOut</div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4">Price</div>
+                        <div class="col-sm-8 form-control form-control-rounded">@Model.PricePerDay</div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4">Total Days</div>
+                        <div class="col-sm-8 form-control form-control-rounded">@Model.TotalDays</div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4">Booking status</div>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <a asp-area="Booking" asp-controller="LOC_Booking" asp-action="BookingBooked" asp-route-BookingID="@Model.BookingID" class="col btn btn-success m-2">Booked</a>
+                                <a asp-area="Booking" asp-controller="LOC_Booking" asp-action="BookingCancel" asp-route-BookingID="@Model.BookingID" class="col btn btn-danger m-2">Cancle</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="d-flex align-items-center">
+                <button onclick="history.back()" class="btn btn-info btn-sm btn-icon-text mr-3">
+                    back
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

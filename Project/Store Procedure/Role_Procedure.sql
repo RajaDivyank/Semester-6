@@ -2,6 +2,7 @@ CREATE OR ALTER PROCEDURE [dbo].[PR_Role_SelectAll]
 AS
 BEGIN
 SELECT [dbo].[MST_Role].[RoleID],
+	   [dbo].[MST_Role].[UserID],
 	   [dbo].[MST_Role].[Role],
 	   [dbo].[MST_Role].[Created],
 	   [dbo].[MST_Role].[Modified]
@@ -27,6 +28,7 @@ AS
 BEGIN
 	Select 
 		[dbo].[MST_Role].[RoleID],
+		[dbo].[MST_Role].[UserID],
 		[dbo].[MST_Role].[Role],
 		[dbo].[MST_Role].[Created],
 		[dbo].[MST_Role].[Modified]
@@ -36,19 +38,22 @@ End
 
 --================================================
 
-CREATE PROCEDURE [dbo].[PR_Role_InsertRecord]
-	@Role	varchar(100)
+CREATE OR ALTER PROCEDURE [dbo].[PR_Role_InsertRecord]
+	@Role	varchar(100),
+	@UserID	int
 AS
 BEGIN
 INSERT INTO [dbo].[MST_Role]
 (
 	[dbo].[MST_Role].[Role]
+   ,[dbo].[MST_Role].[UserID]
    ,[dbo].[MST_Role].[Created]
    ,[dbo].[MST_Role].[Modified]
 )
 VALUES
 (
 	@Role,
+	@UserID,
 	GETDATE(),
 	GETDATE()
 )
@@ -56,14 +61,16 @@ END
 
 --============================================
 
-CREATE PROCEDURE [dbo].[PR_Role_UpdateRecord]
+CREATE OR ALTER PROCEDURE [dbo].[PR_Role_UpdateRecord]
 	@RoleID 	int,
+	@UserID		int,
 	@Role		varchar(100)
 AS
 BEGIN
 	UPDATE [dbo].[MST_Role]
 	SET
 		[dbo].[MST_Role].[Role] = @Role,
+		[dbo].[MST_Role].[UserID] = @UserID,
 		[dbo].[MST_Role].[Created] = (Select [dbo].[MST_Role].[Created] from [dbo].[MST_Role] where [dbo].[MST_Role].[RoleID] = @RoleID),
 		[dbo].[MST_Role].[Modified] = GETDATE()
 	WHERE [dbo].[MST_Role].[RoleID] = @RoleID
@@ -71,13 +78,14 @@ END
 
 --==========================================
 
-CREATE PROCEDURE [dbo].[PR_Role_Filter]
+CREATE OR ALTER PROCEDURE [dbo].[PR_Role_Filter]
 @Role varchar(100) = null
 AS
 BEGIN
 	Select 
 		 [dbo].[MST_Role].[RoleID]
 		,[dbo].[MST_Role].[Role]
+		,[dbo].[MST_Role].[UserID]
 		,[dbo].[MST_Role].[Created]
 		,[dbo].[MST_Role].[Modified]
 		FROM [dbo].[MST_Role]

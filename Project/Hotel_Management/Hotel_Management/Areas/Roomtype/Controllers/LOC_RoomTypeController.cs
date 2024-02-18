@@ -20,6 +20,7 @@ namespace Hotel_Management.Areas.Roomtype.Controllers
         {
             try
             {
+                TempData["Message"] = "Room Type Delete Successfully";
                 RoomType_DALBase dal = new RoomType_DALBase();
                 bool deleted = dal.MST_RoomType_DeleteByRoomTypeID(RoomTypeID);
             }
@@ -38,6 +39,7 @@ namespace Hotel_Management.Areas.Roomtype.Controllers
             {
                 RoomType_DALBase dal = new RoomType_DALBase();
                 LOC_RoomTypeModel model = dal.MST_RoomType_SelectByRoomTypeID(RoomTypeID);
+                TempData["Message"] = "Type Not Edit Successfully";
                 return View(model);
             }
 
@@ -52,19 +54,23 @@ namespace Hotel_Management.Areas.Roomtype.Controllers
                 RoomType_DALBase dal = new RoomType_DALBase();
                 if (model.RoomTypeID != null)
                 {
+                    TempData["Message"] = "Room Type Edit Successfully";
                     ans = dal.MST_RoomType_Update(model);
                 }
                 else
                 {
+                    TempData["Message"] = "Room Type Add Successfully";
                     ans = dal.MST_RoomType_Add(model);
                 }
             }
             if (ans)
             {
+                TempData["Bool"] = true;
                 return RedirectToAction("RoomTypeView");
             }
             else
             {
+                TempData["Bool"] = false;
                 return RedirectToAction("RoomTypeView");
             }
         }

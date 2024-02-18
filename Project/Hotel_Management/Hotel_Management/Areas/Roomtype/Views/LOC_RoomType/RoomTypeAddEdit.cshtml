@@ -3,33 +3,52 @@
 }
 @model Hotel_Management.Areas.Roomtype.Models.LOC_RoomTypeModel;
 <div class="col-12 grid-margin">
+    @if (TempData["Message"] != null)
+    {
+        @if (!Convert.ToBoolean(TempData["Bool"]))
+        {
+            <div class="alert alert-danger">
+                @TempData["Message"]
+            </div>
+        }
+    }
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Room Type Add/Edit</h4>
+            @if (Model.RoomTypeID == null)
+            {
+                <h4 class="card-title">Room Type Add</h4>
+            }
+            else
+            {
+                <h4 class="card-title">Room Type Edit</h4>
+            }
             <form method="post" asp-area="Roomtype" asp-controller="LOC_RoomType" asp-action="SaveForAddEdit">
                 <input type="hidden" asp-for="RoomTypeID" />
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Room Type</label>
+                            <label class="col-sm-3 col-form-label">Room Type<span class="text-danger">*</span></label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control border border-dark" asp-for="TypeName" />
+                                <span class="text-danger" asp-validation-for="TypeName"></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Pricr Per Day</label>
+                            <label class="col-sm-3 col-form-label">Pricr Per Day<span class="text-danger">*</span></label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control border border-dark" asp-for="PricePerDay" />
+                                <input type="number" class="form-control border border-dark" asp-for="PricePerDay" />
+                                <span class="text-danger" asp-validation-for="PricePerDay"></span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-12">
-                        <label for="exampleTextarea1">Description</label>
+                        <label for="exampleTextarea1">Description<span class="text-danger">*</span></label>
                         <textarea class="form-control border border-dark" id="exampleTextarea1" rows="4" asp-for="Description"></textarea>
+                        <span class="text-danger" asp-validation-for="Description"></span>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary mr-2">Save</button>
@@ -38,38 +57,9 @@
         </div>
     </div>
 </div>
-@* <div class="content-wrapper">
-    <div class="container-fluid">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-body">
-                    <div class="card-title">Add/Edit Role Type</div>
-                    <hr>
-                    <form method="post" asp-area="Roomtype" asp-controller="LOC_RoomType" asp-action="SaveForAddEdit">
-                        <input type="hidden" asp-for="RoomTypeID" />
-                        <div class="form-group">
-                            <label>Type</label>
-                            <input type="text" class="form-control form-control-rounded" placeholder="Type" asp-for="TypeName">
-                        </div>
-                        <div class="form-group">
-                            <label>Price</label>
-                            <input type="text" class="form-control form-control-rounded" placeholder="Price" asp-for="PricePerDay">
-                        </div>
-                        @* <div class="form-group">
-                        <button type="submit" class="btn btn-light btn-round px-5">Save</button>
-                        </div> 
-                        <div class="form-row mt-4 align-content-center">
-                            <div class="form-group mb-2 col-6">
-                                <button type="button" class="btn btn-light btn-block" onclick="history.back()">Back</button>
-                            </div>
-                            <div class="form-group mb-2 col-6">
-                                <button type="submit" class="btn btn-light btn-block">Save</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> *@
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
 

@@ -13,7 +13,6 @@ namespace Hotel_Management.Areas.Staff.Controllers
     [Area("Staff")]
     public class LOC_StaffController : Controller
     {
-        #region Admin_Side
         #region MST_Staff_SelectAll
         public IActionResult StaffView()
         {
@@ -35,6 +34,7 @@ namespace Hotel_Management.Areas.Staff.Controllers
         {
             try
             {
+                TempData["Message"] = "Staff Delete Successfully";
                 Staff_BALBase bal = new Staff_BALBase();
                 bool deleted = bal.MST_Staff_DeleteByStaffID(StaffID);
             }
@@ -46,11 +46,11 @@ namespace Hotel_Management.Areas.Staff.Controllers
         public IActionResult StaffAddEdit(int StaffID)
         {
             Role_DALBase roledal = new Role_DALBase();
-            if (StaffID == null)
+            if (StaffID == 0)
             {
                 LOC_StaffModel model = new LOC_StaffModel();
                 model.roles = roledal.MST_Role_SelectAll();
-                return View();
+                return View(model);
             }
             else
             {
@@ -59,6 +59,7 @@ namespace Hotel_Management.Areas.Staff.Controllers
                 model.roles = roledal.MST_Role_SelectAll();
                 TempData["IDProofPhotoPath"] = model.IDProofPhotoPath;
                 TempData["StaffImage"] = model.StaffImage;
+                TempData["Message"] = "Staff Not Edit Successfully";
                 return View(model);
             }
         }
@@ -120,19 +121,23 @@ namespace Hotel_Management.Areas.Staff.Controllers
             {
                 if (model.StaffID != null)
                 {
+                    TempData["Message"] = "Staff Edit Successfully";
                     ans = bal.MST_Staff_Update(model);
                 }
                 else
                 {
+                    TempData["Message"] = "Staff Add Successfully";
                     ans = bal.MST_Staff_Add(model);
                 }
             }
             if (ans)
             {
+                TempData["Bool"] = true;
                 return RedirectToAction("StaffView");
             }
             else
             {
+                TempData["Bool"] = false;
                 return RedirectToAction("StaffAddEdit");
             }
         }
@@ -142,14 +147,6 @@ namespace Hotel_Management.Areas.Staff.Controllers
         {
             Staff_BALBase bal = new Staff_BALBase();
             return View("StaffView", bal.MST_Staff_Search(FirstName, StaffEmail, Role));
-        }
-        #endregion
-        #endregion
-        #region User_Side
-        public IActionResult UserSideStaffView()
-        {
-            Staff_BALBase bal = new Staff_BALBase();
-            return View(bal.MST_Staff_SelectAll());
         }
         #endregion
     }

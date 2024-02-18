@@ -1,6 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@model IEnumerable<Hotel_Management.Models.DashboardCountModel>;
 <div class="container-fluid p-0 mb-5">
     <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -92,11 +93,15 @@
                 <h1 class="mb-4">Welcome to <span class="text-primary text-uppercase">Hotelier</span></h1>
                 <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
                 <div class="row g-3 pb-4">
+                    @foreach (var row in Model)
+                    {
+                        
+                    
                     <div class="col-sm-4 wow fadeIn" data-wow-delay="0.1s">
                         <div class="border rounded p-1">
                             <div class="border rounded text-center p-4">
                                 <i class="fa fa-hotel fa-2x text-primary mb-2"></i>
-                                <h2 class="mb-1" data-toggle="counter-up">1234</h2>
+                                <h2 class="mb-1" data-toggle="counter-up">@row.RoomCount</h2>
                                 <p class="mb-0">Rooms</p>
                             </div>
                         </div>
@@ -105,7 +110,7 @@
                         <div class="border rounded p-1">
                             <div class="border rounded text-center p-4">
                                 <i class="fa fa-users-cog fa-2x text-primary mb-2"></i>
-                                <h2 class="mb-1" data-toggle="counter-up">1234</h2>
+                                <h2 class="mb-1" data-toggle="counter-up">@row.StaffCount</h2>
                                 <p class="mb-0">Staffs</p>
                             </div>
                         </div>
@@ -114,11 +119,12 @@
                         <div class="border rounded p-1">
                             <div class="border rounded text-center p-4">
                                 <i class="fa fa-users fa-2x text-primary mb-2"></i>
-                                <h2 class="mb-1" data-toggle="counter-up">1234</h2>
+                                <h2 class="mb-1" data-toggle="counter-up">@row.UserCount</h2>
                                 <p class="mb-0">Clients</p>
                             </div>
                         </div>
                     </div>
+                    }
                 </div>
                 <a class="btn btn-primary py-3 px-5 mt-2" href="">Explore More</a>
             </div>

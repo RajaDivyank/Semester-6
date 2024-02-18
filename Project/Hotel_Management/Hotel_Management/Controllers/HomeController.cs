@@ -1,4 +1,5 @@
-﻿using Hotel_Management.Models;
+﻿using Hotel_Management.DAL;
+using Hotel_Management.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Data.SqlClient;
@@ -16,19 +17,12 @@ namespace Hotel_Management.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
-        public IActionResult LoginPageView()
-        {
-            return View();
-        }
-        public IActionResult RegistorView()
-        {
-            return View();
+            DashboardCount_DALBase dal = new DashboardCount_DALBase();
+            return View(dal.MST_DashboardCount_SelectAll());
         }
         public IActionResult AdminPannel()
         {
-             String connectionStr = this._configuration.GetConnectionString("myConnectionString");
+            String connectionStr = this._configuration.GetConnectionString("myConnectionString");
             DataTable dt = new DataTable();
             SqlConnection conn = new SqlConnection(connectionStr);
             conn.Open();
@@ -40,11 +34,7 @@ namespace Hotel_Management.Controllers
             conn.Close();
             return View(dt);
         }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

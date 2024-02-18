@@ -3,6 +3,7 @@ using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 using System.Data.Common;
 using System.Data;
 using Microsoft.Practices.EnterpriseLibrary.Data;
+using Hotel_Management.BAL;
 
 namespace Hotel_Management.DAL
 {
@@ -20,6 +21,7 @@ namespace Hotel_Management.DAL
                 {
                     LOC_RoleModel model = new LOC_RoleModel();
                     model.RoleID = Convert.ToInt32(reader["RoleID"]);
+                    model.UserID = Convert.ToInt32(reader["UserID"]);
                     model.Role = reader["Role"].ToString();
                     model.Created = Convert.ToDateTime(reader["Created"]);
                     model.Modified = Convert.ToDateTime(reader["Modified"]);
@@ -41,6 +43,7 @@ namespace Hotel_Management.DAL
                 while (reader.Read())
                 {
                     model.RoleID = Convert.ToInt32(reader["RoleID"]);
+                    model.UserID = Convert.ToInt32(reader["UserID"]);
                     model.Role = reader["Role"].ToString();
                     model.Created = Convert.ToDateTime(reader["Created"]);
                     model.Modified = Convert.ToDateTime(reader["Modified"]);
@@ -75,6 +78,7 @@ namespace Hotel_Management.DAL
                 SqlDatabase db = new SqlDatabase(ConnStr);
                 DbCommand cmd = db.GetStoredProcCommand("PR_Role_InsertRecord");
                 db.AddInParameter(cmd, "@Role", SqlDbType.VarChar, model.Role);
+                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, CommonVariables.UserID());
                 int noOfRows = db.ExecuteNonQuery(cmd);
                 if (noOfRows > 0) { return true; }
                 else { return false; }
@@ -94,6 +98,7 @@ namespace Hotel_Management.DAL
                 SqlDatabase db = new SqlDatabase(ConnStr);
                 DbCommand cmd = db.GetStoredProcCommand("PR_Role_UpdateRecord");
                 db.AddInParameter(cmd, "@RoleID", SqlDbType.Int, model.RoleID);
+                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, CommonVariables.UserID());
                 db.AddInParameter(cmd, "@Role", SqlDbType.VarChar, model.Role);
                 int noOfRows = db.ExecuteNonQuery(cmd);
                 if (noOfRows > 0) { return true; }
@@ -119,6 +124,7 @@ namespace Hotel_Management.DAL
                 {
                     LOC_RoleModel model = new LOC_RoleModel();
                     model.RoleID = Convert.ToInt32(reader["RoleID"]);
+                    model.UserID = Convert.ToInt32(reader["UserID"]);
                     model.Role = reader["Role"].ToString();
                     model.Created = Convert.ToDateTime(reader["Created"]);
                     model.Modified = Convert.ToDateTime(reader["Modified"]);
@@ -128,5 +134,6 @@ namespace Hotel_Management.DAL
             return list;
         }
         #endregion
+        
     }
 }
