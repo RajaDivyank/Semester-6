@@ -1,0 +1,14 @@
+D:\Semester-6\ASP .NET\SelectOperatorDemo\SelectOperatorDemo\bin\Debug\net6.0\SelectOperatorDemo.exe
+D:\Semester-6\ASP .NET\SelectOperatorDemo\SelectOperatorDemo\bin\Debug\net6.0\SelectOperatorDemo.deps.json
+D:\Semester-6\ASP .NET\SelectOperatorDemo\SelectOperatorDemo\bin\Debug\net6.0\SelectOperatorDemo.runtimeconfig.json
+D:\Semester-6\ASP .NET\SelectOperatorDemo\SelectOperatorDemo\bin\Debug\net6.0\SelectOperatorDemo.dll
+D:\Semester-6\ASP .NET\SelectOperatorDemo\SelectOperatorDemo\bin\Debug\net6.0\SelectOperatorDemo.pdb
+D:\Semester-6\ASP .NET\SelectOperatorDemo\SelectOperatorDemo\obj\Debug\net6.0\SelectOperatorDemo.GeneratedMSBuildEditorConfig.editorconfig
+D:\Semester-6\ASP .NET\SelectOperatorDemo\SelectOperatorDemo\obj\Debug\net6.0\SelectOperatorDemo.AssemblyInfoInputs.cache
+D:\Semester-6\ASP .NET\SelectOperatorDemo\SelectOperatorDemo\obj\Debug\net6.0\SelectOperatorDemo.AssemblyInfo.cs
+D:\Semester-6\ASP .NET\SelectOperatorDemo\SelectOperatorDemo\obj\Debug\net6.0\SelectOperatorDemo.csproj.CoreCompileInputs.cache
+D:\Semester-6\ASP .NET\SelectOperatorDemo\SelectOperatorDemo\obj\Debug\net6.0\SelectOperatorDemo.dll
+D:\Semester-6\ASP .NET\SelectOperatorDemo\SelectOperatorDemo\obj\Debug\net6.0\refint\SelectOperatorDemo.dll
+D:\Semester-6\ASP .NET\SelectOperatorDemo\SelectOperatorDemo\obj\Debug\net6.0\SelectOperatorDemo.pdb
+D:\Semester-6\ASP .NET\SelectOperatorDemo\SelectOperatorDemo\obj\Debug\net6.0\SelectOperatorDemo.genruntimeconfig.cache
+D:\Semester-6\ASP .NET\SelectOperatorDemo\SelectOperatorDemo\obj\Debug\net6.0\ref\SelectOperatorDemo.dll

@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using CateringManagementSystem.BAL;
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>
+        Argon Dashboard - Free Dashboard for Bootstrap 4 by Creative Tim
+    </title>
+    <!-- Favicon -->
+    <link href="~/admin/img/brand/favicon.png" rel="icon" type="image/png">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!-- Icons -->
+    <link href="~/admin/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
+    <link href="~/admin/js/plugins/fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link href="~/admin/css/argon-dashboard.css?v=1.1.2" rel="stylesheet" />
+</head>
+
+<body class="">
+    @await Html.PartialAsync("_Sidebar_Admin")
+    <div class="main-content">
+        <!-- Navbar -->
+        @await Html.PartialAsync("_Header_Admin")
+        <!-- End Navbar -->
+        <div class="pt-3">
+            @RenderBody()
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--   Core   -->
+    <script src="~/admin/js/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="~/admin/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!--   Optional JS   -->
+    <script src="~/admin/js/plugins/chart.js/dist/Chart.min.js"></script>
+    <script src="~/admin/js/plugins/chart.js/dist/Chart.extension.js"></script>
+    <!--   Argon JS   -->
+    <script src="~/admin/js/argon-dashboard.min.js?v=1.1.2"></script>
+    <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+    <script>
+        window.TrackJS &&
+            TrackJS.install({
+                token: "ee6fab19c5a04ac1a32a645abde4613a",
+                application: "argon-dashboard-free"
+            });
+    </script>
+</body>
+
+</html>

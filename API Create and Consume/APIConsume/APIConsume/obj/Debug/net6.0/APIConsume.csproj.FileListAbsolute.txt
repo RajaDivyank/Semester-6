@@ -28,3 +28,6 @@ D:\Semester-6\API Create and Consume\APIConsume\APIConsume\obj\Debug\net6.0\refi
 D:\Semester-6\API Create and Consume\APIConsume\APIConsume\obj\Debug\net6.0\APIConsume.pdb
 D:\Semester-6\API Create and Consume\APIConsume\APIConsume\obj\Debug\net6.0\APIConsume.genruntimeconfig.cache
 D:\Semester-6\API Create and Consume\APIConsume\APIConsume\obj\Debug\net6.0\ref\APIConsume.dll
+D:\Semester-6\API Create and Consume\APIConsume\APIConsume\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\Semester-6\API Create and Consume\APIConsume\APIConsume\obj\Debug\net6.0\APIConsume.csproj.AssemblyReference.cache
+D:\Semester-6\API Create and Consume\APIConsume\APIConsume\obj\Debug\net6.0\APIConsume.csproj.CopyComplete
