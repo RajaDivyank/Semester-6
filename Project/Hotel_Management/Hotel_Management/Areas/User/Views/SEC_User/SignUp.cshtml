@@ -1,48 +1,69 @@
 ﻿@{
-	Layout = "~/Views/Shared/_LoginLayout.cshtml";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
 }
-@model SEC_UserModel;
+@model Hotel_Management.Areas.User.Models.SEC_UserModel;
 <div class="container-fluid page-body-wrapper full-page-wrapper">
     <div class="content-wrapper d-flex align-items-center auth px-0">
         <div class="row w-100 mx-0">
             <div class="col-lg-4 mx-auto">
                 <div class="auth-form-light text-left py-5 px-4 px-sm-5">
                     <div class="brand-logo">
-                        <img src="~/Adminassets/images/logo-dark.svg" alt="logo">
+                        <h3>Hotelier</h3>
+                        @* <img src="~/Adminassets/images/logo-dark.svg" alt="logo"> *@
                     </div>
                     <h4>New here?</h4>
                     <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
                     <form class="pt-3" method="post" asp-action="SignUpSave" asp-controller="SEC_User" asp-area="User">
+                        <input type="hidden" asp-for="UserID" />
                         <div class="form-group">
                             <input type="text" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Username" asp-for="UserName">
-                            <span asp-validation-for="UserName" ></span>
+                            <span asp-validation-for="UserName" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control form-control-lg" placeholder="Number" asp-for="UserNumber">
-                            <span asp-validation-for="UserNumber"></span>
+                            <input type="number" class="form-control form-control-lg" placeholder="Number" asp-for="UserNumber">
+                            <span asp-validation-for="UserNumber" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email" asp-for="Email">
-                            <span asp-validation-for="Email"></span>
+                            <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" asp-for="Password">
-                            <span asp-validation-for="Password"></span>
+                            @if (Model.UserID == null)
+                            {
+                                <input type="password" class="form-control form-control-lg" id="passwordInput" placeholder="Password" asp-for="Password">
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                                <div class="mb-4">
+                                    <div class="form-check">
+                                        <label class="form-check-label text-muted">
+                                            <input type="checkbox" id="showPasswordCheckbox" class="form-check-input">
+                                            Show Password
+                                        </label>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <input type="text" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" asp-for="Password">
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            }
                         </div>
-                        <div class="mb-4">
-                            <div class="form-check">
-                                <label class="form-check-label text-muted">
-                                    <input type="checkbox" class="form-check-input">
-                                    I agree to all Terms & Conditions
-                                </label>
-                            </div>
-                        </div>
+                        
                         <div class="mt-3">
-                            <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN UP</button>
+                            @if (Model.UserID == null)
+                            {
+                                <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN UP</button>
+                            }
+                            else
+                            {
+                                <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">Save</button>
+                            }
                         </div>
-                        <div class="text-center mt-4 font-weight-light">
-                            Already have an account? <a asp-area="User" asp-controller="SEC_User" asp-action="Login" class="text-primary">Login</a>
-                        </div>
+                        @if (Model.UserID == null)
+                        {
+                            <div class="text-center mt-4 font-weight-light">
+                                Already have an account? <a asp-area="User" asp-controller="SEC_User" asp-action="Login" class="text-primary">Login</a>
+                            </div>
+                        }
                     </form>
                 </div>
             </div>
@@ -50,3 +71,18 @@
     </div>
     <!-- content-wrapper ends -->
 </div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+<script>
+    document.getElementById("showPasswordCheckbox").addEventListener("change", function () {
+        var passwordInput = document.getElementById("passwordInput");
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+        } else {
+            passwordInput.type = "password";
+        }
+    });
+</script>

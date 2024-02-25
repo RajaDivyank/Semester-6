@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "c2neMqUqTemHiHfSYEWfPjU6EDXma7O7Xo9lwJbLV0c=",
+  "Hash": "166anY9vzwYC/+IREQC/wYIhleo4jN3qY6vgg1g4q9k=",
   "Source": "Hotel_Management",
   "BasePath": "_content/Hotel_Management",
   "Mode": "Default",
@@ -27028,6 +27028,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\WhatsApp Image 2023-09-30 at 2.12.48 PM.jpeg"
+    },
+    {
+      "Identity": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\WhatsApp Image 2023-09-30 at 9.50.02 PM.jpeg",
+      "SourceId": "Hotel_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\",
+      "BasePath": "_content/Hotel_Management",
+      "RelativePath": "Images/WhatsApp Image 2023-09-30 at 9.50.02 PM.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\WhatsApp Image 2023-09-30 at 9.50.02 PM.jpeg"
     },
     {
       "Identity": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\img\\about-1.jpg",

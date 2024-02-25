@@ -1,0 +1,90 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model Hotel_Management.Areas.User.Models.SEC_UserModel;
+<div class="col-12 grid-margin">
+    @if (TempData["Message"] != null)
+    {
+        @if (!Convert.ToBoolean(TempData["Bool"]))
+        {
+            <div class="alert alert-danger">
+                @TempData["Message"]
+            </div>
+        }
+    }
+    <div class="card">
+        <div class="card-body">
+            <form class="form-sample" method="post" asp-area="User" asp-controller="SEC_User" asp-action="SaveUpdate">
+                <input type="hidden" asp-for="@Model.UserID" />
+                <p class="card-description">
+                    Personal info
+                </p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">User Name</label>
+                            <div class="col-sm-9">
+                                <div class="form-control border border-dark">@Model.UserName</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Number</label>
+                            <div class="col-sm-9">
+                                <div class="form-control border border-dark">@Model.UserNumber</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Password</label>
+                            <div class="col-sm-9">
+                                <div class="form-control border border-dark">@Model.Password</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Email</label>
+                            <div class="col-sm-9">
+                                <div class="form-control border border-dark">@Model.Email</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3">Admin</label>
+                            <div class="col-sm-9">
+                                <label class="toggle-switch" >
+                                    <input type="checkbox" asp-for="IsAdmin" >
+                                    <span class="toggle-slider round"></span>
+                                </label>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3">Manager</label>
+                            <div class="col-sm-9">
+                                <div class="col-sm-9">
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" asp-for="IsManager" >
+                                        <span class="toggle-slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Save</button>
+                <button class="btn btn-info" onclick="history.back()">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>

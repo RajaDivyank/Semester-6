@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Hotel_Management.BAL;
+@{
 	Layout = "~/Views/Shared/_LoginLayout.cshtml";
 }
 @model UserLoginModel;
@@ -7,8 +8,9 @@
 		<div class="row w-100 mx-0">
 			<div class="col-lg-4 mx-auto">
 				<div class="auth-form-light text-left py-5 px-4 px-sm-5">
-					<div class="brand-logo">
-						<img src="~/Adminassets/images/logo-dark.svg" alt="logo">
+					<div class="fa-black-tie">
+						@* <img src="~/Adminassets/images/logo-dark.svg" alt="logo"> *@
+						<h3>Hotelier</h3>
 					</div>
 					<h4>Hello! let's get started</h4>
 					<h6 class="font-weight-light">Sign in to continue.</h6>
@@ -32,12 +34,12 @@
 						</div>
 						<div class="my-2 d-flex justify-content-between align-items-center">
 							<div class="form-check">
-								<label class="form-check-label text-muted">
+								@* <label class="form-check-label text-muted">
 									<input type="checkbox" class="form-check-input">
 									Keep me signed in
-								</label>
+								</label> *@
 							</div>
-							<a href="#" class="auth-link text-black">Forgot password?</a>
+							<a asp-area="User" asp-controller="SEC_User" asp-action="SignUp" asp-route-UserID="@CommonVariables.UserID()" class="auth-link text-black">Forgot password?</a>
 						</div>
 						<div class="mb-2">
 							<button type="button" class="btn btn-block btn-facebook auth-form-btn">

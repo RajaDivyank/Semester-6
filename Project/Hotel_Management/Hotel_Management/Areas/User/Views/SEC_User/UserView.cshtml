@@ -10,10 +10,10 @@
                 <h5 class="card-title">User Search</h5>
                 <input id="filter-text" class="form-control me-2 m-3 border border-info" onkeyup="filterTable(this)" placeholder="Search" type="text" fdprocessedid="ee7wrj">
                 @* <form method="post" asp-controller="" asp-action="" asp-area="" class="d-flex w-80" role="search">
-                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="First Name" name="FirstName" />
-                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Email" name="StaffEmail" />
-                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Role" name="Role" />
-                    <button type="submit" class="btn btn-outline-success my-3 h-50">Filter</button>
+                <input class="form-control me-2 m-3 border border-info" type="text" placeholder="First Name" name="FirstName" />
+                <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Email" name="StaffEmail" />
+                <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Role" name="Role" />
+                <button type="submit" class="btn btn-outline-success my-3 h-50">Filter</button>
                 </form> *@
                 <div class="table-responsive pt-3">
                     <table class="table table-striped project-orders-table">
@@ -22,7 +22,8 @@
                                 <th class="ml-5">User ID</th>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Password</th>
+                                <th>Admin</th>
+                                <th>Manager</th>
                                 <th>Created</th>
                                 <th>Modified</th>
                                 <th>Actions</th>
@@ -35,22 +36,20 @@
                                     <td>@row.UserID</td>
                                     <td>@row.UserName</td>
                                     <td>@row.Email</td>
-                                    <td>@row.Password</td>
-                                    <td>@row.Created</td>
-                                    <td>@row.Modified</td>
+                                    <td>@row.IsAdmin</td>
+                                    <td>@row.IsManager</td>
+                                    <td>@row.Created.ToShortDateString()</td>
+                                    <td>@row.Modified.ToShortDateString()</td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            @if (CommonVariables.UserID()==@row.UserID) {
-                                                <button type="button" class="btn btn-success btn-sm btn-icon-text mr-3">
-                                                    Edit
-                                                    <i class="typcn typcn-edit btn-icon-append"></i>
-                                                </button>
-
-                                                <a asp-area="User" asp-controller="SEC_User" asp-action="DeleteByUserID" asp-route-UserID="@row.UserID" class="btn btn-danger btn-sm btn-icon-text">
-                                                    Delete
-                                                    <i class="typcn typcn-delete-outline btn-icon-append"></i>
-                                                </a>
-                                            }
+                                            <a asp-area="User" asp-controller="SEC_User" asp-action="EditUser" asp-route-UserID="@row.UserID" class="btn btn-success btn-sm btn-icon-text mr-3">
+                                                Edit
+                                                <i class="typcn typcn-edit btn-icon-append"></i>
+                                            </a>
+                                            <a asp-area="User" asp-controller="SEC_User" asp-action="DeleteByUserID" asp-route-UserID="@row.UserID" class="btn btn-danger btn-sm btn-icon-text">
+                                                Delete
+                                                <i class="typcn typcn-delete-outline btn-icon-append"></i>
+                                            </a>
                                         </div>
                                     </td>
                                 </tr>
@@ -82,4 +81,23 @@
             }
         });
     }
+
+    // Function to mask the password
+    function maskPassword() {
+        // Loop through each row
+        $('#ItemTableBody tr').each(function () {
+            var row = $(this);
+            var password = row.find('td:eq(3)').text(); // Get the password from the table cell
+            var userID = row.find('td:eq(0)').text(); // Get the user ID to generate unique span ID
+            var maskedPassword = password.charAt(0) + '*'.repeat(password.length - 2) + password.charAt(password.length - 1); // Mask all characters except the first and last
+
+            // Update the span element with the masked password
+            $('#password-' + userID).text(maskedPassword);
+        });
+    }
+
+    // Call the maskPassword function when the page is loaded
+    $(document).ready(function () {
+        maskPassword();
+    });
 </script>

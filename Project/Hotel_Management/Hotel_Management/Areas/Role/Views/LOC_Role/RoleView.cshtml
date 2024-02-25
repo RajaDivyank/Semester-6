@@ -67,7 +67,7 @@
                                                     Edit
                                                     <i class="typcn typcn-edit btn-icon-append"></i>
                                                 </a>
-                                                <a asp-area="Role" asp-controller="LOC_Role" asp-action="DeleteByRoleID" asp-route-RoleID="@row.RoleID" class="btn btn-danger btn-sm btn-icon-text">
+                                                <a onclick="return confirmDelete();" asp-area="Role" asp-controller="LOC_Role" asp-action="DeleteByRoleID" asp-route-RoleID="@row.RoleID" class="btn btn-danger btn-sm btn-icon-text">
                                                     Delete
                                                     <i class="typcn typcn-delete-outline btn-icon-append"></i>
                                                 </a>
@@ -104,4 +104,8 @@
             }
         });
     }
+   
+        function confirmDelete() {
+            return confirm("Are you sure you want to delete this Project?");
+        }
 </script>

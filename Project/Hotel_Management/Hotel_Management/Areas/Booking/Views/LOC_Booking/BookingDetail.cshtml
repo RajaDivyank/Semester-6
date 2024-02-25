@@ -5,7 +5,7 @@
 <div class="col-12 grid-margin">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Staff Detail</h4>
+            <h4 class="card-title">Booking Detail</h4>
             <div class="row">
                 <div class="col-4 mx-2">
                     <div style="width: 20rem;" class="rounded-circle">
@@ -23,7 +23,7 @@
                         <div class="col-sm-8 form-control form-control-rounded">@Model.MobileNumber</div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-sm-4">Phone Number</div>
+                        <div class="col-sm-4">Booking Status</div>
                         <div class="col-sm-8 form-control form-control-rounded">@Model.BookingStatus</div>
                     </div>
                     <div class="form-group row">
@@ -36,11 +36,11 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-4">Check In</div>
-                        <div class="col-sm-8 form-control form-control-rounded">@Model.CheckIn</div>
+                        <div class="col-sm-8 form-control form-control-rounded">@Convert.ToDateTime(Model.CheckIn).ToShortDateString()</div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-4">Check Out</div>
-                        <div class="col-sm-8 form-control form-control-rounded">@Model.CheckOut</div>
+                        <div class="col-sm-8 form-control form-control-rounded">@Convert.ToDateTime(Model.CheckOut).ToShortDateString()</div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-4">Price</div>

@@ -156,6 +156,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUm9vbVxWaWV3c1xMT0NfUm9vbVxSb29tVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Room/Views/LOC_UserSideRoom/RoomDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUm9vbVxWaWV3c1xMT0NfVXNlclNpZGVSb29tXFJvb21EZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Room/Views/LOC_UserSideRoom/UserSideRoomView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUm9vbVxWaWV3c1xMT0NfVXNlclNpZGVSb29tXFVzZXJTaWRlUm9vbVZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -190,6 +194,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/Staff/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3RhZmZcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/User/Views/SEC_User/EditUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTRUNfVXNlclxFZGl0VXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Semester-6/Project/Hotel_Management/Hotel_Management/Areas/User/Views/SEC_User/Login.cshtml]

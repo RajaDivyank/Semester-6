@@ -3,15 +3,10 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 @{
-    bool isAdmin = true;
-    bool isManager = true;
+    bool isAdmin = false;
     if (CommonVariables.IsAdmin())
     {
         isAdmin = true;
-    }
-    if (CommonVariables.IsManager())
-    {
-        isManager = true;
     }
 }
 @model Hotel_Management.Areas.Staff.Models.LOC_StaffModel;
@@ -66,13 +61,13 @@
                 </div>
             </div>
             <div class="d-flex align-items-center">
-                @if(isAdmin==true && isManager==true){
+                @if(isAdmin==true){
                     <a asp-area="Staff" asp-controller="LOC_Staff" asp-action="StaffAddEdit" asp-route-StaffID="@Model.StaffID" class="btn btn-success btn-sm btn-icon-text mr-3">
                         Edit
                         <i class="typcn typcn-edit btn-icon-append"></i>
                     </a>
                 }
-                <a onclick="history.back()" class="btn btn-info btn-sm btn-icon-text mr-3">
+                <a onclick="history.back()" class="btn btn-info btn-md btn-icon-text mr-3">
                     back
                 </a>
             </div>

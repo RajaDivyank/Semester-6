@@ -9,7 +9,7 @@ namespace Hotel_Management.DAL
         public void OnAuthorization(AuthorizationFilterContext filterContext)
         {
             if (filterContext.HttpContext.Session.GetString("UserID") == null)
-                filterContext.Result = new RedirectResult("~/SEC_User/Index");
+                filterContext.Result = new RedirectResult("~/User/SEC_User/Login");
         }
         public override void OnResultExecuting(ResultExecutingContext context)
         {

@@ -67,6 +67,28 @@
 
             return UserName;
         }
+        public static string? UserEmail()
+        {
+            string? UserEmail = null;
+            if (_httpContextAccessor.HttpContext.Session.GetString("Email") != null)
+            {
+                UserEmail =
+               _httpContextAccessor.HttpContext.Session.GetString("Email").ToString();
+            }
+
+            return UserEmail;
+        }
+        public static string? UserNumber()
+        {
+            string? UserNumber = null;
+            if (_httpContextAccessor.HttpContext.Session.GetString("UserNumber") != null)
+            {
+                UserNumber =
+               _httpContextAccessor.HttpContext.Session.GetString("UserNumber").ToString();
+            }
+
+            return UserNumber;
+        }
 
     }
 }

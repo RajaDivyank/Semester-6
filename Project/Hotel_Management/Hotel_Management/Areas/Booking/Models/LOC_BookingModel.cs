@@ -48,4 +48,12 @@ namespace Hotel_Management.Areas.Booking.Models
         public DateTime? Modified { get; set; }
         public List<LOC_RoomModel> rooms {  get; set; }
     }
+    public class BookingModel
+    {
+        public bool? IsBookingModel { get; set; }
+        public DateTime? CheckIn { get; set; }
+        public DateTime? CheckOut { get; set; }
+        public int? Child { get; set; }
+        public int? Adult { get; set; }
+    }
 }

@@ -33,32 +33,6 @@
                     <input type="file" class="form-control" asp-for="@Model.StaffImageFile" />
                     @* <span asp-validation-for="StaffImage" class="text-danger"></span> *@
                 </div>
-                @* @if (Model != null)
-                {
-                <div class="form-group col-md-4">
-                <label for="exampleFormControlSelect1">@Model.StaffImage</label>
-                </div>
-                } *@
-                @* <div class="form-group">
-                <label>File upload</label>
-                <input type="file" asp-for="@Model.StaffImageFile" class="file-upload-default">
-                <div class="input-group col-xs-12">
-                <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" asp-for="@Model.StaffImage">
-                <span class="input-group-append">
-                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                </span>
-                </div>
-                </div> *@
-                @* <div class="form-group">
-                <label>File upload</label>
-                <input type="file" asp-for="@Model.StaffImageFile" class="file-upload-defaultstaff">
-                <div class="input-group col-xs-12">
-                <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" asp-for="@Model.StaffImage">
-                <span class="input-group-append">
-                <button class="file-upload-browsestaff btn btn-primary" type="button">Upload</button>
-                </span>
-                </div>
-                </div> *@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
@@ -99,8 +73,6 @@
                         </div>
                     </div>
                 </div>
-                @* <div class="row">
-                <div class="col-12"> *@
                 <div class="form-group row">
                     <label class="col-2 col-form-label">Role</label>
                     <div class="col-10">
@@ -113,16 +85,6 @@
                         </select>
                         <span asp-validation-for="RoleID" class="text-danger"></span>
                     </div>
-                    @*  </div>
-                    </div> *@
-                    @* <div class="col-md-6">
-                    <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">User ID</label>
-                    <div class="col-sm-9">
-                    <input class="form-control border border-dark" placeholder="UserID" asp-for="UserID" />
-                    </div>
-                    </div>
-                    </div> *@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
@@ -169,32 +131,6 @@
                     <input type="file" class="form-control" asp-for="@Model.IDProofPhotoFile" />
                     @* <span asp-validation-for="IDProofPhotoPath" class="text-danger"></span> *@
                 </div>
-                @* @if (Model != null)
-                {
-                <div class="form-group col-md-4">
-                <label for="exampleFormControlSelect1">@Model.IDProofPhotoPath</label>
-                </div>
-                } *@
-                @*  <div class="form-group">
-                <label>File upload</label>
-                <input type="file" asp-for="@Model.IDProofPhotoFile" class="file-upload-default">
-                <div class="input-group col-xs-12">
-                <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" asp-for="@Model.IDProofPhotoPath">
-                <span class="input-group-append">
-                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                </span>
-                </div>
-                </div> *@
-                @* <div class="form-group">
-                <label>File upload</label>
-                <input type="file" asp-for="@Model.IDProofPhotoFile" class="file-upload-defaultID">
-                <div class="input-group col-xs-12">
-                <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" asp-for="@Model.IDProofPhotoPath">
-                <span class="input-group-append">
-                <button class="file-upload-browseID btn btn-primary" type="button">Upload</button>
-                </span>
-                </div>
-                </div> *@
                 <button type="submit" class="btn btn-primary mr-2">Save</button>
                 <button class="btn btn-info" onclick="history.back()">Cancel</button>
             </form>

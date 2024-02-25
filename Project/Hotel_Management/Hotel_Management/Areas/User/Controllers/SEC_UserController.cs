@@ -81,20 +81,26 @@ namespace Hotel_Management.Areas.User.Controllers
 			HttpContext.Session.Clear();
 			return RedirectToAction("Index", "Home", new { area = "" });
 		}
-        public IActionResult SignUp()
+        public IActionResult SignUp(int UserID)
         {
-            return View();
+            User_DALBase dal = new User_DALBase();
+			SEC_UserModel model = dal.MST_User_SelectByUserID(UserID);
+            return View(model);
         }
 		public IActionResult SignUpSave(SEC_UserModel model)
 		{
             bool ans = false;
+             User_DALBase dal = new User_DALBase();
             if (ModelState.IsValid)
             {
-                User_DALBase dal = new User_DALBase();
                 if (model.UserID == null)
                 {
                     ans = dal.MST_User_SignUp(model);
                 }
+				else
+				{
+					ans = dal.MST_User_UpdateDetail(model);
+				}
             }
             if (ans)
             {
@@ -115,5 +121,29 @@ namespace Hotel_Management.Areas.User.Controllers
             catch { }
             return RedirectToAction("UserView");
         }
-    }
+		#region Method 8 :- User Update Detail
+		public IActionResult EditUser(int UserID)
+		{
+			User_DALBase user = new User_DALBase();
+			SEC_UserModel model = user.MST_User_SelectByUserID(UserID);
+			return View(model);
+		}
+		#endregion
+		#region Method 9 :- Save User Update
+		public IActionResult SaveUpdate(SEC_UserModel model)
+		{
+            bool ans = false;
+			User_DALBase dALBase = new User_DALBase();
+			ans = dALBase.MST_User_Update(model);
+			if (ans)
+			{
+				return RedirectToAction("UserView");
+			}
+			else
+			{
+				return RedirectToAction("EditUser");
+			}
+		}
+		#endregion
+	}
 }

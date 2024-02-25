@@ -1,77 +1,130 @@
-CREATE PROCEDURE [dbo].[PR_User_SelectAll]
+CREATE OR ALTER  PROCEDURE [dbo].[PR_SEC_User_SelectAll]
 AS
 BEGIN
-SELECT [dbo].[Use_Registration].[UserID],
-	   [dbo].[Use_Registration].[UserName],
-	   [dbo].[Use_Registration].[Email],
-	   [dbo].[Use_Registration].[Password],
-	   [dbo].[Use_Registration].[UserNumber],
-	   [dbo].[Use_Registration].[IsActive],
-	   [dbo].[Use_Registration].[IsAdmin],
-	   [dbo].[Use_Registration].[Created],
-	   [dbo].[Use_Registration].[Modified]
+SELECT [dbo].[MST_User].[UserID],
+	   [dbo].[MST_User].[UserName],
+	   [dbo].[MST_User].[Email],
+	   [dbo].[MST_User].[Password],
+	   [dbo].[MST_User].[UserNumber],
+	   [dbo].[MST_User].[IsActive],
+	   [dbo].[MST_User].[IsAdmin],
+	   [dbo].[MST_User].[IsManager],
+	   [dbo].[MST_User].[Created],
+	   [dbo].[MST_User].[Modified]
 
-FROM [dbo].[Use_Registration]
-ORDER BY [dbo].[Use_Registration].[UserName],
-		 [dbo].[Use_Registration].[Email]
+FROM [dbo].[MST_User]
+ORDER BY [dbo].[MST_User].[UserID],
+		 [dbo].[MST_User].[UserName],
+		 [dbo].[MST_User].[Email]
 END
 
 --============================================================
 
-CREATE PROCEDURE [dbo].[PR_User_SelectByUserID]
-	@UserID int
+CREATE OR ALTER PROCEDURE [dbo].[PR_SEC_User_SelectByUserID] 
+@UserID int
 AS
 BEGIN
-		SELECT	[dbo].[Use_Registration].[UserName],
-				[dbo].[Use_Registration].[Email],
-				[dbo].[Use_Registration].[Password],
-				[dbo].[Use_Registration].[UserNumber],
-				[dbo].[Use_Registration].[IsActive],
-				[dbo].[Use_Registration].[IsAdmin],
-				[dbo].[Use_Registration].[Modified],
-				[dbo].[Use_Registration].[Created]
-FROM [dbo].[Use_Registration]
-WHERE [dbo].[Use_Registration].[UserID] = @UserID
-ORDER BY [dbo].[Use_Registration].[UserName],
-		 [dbo].[Use_Registration].[Email]
+		SELECT	[dbo].[MST_User].[UserID],
+				[dbo].[MST_User].[UserName],
+				[dbo].[MST_User].[Email],
+				[dbo].[MST_User].[Password],
+				[dbo].[MST_User].[UserNumber],
+				[dbo].[MST_User].[IsActive],
+				[dbo].[MST_User].[IsAdmin],
+				[dbo].[MST_User].[IsManager],
+				[dbo].[MST_User].[Modified],
+				[dbo].[MST_User].[Created]
+FROM [dbo].[MST_User]
+WHERE [dbo].[MST_User].[UserID] = @UserID
+ORDER BY [dbo].[MST_User].[UserID]
 END
 
 --============================================================
 
-CREATE PROCEDURE [dbo].[PR_User_DeleteByUserID]
+CREATE OR ALTER PROCEDURE [dbo].[PR_SEC_User_DeleteByUserID]
 	@UserID int
 AS
 BEGIN	
-	DELETE FROM [dbo].[Use_Registration]
-	WHERE [dbo].[Use_Registration].[UserID] = @UserID
+	DELETE FROM [dbo].[MST_User]
+	WHERE [dbo].[MST_User].[UserID] = @UserID
 END
 
 --============================================================
 
-CREATE PROCEDURE [dbo].[PR_User_Insert_Record]
+ALTER   PROCEDURE [dbo].[PR_SEC_User_SignUp]
 	@UserName			varchar(100),
 	@Email				varchar(100),
 	@Password			varchar(50),
-	@UserNumber			varchar(50)
+	@UserNumber			varchar(50),
+	@IsAdmin			bit = false,
+	@IsActive			bit = false,
+	@IsManager			bit = false
 AS
-INSERT INTO [dbo].[Use_Registration]
+BEGIN
+INSERT INTO [dbo].[MST_User]
 (
-	[dbo].[Use_Registration].[UserName],
-	[dbo].[Use_Registration].[Email],
-	[dbo].[Use_Registration].[Password],
-	[dbo].[Use_Registration].[UserNumber]
+	[dbo].[MST_User].[UserName],
+	[dbo].[MST_User].[Email],
+	[dbo].[MST_User].[Password],
+	[dbo].[MST_User].[UserNumber],
+	[dbo].[MST_User].[IsActive],
+	[dbo].[MST_User].[IsAdmin],
+	[dbo].[MST_User].[IsManager],
+	[dbo].[MST_User].[Created],
+	[dbo].[MST_User].[Modified]
 )
 VALUES
 (
 	@UserName,
 	@Email,
 	@Password,
-	@UserNumber
+	@UserNumber,
+	@IsActive,
+	@IsAdmin,
+	@IsManager,
+	GETDATE(),
+	GETDATE()
 )
+END
+--===========================================================
+
+CREATE OR ALTER PROCEDURE [dbo].[PR_SEC_User_SignIn]
+    @EmailOrUserName	VARCHAR(100),
+    @Password			VARCHAR(50)
+AS
+BEGIN
+    SELECT 
+		[dbo].[MST_User].[UserID]
+		,[dbo].[MST_User].[UserName]
+		,[dbo].[MST_User].[Email]
+		,[dbo].[MST_User].[Password]
+		,[dbo].[MST_User].[UserNumber]
+		,[dbo].[MST_User].[IsAdmin]
+		,[dbo].[MST_User].[IsActive]
+		,[dbo].[MST_User].[IsManager]
+    FROM [dbo].[MST_User]
+    WHERE (Email = @EmailOrUserName OR UserName = @EmailOrUserName OR UserNumber = @EmailOrUserName)
+	 AND [dbo].[MST_User].[Password] = @Password
+END
 
 --============================================================
 
-CREATE PROCEDURE [dbo].[PR_User_UpdateByUserID]
+CREATE OR ALTER PROCEDURE [dbo].[PR_SEC_User_UpdateByUserID]
+	@UserID				int,
+	@IsAdmin			bit,
+	@IsManager			bit
+AS
+BEGIN
+UPDATE [dbo].[MST_User]
+	SET 
+		[dbo].[MST_User].[IsAdmin] = @IsAdmin,
+		[dbo].[MST_User].[IsManager] = @IsManager
+	WHERE [dbo].[MST_User].[UserID] = @UserID
+END
+
+--========================================================
+
+CREATE OR ALTER PROCEDURE [dbo].[PR_User_UpdateByUserID]
 	@UserID				int,
 	@UserName			varchar(100),
 	@Email				varchar(100),
@@ -79,10 +132,11 @@ CREATE PROCEDURE [dbo].[PR_User_UpdateByUserID]
 	@UserNumber			varchar(50)
 AS
 BEGIN
-UPDATE [dbo].[Use_Registration]
-	SET [dbo].[Use_Registration].[UserName] = @UserName,
-		[dbo].[Use_Registration].[Email] = @Email,
-		[dbo].[Use_Registration].[Password] = @Password,
-		[dbo].[Use_Registration].[UserNumber] = @UserNumber
-	WHERE [dbo].[Use_Registration].[UserID] = @UserID
+UPDATE [dbo].[MST_User]
+	SET 
+		[dbo].[MST_User].[UserName] = @UserName,
+		[dbo].[MST_User].[Email] = @Email,
+		[dbo].[MST_User].[Password] = @Password,
+		[dbo].[MST_User].[UserNumber] = @UserNumber
+	WHERE [dbo].[MST_User].[UserID] = @UserID
 END

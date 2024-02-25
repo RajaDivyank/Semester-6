@@ -73,7 +73,7 @@
                                                     Edit
                                                     <i class="typcn typcn-edit btn-icon-append"></i>
                                                 </a>
-                                                <a asp-area="Staff" asp-controller="LOC_Staff" asp-action="DeleteByStaffID" asp-route-StaffID="@row.StaffID" class="btn btn-danger btn-sm btn-icon-text mr-3">
+                                                <a onclick="return confirmDelete();" asp-area="Staff" asp-controller="LOC_Staff" asp-action="DeleteByStaffID" asp-route-StaffID="@row.StaffID" class="btn btn-danger btn-sm btn-icon-text mr-3">
                                                     Delete
                                                     <i class="typcn typcn-delete-outline btn-icon-append"></i>
                                                 </a>
@@ -120,5 +120,8 @@
                 row.hide();
             }
         });
+    }
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete this Project?");
     }
 </script>
