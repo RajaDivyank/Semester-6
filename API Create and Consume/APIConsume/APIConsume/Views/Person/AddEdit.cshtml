@@ -34,6 +34,46 @@
         <input asp-for="PersonContact" />
         <span asp-validation-for="PersonContact" class="text-danger"></span>
     </div>
+    <div>
+        <label asp-for="Age"></label>
+        <input asp-for="Age" />
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="ConfirmPassword"></label>
+        <input asp-for="ConfirmPassword" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="CreditCardNumber"></label>
+        <input asp-for="CreditCardNumber" />
+        <span asp-validation-for="CreditCardNumber" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Amount"></label>
+        <input asp-for="Amount" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="CheckedTermsConditions"></label>
+        <input asp-for="CheckedTermsConditions" />
+        <span asp-validation-for="CheckedTermsConditions" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="NoOfFriends"></label>
+        <input asp-for="NoOfFriends" />
+        <span asp-validation-for="NoOfFriends" class="text-danger"></span>
+    </div>
 
     <button type="submit">@pageTitle</button>
 </form>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -44,26 +44,30 @@ namespace APIConsume.Controllers
         public async Task<IActionResult> AddEdit(int id)
         {
             PersonModel model = new PersonModel();
-            if (id == 0)
+            if (ModelState.IsValid)
             {
-                return View(model);
-            }
-            else
-            {
-                HttpResponseMessage response = await _client.GetAsync(_client.BaseAddress + "api/Person/" + id);
-                if (response.IsSuccessStatusCode)
+                if (id == 0)
                 {
-                    string data = response.Content.ReadAsStringAsync().Result;
-                    var responseObject = JsonConvert.DeserializeAnonymousType(data, new { status = false, message = "", data = new PersonModel() });
-                    model = responseObject.data;
                     return View(model);
                 }
                 else
                 {
-                    TempData["message"] = "No Person Found";
-                    return RedirectToAction("Index");
+                    HttpResponseMessage response = await _client.GetAsync(_client.BaseAddress + "api/Person/" + id);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string data = response.Content.ReadAsStringAsync().Result;
+                        var responseObject = JsonConvert.DeserializeAnonymousType(data, new { status = false, message = "", data = new PersonModel() });
+                        model = responseObject.data;
+                        return View(model);
+                    }
+                    else
+                    {
+                        TempData["message"] = "No Person Found";
+                        return RedirectToAction("Index");
+                    }
                 }
             }
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
