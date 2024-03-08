@@ -5,6 +5,112 @@
 <div class="col-12 grid-margin">
     <div class="card">
         <div class="card-body">
+            @if (Model.PaymentID == 0)
+            {
+                <h4 class="card-title">Payment Add</h4>
+            }
+            else
+            {
+                <h4 class="card-title">Payment Edit</h4>
+            }
+            <form class="form-sample" method="post" asp-area="Payment" asp-controller="LOC_Payment" asp-action="SaveForAddEdit">
+                <input type="hidden" asp-for="@Model.PaymentID" />
+                <input type="hidden" asp-for="@Model.BookingID"/>
+                <input type="hidden" asp-for="@Model.paymentmethods" />
+                <input type="hidden" asp-for="@Model.Amount" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Name</label>
+                            <div class="col-sm-9">
+                                <div class="form-control border border-dark">@Model.RegistrationName</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Mobile Number</label>
+                            <div class="col-sm-9">
+                                <div class="form-control border border-dark">@Model.MobileNumber</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Type of Room</label>
+                            <div class="col-sm-9">
+                                <div class="form-control border border-dark">@Model.TypeName</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Price per Day</label>
+                            <div class="col-sm-9">
+                                <div class="form-control border border-dark">@Model.PricePerDay</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Total Days</label>
+                            <div class="col-sm-9">
+                                <div class="form-control border border-dark">@Model.TotalDays</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Amount</label>
+                            <div class="col-sm-9">
+                                <div class="form-control border border-dark">@Model.Amount</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Check In Date</label>
+                            <div class="col-sm-9">
+                                <div class="form-control border border-dark">@Model.CheckIn</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Check Out Date</label>
+                            <div class="col-sm-9">
+                                <div class="form-control border border-dark">@Model.CheckOut</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Type</label>
+                    <div class="col-sm-9">
+                        <select class="form-control border border-dark" asp-for="PaymentMethodID">
+                            <option value="none" selected disabled hidden>Select Type</option>
+                            @foreach (var abc in Model.paymentmethods)
+                            {
+                                <option class="bg-light text-dark" value="@abc.PaymentMethodID">@abc.Method</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Save</button>
+                <button class="btn btn-info" onclick="history.back()">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+@* <div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
             <h4 class="card-title">Payment Add/Edit</h4>
             <form method="post" asp-area="Payment" asp-controller="LOC_Payment" asp-action="SaveForAddEdit">
                 <input type="hidden" asp-for="PaymentID" />
@@ -48,4 +154,4 @@
             </form>
         </div>
     </div>
-</div>
+</div> *@

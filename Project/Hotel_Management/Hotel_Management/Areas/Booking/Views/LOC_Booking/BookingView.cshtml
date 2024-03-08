@@ -25,10 +25,10 @@
                 <h5 class="card-title">Booking Search</h5>
                 <input id="filter-text" class="form-control me-2 m-3 border border-info" onkeyup="filterTable(this)" placeholder="Search" type="text" fdprocessedid="ee7wrj">
                 @* <form method="post" asp-controller="LOC_Booking" asp-action="" asp-area="Booking" class="d-flex w-80" role="search">
-                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Name" name="RegistrationName" />
-                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Number" name="Number" />
-                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="TotalDays" name="TotalDays" />
-                    <button type="submit" class="btn btn-outline-success my-3 h-50">Filter</button>
+                <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Name" name="RegistrationName" />
+                <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Number" name="Number" />
+                <input class="form-control me-2 m-3 border border-info" type="text" placeholder="TotalDays" name="TotalDays" />
+                <button type="submit" class="btn btn-outline-success my-3 h-50">Filter</button>
                 </form> *@
                 <div class="table-responsive pt-3">
                     <table class="table table-striped project-orders-table">
@@ -39,8 +39,6 @@
                                 <th>Mobile Number</th>
                                 <th>totalDays</th>
                                 <th>Status</th>
-                                <th>Check In Date</th>
-                                <th>Check Out Date</th>
                                 <th>Created</th>
                                 <th>Modified</th>
                                 <th>Actions</th>
@@ -55,8 +53,6 @@
                                     <td>@row.MobileNumber</td>
                                     <td>@row.TotalDays</td>
                                     <td>@row.BookingStatus</td>
-                                    <td>@Convert.ToDateTime(row.CheckIn).ToString("dd-MM-yyyy")</td>
-                                    <td>@Convert.ToDateTime(row.CheckOut).ToString("dd-MM-yyyy")</td>
                                     <td>@Convert.ToDateTime(row.Created).ToString("dd-MM-yyyy")</td>
                                     <td>@Convert.ToDateTime(row.Created).ToString("dd-MM-yyyy")</td>
                                     <td>
@@ -69,10 +65,17 @@
                                                 Delete
                                                 <i class="typcn typcn-delete-outline btn-icon-append"></i>
                                             </a>
-                                            <a asp-area="Booking" asp-controller="LOC_Booking" asp-action="BookingDetail" asp-route-BookingID="@row.BookingID" class="btn btn-info btn-sm btn-icon-text">
+                                            <a asp-area="Booking" asp-controller="LOC_Booking" asp-action="BookingDetail" asp-route-BookingID="@row.BookingID" class="btn btn-info btn-sm btn-icon-text mr-3">
                                                 Detail
                                                 <i class="typcn typcn-delete-outline btn-icon-append"></i>
                                             </a>
+                                            @if (row.BookingStatus == "Booked")
+                                            {
+                                                <a asp-area="Payment" asp-controller="LOC_Payment" asp-action="PaymentAddEdit" asp-route-BookingID="@row.BookingID" class="btn btn-info btn-sm btn-icon-text">
+                                                    Payment
+                                                    <i class="typcn typcn-delete-outline btn-icon-append"></i>
+                                                </a>
+                                            }
                                         </div>
                                     </td>
                                 </tr>
@@ -97,12 +100,10 @@
             var name = row.find('td:eq(1)').text().toLowerCase();
             var number = row.find('td:eq(2)').text().toLowerCase();
             var days = row.find('td:eq(3)').text().toLowerCase();
-            var checkin = row.find('td:eq(4)').text().toLowerCase();
-            var checkout = row.find('td:eq(5)').text().toLowerCase();
-            var created = row.find('td:eq(6)').text().toLowerCase();
-            var modified = row.find('td:eq(7)').text().toLowerCase();
+            var created = row.find('td:eq(4)').text().toLowerCase();
+            var modified = row.find('td:eq(5)').text().toLowerCase();
 
-            if (id.includes(stext) || name.includes(stext) || number.includes(stext) || days.includes(stext) || checkin.includes(stext) || checkout.includes(stext) || created.includes(stext) || modified.includes(stext)) {
+            if (id.includes(stext) || name.includes(stext) || number.includes(stext) || days.includes(stext) || created.includes(stext) || modified.includes(stext)) {
                 row.show();
             } else {
                 row.hide();

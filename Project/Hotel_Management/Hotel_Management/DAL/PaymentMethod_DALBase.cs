@@ -3,6 +3,7 @@ using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 using System.Data.Common;
 using System.Data;
 using Hotel_Management.Areas.PaymentMethod.Models;
+using Hotel_Management.BAL;
 
 namespace Hotel_Management.DAL
 {
@@ -76,7 +77,7 @@ namespace Hotel_Management.DAL
             {
                 SqlDatabase db = new SqlDatabase(ConnStr);
                 DbCommand cmd = db.GetStoredProcCommand("PR_PaymentMethod_InsertRecord");
-                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, model.UserID);
+                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, CommonVariables.UserID());
                 db.AddInParameter(cmd, "@Method", SqlDbType.VarChar, model.Method);
                 int noOfRows = db.ExecuteNonQuery(cmd);
                 if (noOfRows > 0) { return true; }
@@ -96,7 +97,7 @@ namespace Hotel_Management.DAL
             {
                 SqlDatabase db = new SqlDatabase(ConnStr);
                 DbCommand cmd = db.GetStoredProcCommand("PR_PaymentMethod_UpdateRecord");
-                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, model.UserID);
+                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, CommonVariables.UserID());
                 db.AddInParameter(cmd, "@PaymentMethodID", SqlDbType.Int, model.PaymentMethodID);
                 db.AddInParameter(cmd, "@Method", SqlDbType.VarChar, model.Method);
                 int noOfRows = db.ExecuteNonQuery(cmd);

@@ -55,11 +55,11 @@
                                     <td>@Convert.ToDateTime(row.Modified).ToString("dd-MM-yyyy")</td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <a asp-area="Payment" asp-controller="LOC_Payment" asp-action="PaymentAddEdit" asp-route-PaymentID="@row.PaymentID" class="btn btn-success btn-sm btn-icon-text mr-3">
+                                            <a asp-area="Payment" asp-controller="LOC_Payment" asp-action="PaymentEdit" asp-route-PaymentID="@row.PaymentID" asp-route-BookingID="@row.BookingID" class="btn btn-success btn-sm btn-icon-text mr-3">
                                                 Edit
                                                 <i class="typcn typcn-edit btn-icon-append"></i>
                                             </a>
-                                            <a asp-area="PaymentMethod" asp-controller="LOC_PaymentMethod" asp-action="DeleteByPaymentMethodID" asp-route-PaymentID="@row.PaymentID" class="btn btn-danger btn-sm btn-icon-text">
+                                            <a asp-area="Payment" asp-controller="LOC_Payment" asp-action="DeleteByPaymentID" asp-route-PaymentID="@row.PaymentID" class="btn btn-danger btn-sm btn-icon-text">
                                                 Delete
                                                 <i class="typcn typcn-delete-outline btn-icon-append"></i>
                                             </a>
@@ -74,9 +74,9 @@
         </div>
     </div>
 </div>
-<div class="floating-container">
+@* <div class="floating-container">
     <a asp-area="Payment" asp-controller="LOC_Payment" asp-action="PaymentAddEdit"><div class="floating-button">+</div></a>
-</div>
+</div> *@
 <script>
     function filterTable(searchText) {
         console.log(searchText.value);

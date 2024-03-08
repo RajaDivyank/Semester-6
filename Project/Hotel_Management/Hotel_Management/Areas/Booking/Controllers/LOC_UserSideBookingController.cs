@@ -29,7 +29,10 @@ namespace Hotel_Management.Areas.Booking.Controllers
         {
 
             Booking_DALBase dALBase = new Booking_DALBase();
-            return View(dALBase.MST_Booking_SelectAll());
+            BookingModel bookingModel = new BookingModel();
+            var bookinglist = dALBase.MST_Booking_SelectAll();
+            var vModel = new Tuple<BookingModel,List<LOC_BookingModel>>(bookingModel, bookinglist);
+            return View(vModel);
         }
         #endregion
         #region Method 3 :- Save Booking
@@ -91,13 +94,8 @@ namespace Hotel_Management.Areas.Booking.Controllers
         [HttpPost]
         public IActionResult SaveByForm(BookingModel model)
         {
-            /*BookingModel model1 = model;
-            model1.IsBookingModel = model.IsBookingModel;
-            model1.CheckIn = model.CheckIn;
-            model1.CheckOut = model.CheckOut;
-            model1.Adult = model.Adult;
-            model1.Child = model.Child;*/
             TempData["model1"] = JsonConvert.SerializeObject(model);
+            TempData["form"] = true;
             return RedirectToAction("UserSideRoomView", "LOC_UserSideRoom", new { area = "Room" });
         }
         #endregion

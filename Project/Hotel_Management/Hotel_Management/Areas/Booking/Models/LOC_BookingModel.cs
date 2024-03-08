@@ -50,7 +50,6 @@ namespace Hotel_Management.Areas.Booking.Models
     }
     public class BookingModel
     {
-        public bool? IsBookingModel { get; set; }
         public DateTime? CheckIn { get; set; }
         public DateTime? CheckOut { get; set; }
         public int? Child { get; set; }

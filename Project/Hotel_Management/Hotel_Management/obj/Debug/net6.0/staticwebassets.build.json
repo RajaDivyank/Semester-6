@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "166anY9vzwYC/+IREQC/wYIhleo4jN3qY6vgg1g4q9k=",
+  "Hash": "bOBC850JNnkpJoyxzIKehFiNX92//+eIIFC/LdR9gzs=",
   "Source": "Hotel_Management",
   "BasePath": "_content/Hotel_Management",
   "Mode": "Default",
@@ -26637,6 +26637,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\IMG_20231017_210958.jpg"
+    },
+    {
+      "Identity": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\IMG_20231017_211009.jpg",
+      "SourceId": "Hotel_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\",
+      "BasePath": "_content/Hotel_Management",
+      "RelativePath": "Images/IMG_20231017_211009.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\IMG_20231017_211009.jpg"
     },
     {
       "Identity": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\IMG_20231017_211248.jpg",

@@ -1,7 +1,9 @@
-﻿@{
+﻿@using Hotel_Management.Areas.Booking.Models;
+@using Hotel_Management.Areas.Contact.Models;
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model Hotel_Management.Areas.Contact.Models.LOC_ContactModel;
+@model Tuple<BookingModel,LOC_ContactModel>;
 @if (TempData["Message"] != null)
 {
     @if (Convert.ToBoolean(TempData["Bool"]))
@@ -23,13 +25,13 @@
     <div class="container-fluid page-header-inner py-5">
         <div class="container text-center pb-5">
             <h1 class="display-3 text-white mb-3 animated slideInDown">Contact</h1>
-            <nav aria-label="breadcrumb">
+            @* <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center text-uppercase">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Pages</a></li>
                     <li class="breadcrumb-item text-white active" aria-current="page">Contact</li>
                 </ol>
-            </nav>
+            </nav> *@
         </div>
     </div>
 </div>
@@ -38,42 +40,51 @@
 <div class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container">
         <div class="bg-white shadow" style="padding: 35px;">
-            <div class="row g-2">
-                <div class="col-md-10">
-                    <div class="row g-2">
-                        <div class="col-md-3">
-                            <div class="date" id="date1" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input"
-                                       placeholder="Check in" data-target="#date1" data-toggle="datetimepicker" />
+            <form method="post" asp-area="Booking" asp-controller="LOC_UserSideBooking" asp-action="SaveByForm">
+                <div class="row g-2">
+                    <div class="col-md-10">
+                        <div class="row g-2">
+                            <div class="col-md-3">
+                                <input type="date" class="form-control" placeholder="dd/mm/yyyy" name="CheckIn" value="@(Model.Item1.CheckIn)" />
+                                @* <div class="date" id="date1" data-target-input="nearest">
+                                < input type="text" class="form-control datetimepicker-input"
+                                placeholder="Check in" data-target="#date1" data-toggle="datetimepicker" />
+                                </div> *@
                             </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="date" id="date2" data-target-input="nearest">
+                            <div class="col-md-3">
+                                <input type="date" class="form-control" placeholder="dd/mm/yyyy" name="CheckOut" value="@(Model.Item1.CheckOut)" />
+                                @* <input type="date" class="form-control" placeholder="dd/mm/yyyy" name="CheckOut" value="@(Model.Item1.CheckOut)" /> *@
+                                @*  <div class="date" id="date2" data-target-input="nearest">
                                 <input type="text" class="form-control datetimepicker-input" placeholder="Check out" data-target="#date2" data-toggle="datetimepicker" />
+                                </div> *@
                             </div>
-                        </div>
-                        <div class="col-md-3">
-                            <select class="form-select">
-                                <option selected>Adult</option>
-                                <option value="1">Adult 1</option>
-                                <option value="2">Adult 2</option>
-                                <option value="3">Adult 3</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <select class="form-select">
-                                <option selected>Child</option>
-                                <option value="1">Child 1</option>
-                                <option value="2">Child 2</option>
-                                <option value="3">Child 3</option>
-                            </select>
+                            <div class="col-md-3">
+                                <select class="form-select" name="Adult" asp-for="@Model.Item1.Adult">
+                                    <option selected>Adult</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-select" name="Child" asp-for="@Model.Item1.Child">
+                                    <option selected>Child</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    </div>
                 </div>
-                <div class="col-md-2">
-                    <button class="btn btn-primary w-100">Submit</button>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
@@ -114,38 +125,30 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name" asp-for="Name">
-                                    <label for="name">Your Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name" name="Name" value="@Model.Item2.Name">
+                                    <label for="name">Your Name<span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Item2.Name" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email" asp-for="Email">
-                                    <label for="email">Your Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email" name="Email" value="@Model.Item2.Email">
+                                    <label for="email">Your Email<span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Item2.Email" class="text-danger"></span>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject" asp-for="Subject">
-                                    <label for="subject">Subject</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="userid" placeholder="Subject" asp-for="UserID">
-                                    <label for="userid">User ID</label>
-                                </div>
-                            </div>
-                            @* <div class="col-12">
+                            <div class="col-12">
                             <div class="form-floating">
-                            <input type="text" class="form-control" id="subject" placeholder="Subject" asp-for="Subject">
-                            <label for="subject">Subject</label>
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject" name="Subject" value="@Model.Item2.Subject">
+                                    <label for="subject">Subject<span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Item2.Subject" class="text-danger"></span>
                             </div>
-                            </div> *@
+                            </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px" asp-for="Message"></textarea>
-                                    <label for="message">Message</label>
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px" name="Message" value="@Model.Item2.Message"></textarea>
+                                    <label for="message">Message<span class="text-danger">*</span></label>
+                                    <span asp-validation-for="Item2.Message" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -159,3 +162,8 @@
     </div>
 </div>
 <!-- Contact End -->
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

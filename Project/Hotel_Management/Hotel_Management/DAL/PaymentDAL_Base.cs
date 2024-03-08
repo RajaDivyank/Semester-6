@@ -86,9 +86,9 @@ namespace Hotel_Management.DAL
             {
                 SqlDatabase db = new SqlDatabase(ConnStr);
                 DbCommand cmd = db.GetStoredProcCommand("PR_Payment_InsertRecord");
-                db.AddInParameter(cmd, "@BookingID", SqlDbType.Int, model.BookingID);
                 db.AddInParameter(cmd, "@PaymentMethodID", SqlDbType.Int, model.PaymentMethodID);
                 db.AddInParameter(cmd, "@UserID", SqlDbType.Int, CommonVariables.UserID());
+                db.AddInParameter(cmd, "@BookingID", SqlDbType.Int, model.BookingID);
                 db.AddInParameter(cmd, "@Amount", SqlDbType.Decimal, model.Amount);
                 int noOfRows = db.ExecuteNonQuery(cmd);
                 if (noOfRows > 0) { return true; }

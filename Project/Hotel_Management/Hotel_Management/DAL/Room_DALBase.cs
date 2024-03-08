@@ -141,7 +141,7 @@ namespace Hotel_Management.DAL
         {
             List<LOC_RoomModel> list = new List<LOC_RoomModel>();
             SqlDatabase db = new SqlDatabase(ConnStr);
-            DbCommand cmd = db.GetStoredProcCommand("PR_Role_Filter");
+            DbCommand cmd = db.GetStoredProcCommand("PR_Room_Filter");
             db.AddInParameter(cmd, "@TypeName", SqlDbType.VarChar, TypeName);
             db.AddInParameter(cmd, "@Status", SqlDbType.VarChar, Status);
             db.AddInParameter(cmd, "@child", SqlDbType.Int, child);
@@ -169,5 +169,38 @@ namespace Hotel_Management.DAL
             return list;
         }
         #endregion
-    }
+        #region Method 7 :- User Side Room Filter
+        public List<LOC_RoomModel> RoomFilter(int child, int adult)
+        {
+            List<LOC_RoomModel> list = new List<LOC_RoomModel>();
+            SqlDatabase db = new SqlDatabase(ConnStr);
+            DbCommand cmd = db.GetStoredProcCommand("Room_Filter");
+            db.AddInParameter(cmd, "@child", SqlDbType.Int, child);
+            db.AddInParameter(cmd, "@Adult", SqlDbType.Int, adult);
+            using (IDataReader reader = db.ExecuteReader(cmd))
+            {
+                while (reader.Read())
+                {
+                    LOC_RoomModel model = new LOC_RoomModel();
+                    model.RoomID = Convert.ToInt32(reader["RoomID"]);
+                    model.UserID = Convert.ToInt32(reader["UserID"]);
+                    model.RoomTypeID = Convert.ToInt32(reader["RoomTypeID"]);
+                    model.StatusID = Convert.ToInt32(reader["StatusID"]);
+                    model.RoomImage = reader["RoomImage"].ToString();
+                    model.TypeName = reader["TypeName"].ToString();
+                    model.Status = reader["Status"].ToString();
+                    model.UserName = reader["UserName"].ToString();
+                    model.PricePerDay = Convert.ToDecimal(reader["PricePerDay"].ToString());
+                    model.Description = reader["Description"].ToString();
+                    model.ChildCapacity = Convert.ToInt32(reader["ChildCapacity"]);
+                    model.AdultCapacity = Convert.ToInt32(reader["AdultCapacity"]);
+                    model.Created = Convert.ToDateTime(reader["Created"]);
+                    model.Modified = Convert.ToDateTime(reader["Modified"]);
+                    list.Add(model);
+                }
+            }
+            return list;
+        }
+            #endregion
+        }
 }

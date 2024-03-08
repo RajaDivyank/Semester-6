@@ -2,7 +2,7 @@
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 using System.Data.Common;
 using System.Data;
-using Hotel_Management.Areas.Roomtype.Models;
+using Hotel_Management.BAL;
 
 namespace Hotel_Management.DAL
 {
@@ -82,7 +82,7 @@ namespace Hotel_Management.DAL
             {
                 SqlDatabase db = new SqlDatabase(ConnStr);
                 DbCommand cmd = db.GetStoredProcCommand("PR_Contact_InsertRecord");
-                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, model.UserID);
+                db.AddInParameter(cmd, "@UserID", SqlDbType.Int, CommonVariables.UserID());
                 db.AddInParameter(cmd, "@Name", SqlDbType.VarChar, model.Name);
                 db.AddInParameter(cmd, "@Email", SqlDbType.VarChar, model.Email);
                 db.AddInParameter(cmd, "@Subject", SqlDbType.VarChar, model.Subject);
@@ -105,7 +105,7 @@ namespace Hotel_Management.DAL
             {
                 SqlDatabase db = new SqlDatabase(ConnStr);
                 DbCommand cmd = db.GetStoredProcCommand("PR_Contact_UpdateRecord");
-                db.AddInParameter(cmd, "@ContactID", SqlDbType.Int, model.ContactID);
+                db.AddInParameter(cmd, "@ContactID", SqlDbType.Int, CommonVariables.UserID());
                 db.AddInParameter(cmd, "@UserID", SqlDbType.Int, model.UserID);
                 db.AddInParameter(cmd, "@Name", SqlDbType.VarChar, model.Name);
                 db.AddInParameter(cmd, "@Email", SqlDbType.VarChar, model.Email);
