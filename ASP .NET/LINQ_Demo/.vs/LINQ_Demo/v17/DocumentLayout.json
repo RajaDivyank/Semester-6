@@ -1,0 +1,79 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Semester-6\\ASP .NET\\LINQ_Demo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{82B70825-C8C5-4913-80B2-4DA6C5BC3E16}|LINQ_Demo\\LINQ_Demo.csproj|d:\\semester-6\\asp .net\\linq_demo\\linq_demo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82B70825-C8C5-4913-80B2-4DA6C5BC3E16}|LINQ_Demo\\LINQ_Demo.csproj|solutionrelative:linq_demo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82B70825-C8C5-4913-80B2-4DA6C5BC3E16}|LINQ_Demo\\LINQ_Demo.csproj|d:\\semester-6\\asp .net\\linq_demo\\linq_demo\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82B70825-C8C5-4913-80B2-4DA6C5BC3E16}|LINQ_Demo\\LINQ_Demo.csproj|solutionrelative:linq_demo\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82B70825-C8C5-4913-80B2-4DA6C5BC3E16}|LINQ_Demo\\LINQ_Demo.csproj|d:\\semester-6\\asp .net\\linq_demo\\linq_demo\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82B70825-C8C5-4913-80B2-4DA6C5BC3E16}|LINQ_Demo\\LINQ_Demo.csproj|solutionrelative:linq_demo\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\Semester-6\\ASP .NET\\LINQ_Demo\\LINQ_Demo\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "LINQ_Demo\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\Semester-6\\ASP .NET\\LINQ_Demo\\LINQ_Demo\\ApplicationDbContext.cs",
+              "RelativeToolTip": "LINQ_Demo\\ApplicationDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-11T07:48:04.822Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "D:\\Semester-6\\ASP .NET\\LINQ_Demo\\LINQ_Demo\\Employee.cs",
+              "RelativeDocumentMoniker": "LINQ_Demo\\Employee.cs",
+              "ToolTip": "D:\\Semester-6\\ASP .NET\\LINQ_Demo\\LINQ_Demo\\Employee.cs",
+              "RelativeToolTip": "LINQ_Demo\\Employee.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAswBkAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-11T07:45:25.429Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Semester-6\\ASP .NET\\LINQ_Demo\\LINQ_Demo\\Program.cs",
+              "RelativeDocumentMoniker": "LINQ_Demo\\Program.cs",
+              "ToolTip": "D:\\Semester-6\\ASP .NET\\LINQ_Demo\\LINQ_Demo\\Program.cs*",
+              "RelativeToolTip": "LINQ_Demo\\Program.cs*",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAQwAgAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-11T07:44:13.378Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

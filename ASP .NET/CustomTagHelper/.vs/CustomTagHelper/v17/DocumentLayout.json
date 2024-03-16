@@ -1,0 +1,79 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Semester-6\\ASP .NET\\CustomTagHelper\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C5F4C4D2-B70B-4075-9D77-88F0AB4DA14E}|CustomTagHelper\\CustomTagHelper.csproj|d:\\semester-6\\asp .net\\customtaghelper\\customtaghelper\\helpers\\customdemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5F4C4D2-B70B-4075-9D77-88F0AB4DA14E}|CustomTagHelper\\CustomTagHelper.csproj|solutionrelative:customtaghelper\\helpers\\customdemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5F4C4D2-B70B-4075-9D77-88F0AB4DA14E}|CustomTagHelper\\CustomTagHelper.csproj|d:\\semester-6\\asp .net\\customtaghelper\\customtaghelper\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C5F4C4D2-B70B-4075-9D77-88F0AB4DA14E}|CustomTagHelper\\CustomTagHelper.csproj|solutionrelative:customtaghelper\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5F4C4D2-B70B-4075-9D77-88F0AB4DA14E}|CustomTagHelper\\CustomTagHelper.csproj|d:\\semester-6\\asp .net\\customtaghelper\\customtaghelper\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C5F4C4D2-B70B-4075-9D77-88F0AB4DA14E}|CustomTagHelper\\CustomTagHelper.csproj|solutionrelative:customtaghelper\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "D:\\Semester-6\\ASP .NET\\CustomTagHelper\\CustomTagHelper\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "CustomTagHelper\\Views\\_ViewImports.cshtml",
+              "ToolTip": "D:\\Semester-6\\ASP .NET\\CustomTagHelper\\CustomTagHelper\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "CustomTagHelper\\Views\\_ViewImports.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-15T03:54:02.682Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Semester-6\\ASP .NET\\CustomTagHelper\\CustomTagHelper\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "CustomTagHelper\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\Semester-6\\ASP .NET\\CustomTagHelper\\CustomTagHelper\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "CustomTagHelper\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-15T03:44:25.765Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CustomDemo.cs",
+              "DocumentMoniker": "D:\\Semester-6\\ASP .NET\\CustomTagHelper\\CustomTagHelper\\Helpers\\CustomDemo.cs",
+              "RelativeDocumentMoniker": "CustomTagHelper\\Helpers\\CustomDemo.cs",
+              "ToolTip": "D:\\Semester-6\\ASP .NET\\CustomTagHelper\\CustomTagHelper\\Helpers\\CustomDemo.cs",
+              "RelativeToolTip": "CustomTagHelper\\Helpers\\CustomDemo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-15T03:43:00.648Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
