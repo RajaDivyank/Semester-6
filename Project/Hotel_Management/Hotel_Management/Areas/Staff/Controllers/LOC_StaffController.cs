@@ -121,7 +121,7 @@ namespace Hotel_Management.Areas.Staff.Controllers
             {
                 if (model.StaffID != null)
                 {
-                    TempData["Message"] = "Staff Edit Successfully";
+                    /*TempData["Message"] = "Staff Edit Successfully";*/
                     ans = bal.MST_Staff_Update(model);
                 }
                 else

@@ -14,8 +14,10 @@ namespace Hotel_Management.Areas.User.Models
 		[Required(ErrorMessage = "Password is required")]
 
         public string? Password { get; set; }
-		[Required(ErrorMessage = "Number is required")]
-		public string? UserNumber { get; set; }
+        [Required(ErrorMessage = "Phone number is required")]
+        [MaxLength(10)]
+        [StringLength(10, ErrorMessage = "Number must be 10 digit", MinimumLength = 10)]
+        public string? UserNumber { get; set; }
 		[Required(ErrorMessage = "Email is required")]
 		public string? Email { get; set; }
         public DateTime Created { get; set; }

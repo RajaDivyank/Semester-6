@@ -112,7 +112,6 @@ namespace Hotel_Management.DAL
                 db.AddInParameter(cmd, "@BookingID", SqlDbType.Int, model.BookingID);
                 db.AddInParameter(cmd, "@PaymentMethodID", SqlDbType.Int, model.PaymentMethodID);
                 db.AddInParameter(cmd, "@UserID", SqlDbType.Int, CommonVariables.UserID());
-                db.AddInParameter(cmd, "@Amount", SqlDbType.Decimal, model.Amount);
                 int noOfRows = db.ExecuteNonQuery(cmd);
                 if (noOfRows > 0) { return true; }
                 else { return false; }

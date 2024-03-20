@@ -23,14 +23,19 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Room Search</h5>
-                <input id="filter-text" class="form-control me-2 m-3 border border-info" onkeyup="filterTable(this)" placeholder="Search" type="text" fdprocessedid="ee7wrj">
-                @* <form method="post" asp-controller="LOC_Room" asp-action="RoomSearch" asp-area="Room" class="d-flex w-80" role="search">
-                <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Type" name="TypeName" />
-                <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Status" name="Status" />
-                <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Child" name="child" />
-                <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Adult" name="Adult" />
-                <button type="submit" class="btn btn-outline-success my-3 h-50">Filter</button>
-                </form> *@
+                <div class="row">
+                    <input class="col form-control me-2 m-3 border border-info" type="text" id="Type" placeholder="Filter by Type" oninput="filterRooms()" />
+                    <input class="col form-control me-2 m-3 border border-info" type="text" id="Status" placeholder="Filter by Status" oninput="filterRooms()" />
+                    <input class="col form-control me-2 m-3 border border-info" type="text" id="Child" placeholder="Filter by Child" oninput="filterRooms()" />
+                    <input class="col form-control me-2 m-3 border border-info" type="text" id="Adult" placeholder="Filter by Adult" oninput="filterRooms()" />
+                </div>
+                <form method="post" asp-controller="LOC_Room" asp-action="RoomSearch" asp-area="Room" class="d-flex w-80" role="search">
+                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Type" name="TypeName" />
+                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Status" name="Status" />
+                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Child" name="child" />
+                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Adult" name="Adult" />
+                    <button type="submit" class="btn btn-outline-success my-3 h-50">Filter</button>
+                </form>
                 <div class="table-responsive pt-3">
                     <table class="table table-striped project-orders-table">
                         <thead>
@@ -45,10 +50,10 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        @foreach (var row in Model)
-                        {
-                            <tbody id="ItemTableBody">
-                                <tr>
+                        <tbody>
+                            @foreach (var row in Model)
+                            {
+                                <tr class="room-item" data-type="@row.TypeName" data-status="@row.Status" data-child="@row.ChildCapacity" data-adult="@row.AdultCapacity">
                                     <td>@row.RoomID</td>
                                     <td>@row.TypeName</td>
                                     <td>@row.Status</td>
@@ -59,22 +64,19 @@
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <a asp-area="Room" asp-controller="LOC_Room" asp-action="RoomAddEdit" asp-route-RoomID="@row.RoomID" class="btn btn-success btn-sm btn-icon-text mr-3">
-                                                Edit
                                                 <i class="typcn typcn-edit btn-icon-append"></i>
                                             </a>
                                             <a onclick="return confirmDelete();" asp-area="Room" asp-controller="LOC_Room" asp-action="DeleteByRoomID" asp-route-RoomID="@row.RoomID" class="btn btn-danger btn-sm btn-icon-text mr-3">
-                                                Delete
-                                                <i class="typcn typcn-delete-outline btn-icon-append"></i>
+                                                <i class="bi bi-trash3"></i>
                                             </a>
                                             <a asp-area="Room" asp-controller="LOC_Room" asp-action="RoomDetail" asp-route-RoomID="@row.RoomID" class="btn btn-info btn-sm btn-icon-text">
-                                                Detali
-                                                <i class="typcn typcn-delete-outline btn-icon-append"></i>
+                                                <i class="bi bi-three-dots-vertical"></i>
                                             </a>
                                         </div>
                                     </td>
                                 </tr>
-                            </tbody>
-                        }
+                            }
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -85,25 +87,20 @@
     <a asp-area="Room" asp-controller="LOC_Room" asp-action="RoomAddEdit"><div class="floating-button">+</div></a>
 </div>
 <script>
-    function filterTable(searchText) {
-        console.log(searchText.value);
-        var stext = searchText.value.toLowerCase();
-        $('#ItemTableBody tr').each(function () {
-            var row = $(this);
-            var id = row.find('td:eq(0)').text().toLowerCase();
-            var type = row.find('td:eq(1)').text().toLowerCase();
-            var status = row.find('td:eq(2)').text().toLowerCase();
-            var child = row.find('td:eq(3)').text().toLowerCase();
-            var adult = row.find('td:eq(4)').text().toLowerCase();
-            var created = row.find('td:eq(5)').text().toLowerCase();
-            var modified = row.find('td:eq(6)').text().toLowerCase();
-
-            if (id.includes(stext) || type.includes(stext) || status.includes(stext) || child.includes(stext) || adult.includes(stext) || created.includes(stext) || modified.includes(stext)) {
-                row.show();
-            } else {
-                row.hide();
-            }
-        });
+    function filterRooms() {
+        var inputType = document.getElementById('Type').value.toUpperCase();
+        var inputStatus = document.getElementById('Status').value.toUpperCase();
+        var inputChild = document.getElementById('Child').value.toUpperCase();
+        var inputAdult = document.getElementById('Adult').value.toUpperCase();
+        var rooms = document.getElementsByClassName('room-item');
+        for (var i = 0; i < rooms.length; i++) {
+            var RoomType = rooms[i].getAttribute('data-type').toUpperCase();
+            var RoomStatus = rooms[i].getAttribute('data-status').toUpperCase();
+            var Child = rooms[i].getAttribute('data-child').toUpperCase();
+            var Adult = rooms[i].getAttribute('data-adult').toUpperCase();
+            var display = (RoomType.indexOf(inputType) > -1 && RoomStatus.indexOf(inputStatus) > -1 && Child.indexOf(inputChild) > -1 && Adult.indexOf(inputAdult) > -1) ? 'table-row' : 'none';
+            rooms[i].style.display = display;
+        }
     }
     function confirmDelete() {
         return confirm("Are you sure you want to delete this Project?");

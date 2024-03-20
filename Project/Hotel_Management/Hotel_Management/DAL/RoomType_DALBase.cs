@@ -1,8 +1,8 @@
-﻿using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
-using System.Data.Common;
+﻿using System.Data.Common;
 using System.Data;
 using Hotel_Management.Areas.Roomtype.Models;
 using Hotel_Management.BAL;
+using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 
 namespace Hotel_Management.DAL
 {

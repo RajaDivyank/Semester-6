@@ -56,12 +56,10 @@
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <a asp-area="Payment" asp-controller="LOC_Payment" asp-action="PaymentEdit" asp-route-PaymentID="@row.PaymentID" asp-route-BookingID="@row.BookingID" class="btn btn-success btn-sm btn-icon-text mr-3">
-                                                Edit
-                                                <i class="typcn typcn-edit btn-icon-append"></i>
+                                                <i class="bi bi-pencil-square"></i>
                                             </a>
                                             <a asp-area="Payment" asp-controller="LOC_Payment" asp-action="DeleteByPaymentID" asp-route-PaymentID="@row.PaymentID" class="btn btn-danger btn-sm btn-icon-text">
-                                                Delete
-                                                <i class="typcn typcn-delete-outline btn-icon-append"></i>
+                                                <i class="bi bi-trash3"></i>
                                             </a>
                                         </div>
                                     </td>

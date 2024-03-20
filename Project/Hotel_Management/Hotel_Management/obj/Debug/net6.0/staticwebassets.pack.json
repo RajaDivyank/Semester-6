@@ -145,6 +145,10 @@
       "PackagePath": "staticwebassets\\Adminassets\\fonts\\Poppins\\Poppins-SemiBold.woff2"
     },
     {
+      "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Adminassets\\images\\Animated A.gif",
+      "PackagePath": "staticwebassets\\Adminassets\\images\\Animated A.gif"
+    },
+    {
       "Id": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Adminassets\\images\\auth\\lockscreen-bg.jpg",
       "PackagePath": "staticwebassets\\Adminassets\\images\\auth\\lockscreen-bg.jpg"
     },

@@ -222,7 +222,6 @@ D:\Semester-6\Project\Hotel_Management\Hotel_Management\bin\Debug\net6.0\runtime
 D:\Semester-6\Project\Hotel_Management\Hotel_Management\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\Semester-6\Project\Hotel_Management\Hotel_Management\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\Semester-6\Project\Hotel_Management\Hotel_Management\obj\Debug\net6.0\Hotel_Management.csproj.AssemblyReference.cache
-D:\Semester-6\Project\Hotel_Management\Hotel_Management\obj\Debug\net6.0\Hotel_Management.csproj.CopyComplete
 D:\Semester-6\Project\Hotel_Management\Hotel_Management\bin\Debug\net6.0\Microsoft.Practices.EnterpriseLibrary.Common.dll
 D:\Semester-6\Project\Hotel_Management\Hotel_Management\bin\Debug\net6.0\Microsoft.Practices.EnterpriseLibrary.Data.dll
 D:\Semester-6\Project\Hotel_Management\Hotel_Management\bin\Debug\net6.0\Oracle.ManagedDataAccess.dll
@@ -242,3 +241,5 @@ D:\Semester-6\Project\Hotel_Management\Hotel_Management\bin\Debug\net6.0\runtime
 D:\Semester-6\Project\Hotel_Management\Hotel_Management\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\Semester-6\Project\Hotel_Management\Hotel_Management\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\Semester-6\Project\Hotel_Management\Hotel_Management\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
+D:\Semester-6\Project\Hotel_Management\Hotel_Management\obj\Debug\net6.0\Hotel_Management.sourcelink.json
+D:\Semester-6\Project\Hotel_Management\Hotel_Management\obj\Debug\net6.0\Hotel_Ma.0EC9D88C.Up2Date

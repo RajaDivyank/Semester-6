@@ -20,30 +20,25 @@
         <div class="card">
             @if (TempData["Message"] != null)
             {
-                @if (Convert.ToBoolean(TempData["Bool"]))
-                {
-                    <div class="alert alert-success">
-                        @TempData["Message"]
-                    </div>
-                }
-                else
-                {
-                    <div class="alert alert-success">
-                        @TempData["Message"]
-                    </div>
-                }
+                <div class="alert alert-@(Convert.ToBoolean(TempData["Bool"]) ? "success" : "danger")">
+                    @TempData["Message"]
+                </div>
             }
             <div class="card-body">
                 <h5 class="card-title">Staff Search</h5>
-                <input id="filter-text" class="form-control me-2 m-3 border border-info" onkeyup="filterTable(this)" placeholder="Search" type="text" fdprocessedid="ee7wrj">
-                @*  <form method="post" asp-controller="LOC_Staff" asp-action="StaffSearch" asp-area="Staff" class="d-flex w-80" role="search">
-                <input class="form-control me-2 m-3 border border-info" type="text" placeholder="First Name" name="FirstName" />
-                <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Email" name="StaffEmail" />
-                <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Role" name="Role" />
-                <button type="submit" class="btn btn-outline-success my-3 h-50">Filter</button>
-                </form> *@
+                <div class="row">
+                    <input class="col form-control me-2 m-3 border border-info" type="text" id="Name" placeholder="Filter by Staff Name" oninput="filterstaff()" />
+                    <input class="col form-control me-2 m-3 border border-info" type="text" id="Email" placeholder="Filter by Email Address" oninput="filterstaff()" />
+                    <input class="col form-control me-2 m-3 border border-info" type="text" id="Role" placeholder="Filter by Role" oninput="filterstaff()" />
+                </div>
+                <form method="post" asp-controller="LOC_Staff" asp-action="StaffSearch" asp-area="Staff" class="d-flex w-80" role="search">
+                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="First Name" name="FirstName" />
+                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Email" name="StaffEmail" />
+                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Role" name="Role" />
+                    <button type="submit" class="btn btn-outline-success my-3 h-50">Filter</button>
+                </form>
                 <div class="table-responsive pt-3">
-                    <table class="table table-striped project-orders-table">
+                    <table class="table table-striped project-orders-table ">
                         <thead>
                             <tr>
                                 <th class="ml-5">Staff ID</th>
@@ -55,10 +50,10 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        @foreach (var row in Model)
-                        {
-                            <tbody id="ItemTableBody">
-                                <tr>
+                        <tbody>
+                            @foreach (var row in Model)
+                            {
+                                <tr class="staff-item" data-name="@row.FirstName @row.LastName" data-email="@row.StaffEmail" data-role="@row.Role">
                                     <td>@row.StaffID</td>
                                     <td>@row.FirstName @row.LastName</td>
                                     <td>@row.Role</td>
@@ -70,23 +65,20 @@
                                             @if (CommonVariables.UserID() == @row.UserID)
                                             {
                                                 <a asp-area="Staff" asp-controller="LOC_Staff" asp-action="StaffAddEdit" asp-route-StaffID="@row.StaffID" class="btn btn-success btn-sm btn-icon-text mr-3">
-                                                    Edit
-                                                    <i class="typcn typcn-edit btn-icon-append"></i>
+                                                    <i class="bi bi-pencil-square"></i>
                                                 </a>
                                                 <a onclick="return confirmDelete();" asp-area="Staff" asp-controller="LOC_Staff" asp-action="DeleteByStaffID" asp-route-StaffID="@row.StaffID" class="btn btn-danger btn-sm btn-icon-text mr-3">
-                                                    Delete
-                                                    <i class="typcn typcn-delete-outline btn-icon-append"></i>
+                                                    <i class="bi bi-trash3"></i>
                                                 </a>
                                             }
                                             <a asp-area="Staff" asp-controller="LOC_Staff" asp-action="StaffDetail" asp-route-StaffID="@row.StaffID" class="btn btn-info btn-sm btn-icon-text">
-                                                Detail
-                                                <i class="typcn typcn-delete-outline btn-icon-append"></i>
+                                                <i class="bi bi-three-dots-vertical"></i>
                                             </a>
                                         </div>
                                     </td>
                                 </tr>
-                            </tbody>
-                        }
+                            }
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -102,26 +94,20 @@
 }
 
 <script>
-    function filterTable(searchText) {
-        console.log(searchText.value);
-        var stext = searchText.value.toLowerCase();
-        $('#ItemTableBody tr').each(function () {
-            var row = $(this);
-            var id = row.find('td:eq(0)').text().toLowerCase();
-            var name = row.find('td:eq(1)').text().toLowerCase();
-            var role = row.find('td:eq(2)').text().toLowerCase();
-            var email = row.find('td:eq(3)').text().toLowerCase();
-            var created = row.find('td:eq(4)').text().toLowerCase();
-            var modified = row.find('td:eq(5)').text().toLowerCase();
-
-            if (id.includes(stext) || name.includes(stext) || role.includes(stext) || email.includes(stext) || created.includes(stext) || modified.includes(stext)) {
-                row.show();
-            } else {
-                row.hide();
-            }
-        });
+    function filterstaff() {
+        var inputName = document.getElementById('Name').value.toUpperCase();
+        var inputEmail = document.getElementById('Email').value.toUpperCase();
+        var inputRole = document.getElementById('Role').value.toUpperCase();
+        var staffs = document.getElementsByClassName('staff-item');
+        for (var i = 0; i < staffs.length; i++) {
+            var StaffName = staffs[i].getAttribute('data-name').toUpperCase();
+            var StaffEmail = staffs[i].getAttribute('data-email').toUpperCase();
+            var StaffRole = staffs[i].getAttribute('data-role').toUpperCase();
+            var display = (StaffName.indexOf(inputName) > -1 && StaffEmail.indexOf(inputEmail) > -1 && StaffRole.indexOf(inputRole) > -1) ? 'table-row' : 'none';
+            staffs[i].style.display = display;
+        }
     }
     function confirmDelete() {
-        return confirm("Are you sure you want to delete this Project?");
+        return confirm("Are you sure you want to delete this Staff Member?");
     }
 </script>

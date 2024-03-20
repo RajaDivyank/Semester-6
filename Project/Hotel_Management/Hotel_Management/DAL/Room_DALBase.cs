@@ -174,7 +174,7 @@ namespace Hotel_Management.DAL
         {
             List<LOC_RoomModel> list = new List<LOC_RoomModel>();
             SqlDatabase db = new SqlDatabase(ConnStr);
-            DbCommand cmd = db.GetStoredProcCommand("Room_Filter");
+            DbCommand cmd = db.GetStoredProcCommand("PR_Room_Filter");
             db.AddInParameter(cmd, "@child", SqlDbType.Int, child);
             db.AddInParameter(cmd, "@Adult", SqlDbType.Int, adult);
             using (IDataReader reader = db.ExecuteReader(cmd))

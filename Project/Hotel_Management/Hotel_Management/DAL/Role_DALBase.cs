@@ -1,9 +1,8 @@
 ﻿using Hotel_Management.Areas.Role.Models;
-using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 using System.Data.Common;
 using System.Data;
-using Microsoft.Practices.EnterpriseLibrary.Data;
 using Hotel_Management.BAL;
+using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 
 namespace Hotel_Management.DAL
 {

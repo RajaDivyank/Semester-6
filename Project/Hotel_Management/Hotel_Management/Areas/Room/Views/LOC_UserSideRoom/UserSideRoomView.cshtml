@@ -72,7 +72,7 @@
         <div class="row g-4">
             @if (bookingModel.Child != null || bookingModel.Adult != null)
             {
-                @foreach (var row in Model.Item2.Where(r => r.ChildCapacity == Model.Item1.Child && r.AdultCapacity == Model.Item1.Adult))
+                @foreach (var row in Model.Item2.Where(r => r.ChildCapacity == Model.Item1.Child || r.AdultCapacity == Model.Item1.Adult))
                 {
                     <div class="col-lg-4 col-md-6 wow fadeInUp room-item" data-wow-delay="0.1s">
                         <div class="room-item shadow rounded overflow-hidden">

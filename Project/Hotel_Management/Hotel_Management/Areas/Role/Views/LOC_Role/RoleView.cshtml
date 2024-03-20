@@ -35,11 +35,11 @@
                     }
                 }
                 <h5 class="card-title">Role Search</h5>
-                <input id="filter-text" class="form-control me-2 m-3 border border-info" onkeyup="filterTable(this)" placeholder="Search" type="text" fdprocessedid="ee7wrj">
-                @* <form method="post" asp-controller="LOC_Role" asp-action="RoleSearch" asp-area="Role" class="d-flex w-80" role="search">
-                <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Role" name="Role" />
-                <button type="submit" class="btn btn-outline-success my-3 h-50">Filter</button>
-                </form> *@
+                <input class="col form-control me-2 m-3 border border-info" type="text" id="Role" placeholder="Filter by Role" oninput="filterRole()" />
+                <form method="post" asp-controller="LOC_Role" asp-action="RoleSearch" asp-area="Role" class="d-flex w-80" role="search">
+                    <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Role" name="Role" />
+                    <button type="submit" class="btn btn-outline-success my-3 h-50">Filter</button>
+                </form>
                 <div class="table-responsive pt-3">
                     <table class="table table-striped project-orders-table">
                         <thead>
@@ -51,32 +51,30 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        @foreach (var row in Model)
-                        {
-                            <tbody id="ItemTableBody">
-                                <tr>
+                        <tbody>
+                            @foreach (var row in Model)
+                            {
+                                <tr class="role-item" data-role="@row.Role">
                                     <td>@row.RoleID</td>
                                     <td>@row.Role</td>
                                     <td>@Convert.ToDateTime(row.Created).ToString("dd-MM-yyyy")</td>
                                     <td>@Convert.ToDateTime(row.Modified).ToString("dd-MM-yyyy")</td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            @if (CommonVariables.UserID() == @row.UserID || isAdmin==true)
+                                            @if (CommonVariables.UserID() == @row.UserID || isAdmin == true)
                                             {
                                                 <a asp-area="Role" asp-controller="LOC_Role" asp-action="RoleAddEdit" asp-route-RoleID="@row.RoleID" class="btn btn-success btn-sm btn-icon-text mr-3">
-                                                    Edit
                                                     <i class="typcn typcn-edit btn-icon-append"></i>
                                                 </a>
                                                 <a onclick="return confirmDelete();" asp-area="Role" asp-controller="LOC_Role" asp-action="DeleteByRoleID" asp-route-RoleID="@row.RoleID" class="btn btn-danger btn-sm btn-icon-text">
-                                                    Delete
-                                                    <i class="typcn typcn-delete-outline btn-icon-append"></i>
+                                                    <i class="bi bi-trash3"></i>
                                                 </a>
                                             }
                                         </div>
                                     </td>
                                 </tr>
-                            </tbody>
-                        }
+                            }
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -87,25 +85,18 @@
     <a asp-area="Role" asp-controller="LOC_Role" asp-action="RoleAddEdit"><div class="floating-button">+</div></a>
 </div>
 <script>
-    function filterTable(searchText) {
-        console.log(searchText.value);
-        var stext = searchText.value.toLowerCase();
-        $('#ItemTableBody tr').each(function () {
-            var row = $(this);
-            var id = row.find('td:eq(0)').text().toLowerCase();
-            var type = row.find('td:eq(1)').text().toLowerCase();
-            var created = row.find('td:eq(2)').text().toLowerCase();
-            var modified = row.find('td:eq(3)').text().toLowerCase();
-
-            if (id.includes(stext) || type.includes(stext) || created.includes(stext) || modified.includes(stext)) {
-                row.show();
-            } else {
-                row.hide();
-            }
-        });
-    }
-   
-        function confirmDelete() {
-            return confirm("Are you sure you want to delete this Project?");
+    function filterRole() {
+        var inputRole = document.getElementById('Role').value.toUpperCase();
+        var roles = document.getElementsByClassName('role-item');
+        for (var i = 0; i < roles.length; i++) {
+            var RoleName = roles[i].getAttribute('data-role').toUpperCase();
+            console.log(RoleName);
+            var display = (RoleName.indexOf(inputRole) > -1) ? 'table-row' : 'none';
+            roles[i].style.display = display;
         }
+    }
+
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete this Role");
+    }
 </script>

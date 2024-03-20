@@ -102,13 +102,15 @@ END
 CREATE OR ALTER PROCEDURE [dbo].[PR_Payment_UpdateRecord]
 	@PaymentID			int,
 	@PaymentMethodID	int,
-	@UserID				int
+	@UserID				int,
+	@BookingID			int
 AS
 BEGIN
 	UPDATE [dbo].[MST_Payment]
 	SET
 		[dbo].[MST_Payment].[PaymentMethodID] = @PaymentMethodID,
 		[dbo].[MST_Payment].[UserID] = @UserID,
+		[dbo].[MST_Payment].[BookingID] = @BookingID,
 		[dbo].[MST_Payment].[PaymentDate] = (Select [dbo].[MST_Payment].[PaymentDate] from [dbo].[MST_Payment] where [dbo].[MST_Payment].[PaymentID] = @PaymentID),
 		[dbo].[MST_Payment].[Created] = (Select [dbo].[MST_Payment].[Created] from [dbo].[MST_Payment] where [dbo].[MST_Payment].[PaymentID] = @PaymentID),
 		[dbo].[MST_Payment].[Modified] = GETDATE()

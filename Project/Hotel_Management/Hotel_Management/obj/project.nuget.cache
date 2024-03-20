@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "GNyWr/lW/9zYxL0flqBCkLGd7QzqZ5C/ESQ3FV+rPBibTgj7T5GOg54jPFRsHTq1sL24M8t4fU5q80aWlnAgMw==",
+  "dgSpecHash": "o90mHzaaR02cc910WQtbQhBCAbC0AWElGDNF5vzxO84gxK98xhCuOR4V2xvetRKe+VXY286CBO6vL8WpZF2IOw==",
   "success": true,
   "projectFilePath": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\Hotel_Management.csproj",
   "expectedPackageFiles": [
@@ -141,7 +141,7 @@
     "C:\\Users\\HP\\.nuget\\packages\\system.data.common\\4.3.0\\system.data.common.4.3.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\system.data.odbc\\4.5.0\\system.data.odbc.4.5.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\system.data.oledb\\4.6.0-preview6.19303.8\\system.data.oledb.4.6.0-preview6.19303.8.nupkg.sha512",
-    "C:\\Users\\HP\\.nuget\\packages\\system.data.sqlclient\\4.8.5\\system.data.sqlclient.4.8.5.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\system.data.sqlclient\\4.8.6\\system.data.sqlclient.4.8.6.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\system.diagnostics.debug\\4.3.0\\system.diagnostics.debug.4.3.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.3.0\\system.diagnostics.diagnosticsource.4.3.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\system.diagnostics.performancecounter\\4.6.0-preview6.19303.8\\system.diagnostics.performancecounter.4.6.0-preview6.19303.8.nupkg.sha512",
