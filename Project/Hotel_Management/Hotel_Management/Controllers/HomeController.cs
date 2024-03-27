@@ -1,15 +1,18 @@
 ﻿using Hotel_Management.Areas.Booking.Models;
 using Hotel_Management.Areas.Room.Models;
 using Hotel_Management.Areas.Staff.Models;
+using Hotel_Management.BAL;
 using Hotel_Management.DAL;
 using Hotel_Management.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace Hotel_Management.Controllers
 {
+    
     public class HomeController : Controller
     {
         private readonly IConfiguration _configuration;
@@ -17,7 +20,7 @@ namespace Hotel_Management.Controllers
         {
             _configuration = configuration;
         }
-
+        #region Method 01 :- Index Page
         public IActionResult Index()
         {
             DashboardCount_DALBase dal = new DashboardCount_DALBase();
@@ -30,6 +33,9 @@ namespace Hotel_Management.Controllers
             var vModel = new Tuple<BookingModel, List<DashboardCountModel>,List<LOC_RoomModel>,List<LOC_StaffModel>>(booking, count_dal,room_dal,staff_dal);
             return View(vModel);
         }
+        #endregion
+        #region Method 02 :- Admin Pannel
+        [CheckAccessAdmin]
         public IActionResult AdminPannel()
         {
             String connectionStr = this._configuration.GetConnectionString("myConnectionString");
@@ -44,12 +50,14 @@ namespace Hotel_Management.Controllers
             conn.Close();
             return View(dt);
         }
-        
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        #endregion
+        #region Method 03 :- Error Page
+        /*[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]*/
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            /*return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });*/
+            return View();
         }
+        #endregion
     }
 }

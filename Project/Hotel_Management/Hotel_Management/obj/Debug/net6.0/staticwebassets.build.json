@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "N+iTqDzdStTSazAEarNqW3q4nII06XwkfaYA5Zp0rMA=",
+  "Hash": "14sgwJdAsLsIkRsg0z1z3aX+GdO8tJYjQmDqZkIPV2M=",
   "Source": "Hotel_Management",
   "BasePath": "_content/Hotel_Management",
   "Mode": "Default",
@@ -30054,6 +30054,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\room-2.jpg"
+    },
+    {
+      "Identity": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\Screenshot (1).png",
+      "SourceId": "Hotel_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\",
+      "BasePath": "_content/Hotel_Management",
+      "RelativePath": "Images/Screenshot (1).png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Screenshot (1).png"
     },
     {
       "Identity": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\wwwroot\\Images\\Screenshot (121).png",

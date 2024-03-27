@@ -4,9 +4,27 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model Tuple<BookingModel,LOC_ContactModel>;
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <strong>@Html.ValidationSummary(false)</strong>
+        @* <ul>
+            @foreach (var key in ViewData.ModelState.Keys)
+            {
+                foreach (var error in ViewData.ModelState[key].Errors)
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            }
+        </ul> *@
+    </div>
+}
 @if (TempData["Message"] != null)
 {
-    @if (Convert.ToBoolean(TempData["Bool"]))
+    <div class="alert alert-@(Convert.ToBoolean(TempData["Bool"]) ? "success" : "danger")">
+        @TempData["Message"]
+    </div>
+    @* @if (Convert.ToBoolean(TempData["Bool"]))
     {
         <div class="alert alert-success">
             @TempData["Message"]
@@ -17,7 +35,7 @@
         <div class="alert alert-danger">
             @TempData["Message"]
         </div>
-    }
+    } *@
 }
 
 <!-- Page Header Start -->
@@ -162,7 +180,7 @@
     </div>
 </div>
 <!-- Contact End -->
-@section Scripts{
+@section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }

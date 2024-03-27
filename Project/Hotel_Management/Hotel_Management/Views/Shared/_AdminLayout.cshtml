@@ -23,8 +23,6 @@
     <link rel="stylesheet" href="~/Adminassets/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="~/Adminassets/css/floatingbutton.css" />
     <!-- endinject -->
-    <!-- plugin css for this page -->
-    <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="~/Adminassets/css/vertical-layout-light/style.css">
     <!-- endinject -->
@@ -39,26 +37,18 @@
 <body>
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
+        @* @Html.Partial("_AdminHeader") *@
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="navbar-brand-wrapper d-flex justify-content-center bg-gradient-primary text-white">
                 <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand brand-logo p-4 my-4" style="color: #333; text-decoration: none;">
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand brand-logo p-4 my-4" style="color: white; text-decoration: none;">
                         <h3 class="m-0">Admin</h3>
                     </a>
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-                        <span class="typcn typcn-th-menu" style="color: #333;"></span>
+                        <span class="typcn typcn-th-menu" style="color: white;"></span>
                     </button>
                 </div>
             </div>
-
-            @* <div class="navbar-brand-wrapper d-flex justify-content-center">
-                <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand brand-logo p-4 my-4"><h3>Admin</h3></a>
-                    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-                        <span class="typcn typcn-th-menu"></span>
-                    </button>
-                </div>
-            </div> *@
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
                 <ul class="navbar-nav mr-lg-2">
                     <li class="nav-item nav-profile dropdown">
@@ -79,108 +69,18 @@
                     </li>
                     
                 </ul>
+                <!--Date-->
                 <ul class="navbar-nav navbar-nav-right">
-                    <li class="nav-item nav-date dropdown">
-                        <div class="nav-link d-flex justify-content-center align-items-center">
-                            <h6 class="date mb-0" id="currentDate"></h6>
+                    <li class="nav-item nav-date">
+                        <div class="current-date-time nav-link d-flex justify-content-center align-items-center">
+                            <!-- Placeholder for current date and time -->
                         </div>
                     </li>
                 </ul>
-                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-                    <span class="typcn typcn-th-menu"></span>
-                </button>
             </div>
         </nav>
         <div class="container-fluid page-body-wrapper">
-            <!-- partial -->
-            <!-- partial:partials/_sidebar.html -->
-            
-            <nav class="sidebar sidebar-offcanvas " id="sidebar">
-                <ul class="nav" >
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="AdminPannel">
-                            <i class="typcn typcn-device-desktop menu-icon"></i>
-                            <span class="menu-title">Dashboard</span>
-                            <div class="badge badge-danger">new</div>
-                        </a>
-                    </li>
-                    @if (isAdmin == true && isManager == true)
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="collapse" href="#ui-user" aria-expanded="false" aria-controls="ui-user">
-                                <i class="bi bi-person fs-3 menu-icon"></i>
-                                <span class="menu-title">User</span>
-                                <i class="menu-arrow"></i>
-                            </a>
-                            <div class="collapse" id="ui-user">
-                                <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"> <a class="nav-link" asp-area="User" asp-controller="SEC_User" asp-action="UserView">User List</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    }
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                            <i class="bi bi-person-square menu-icon"></i>
-                            <span class="menu-title">Staff</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="ui-basic">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-area="Staff" asp-controller="LOC_Staff" asp-action="StaffView">Staff List</a></li>
-                                <li class="nav-item"> <a class="nav-link" asp-area="Role" asp-controller="LOC_Role" asp-action="RoleView">Role List</a></li>
-                            </ul>
-                        </div>
-                    </li>
-
-
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-room" aria-expanded="false" aria-controls="ui-room">
-                            <i class="bi bi-door-open menu-icon"></i>
-                            <span class="menu-title">Room</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="ui-room">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-area="Room" asp-controller="LOC_Room" asp-action="RoomView">Room List</a></li>
-                                <li class="nav-item"> <a class="nav-link" asp-area="Roomstatus" asp-controller="RoomStatus" asp-action="StatusView">Room Statu List</a></li>
-                                <li class="nav-item"> <a class="nav-link" asp-area="Roomtype" asp-controller="LOC_RoomType" asp-action="RoomTypeView">Room Type List</a></li>
-                                <li class="nav-item"> <a class="nav-link" asp-area="Booking" asp-controller="LOC_Booking" asp-action="bookingView">Booking List</a></li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-payment" aria-expanded="false" aria-controls="ui-payment">
-                            <i class="bi bi-wallet2 menu-icon"></i>
-                            <span class="menu-title">Payment</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="ui-payment">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-area="Payment" asp-controller="LOC_Payment" asp-action="PaymentView">Payment List</a></li>
-                                <li class="nav-item"> <a class="nav-link" asp-area="PaymentMethod" asp-controller="LOC_PaymentMethod" asp-action="PaymentMethodView">Method List</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-contact" aria-expanded="false" aria-controls="ui-contact">
-                            <i class="bi bi-person-lines-fill menu-icon"></i>
-                            <span class="menu-title">Contact</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="ui-contact">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-area="Contact" asp-controller="LOC_Contact" asp-action="ContactView">Contact List</a></li>
-                            </ul>
-                        </div>
-                    </li>
-
-
-
-                </ul>
-            </nav>
-            <!-- partial -->
+            @Html.Partial("_AdminSideBar")
             <div class="main-panel">
                 @RenderBody()
             </div>
@@ -188,6 +88,8 @@
         </div>
         <!-- page-body-wrapper ends -->
     </div>
+
+
     <!-- container-scroller -->
     <!-- base:js -->
     <script src="~/Adminassets/vendors/js/vendor.bundle.base.js"></script>
@@ -208,26 +110,28 @@
     @await RenderSectionAsync("Scripts", required: false)
     <!-- End custom js for this page-->
     <script>
-        // Get the current date
-        var currentDate = new Date();
-
-        // Months array
-        var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-        // Update the content of the h6 element with the current date
-        //document.getElementById("currentDate").textContent = "Today : " + months[currentDate.getMonth()] + " " + currentDate.getDate() + " " + currentDate.getFullYear() + " " + currentDate.getHours()
-        document.getElementById("currentDate").textContent = "Today : " + months[currentDate.getMonth()] + " " + currentDate.getDate() + " , " + currentDate.getFullYear() + "  " + currentDate.getHours() + ":" + currentDate.getMinutes()
-
         //Code for first name
         var usernameElement = document.querySelector('.nav-profile-name');
         var username = usernameElement.textContent.trim();
         var firstCharacter = username.charAt(0);
         var profileInitial = document.getElementById('profileInitial');
         profileInitial.textContent = firstCharacter;
-        var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-        document.getElementById('profileImage').style.backgroundColor = randomColor;
 
+    </script>
+    <script>
+        // Function to update current date and time
+        function updateDateTime() {
+            var currentDate = new Date();
+            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+            var formattedDate = currentDate.toLocaleDateString('en-US', options);
+            document.querySelector('.current-date-time').textContent = formattedDate;
+        }
+
+        // Call updateDateTime function initially
+        updateDateTime();
+
+        // Update date and time every second
+        setInterval(updateDateTime, 1000);
     </script>
 </body>
 

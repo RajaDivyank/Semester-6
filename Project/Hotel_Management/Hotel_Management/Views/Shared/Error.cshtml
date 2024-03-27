@@ -1,5 +1,5 @@
-﻿@model ErrorViewModel
-@{
+﻿@* @model ErrorViewModel *@
+@* @{
     ViewData["Title"] = "Error";
 }
 
@@ -22,4 +22,33 @@
     It can result in displaying sensitive information from exceptions to end users.
     For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
     and restarting the app.
-</p>
+</p> *@
+@{
+    Layout = "~/Views/Shared/_ErrorLayout.cshtml";
+}
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center text-center error-page bg-primary">
+            <div class="row flex-grow">
+                <div class="col-lg-7 mx-auto text-black">
+                    <div class="row align-items-center d-flex flex-row">
+                        <div class="col-lg-6 text-lg-right pr-lg-4">
+                            <h1 class="display-1 mb-0">404</h1>
+                        </div>
+                        <div class="col-lg-6 error-page-divider text-lg-left pl-lg-4">
+                            <h2>SORRY!</h2>
+                            <h3 class="font-weight-light">The page you’re looking for was not found.</h3>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-12 text-center mt-xl-2">
+                            <a class="text-black font-weight-medium" asp-area="" asp-controller="Home" asp-action="Index" >Back to home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+</div>

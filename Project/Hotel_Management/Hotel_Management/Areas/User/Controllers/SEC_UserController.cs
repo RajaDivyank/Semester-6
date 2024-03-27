@@ -16,15 +16,20 @@ namespace Hotel_Management.Areas.User.Controllers
 		{
 			_configuration = configuration;
 		}
+		#region Method 01 :-  Display User List 
 		public IActionResult UserView()
 		{
             User_DALBase dal = new User_DALBase();
             return View(dal.MST_User_SelectAll());
         }
+		#endregion
+		#region Method 02 :-  Login Page
 		public IActionResult Login()
         {
             return View();
         }
+		#endregion
+		#region Method 03 :-  Check UserName and Password
 		public IActionResult Save(UserLoginModel userLoginModel)
 		{
 			string ErrorMsg = string.Empty;
@@ -76,17 +81,23 @@ namespace Hotel_Management.Areas.User.Controllers
 				return RedirectToAction("Login", "SEC_User", new { area = "User" });
 			}
 		}
+		#endregion
+		#region Method 04 :-  Logout 
 		public IActionResult Logout()
 		{
 			HttpContext.Session.Clear();
 			return RedirectToAction("Index", "Home", new { area = "" });
 		}
-        public IActionResult SignUp(int UserID)
+		#endregion
+		#region Method 05 :- User Registration
+		public IActionResult SignUp(int UserID)
         {
             User_DALBase dal = new User_DALBase();
 			SEC_UserModel model = dal.MST_User_SelectByUserID(UserID);
             return View(model);
         }
+		#endregion
+		#region Method 06 :- Save Registration
 		public IActionResult SignUpSave(SEC_UserModel model)
 		{
             bool ans = false;
@@ -111,6 +122,8 @@ namespace Hotel_Management.Areas.User.Controllers
                 return RedirectToAction("SignUp","SEC_User",new {area = "User"});
             }
         }
+		#endregion
+		#region Method 07 :- Detele User By UserID
 		public IActionResult DeleteByUserID(int UserID)
 		{
             try
@@ -121,15 +134,16 @@ namespace Hotel_Management.Areas.User.Controllers
             catch { }
             return RedirectToAction("UserView");
         }
-		#region Method 8 :- User Update Detail
-		public IActionResult EditUser(int UserID)
+        #endregion
+        #region Method 08 :- User Update Detail
+        public IActionResult EditUser(int UserID)
 		{
 			User_DALBase user = new User_DALBase();
 			SEC_UserModel model = user.MST_User_SelectByUserID(UserID);
 			return View(model);
 		}
 		#endregion
-		#region Method 9 :- Save User Update
+		#region Method 09 :- Save User Update
 		public IActionResult SaveUpdate(SEC_UserModel model)
 		{
             bool ans = false;

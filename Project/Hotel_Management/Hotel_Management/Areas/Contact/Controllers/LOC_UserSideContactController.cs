@@ -26,19 +26,27 @@ namespace Hotel_Management.Areas.Contact.Controllers
                 {
                     ans = dal.MST_Contact_Add(model);
                 }
-            }
-            if (ans)
-            {
-                TempData["Bool"] = true;
-                TempData["Message"] = "Contact Added Successfully";
-                return RedirectToAction("UserSideContactAdd");
+                if (ans)
+                {
+                    TempData["Bool"] = true;
+                    TempData["Message"] = "Contact Added Successfully";
+                    return RedirectToAction("UserSideContactAdd");
+                }
+                else
+                {
+                    TempData["Bool"] = false;
+                    TempData["Message"] = "Contact Not Added";
+                    return RedirectToAction("UserSideContactAdd");
+                }
             }
             else
             {
-                TempData["Bool"] = false;
-                TempData["Message"] = "Contact Not Added";
-                return RedirectToAction("UserSideContactAdd");
+                BookingModel booking = new BookingModel();
+                LOC_ContactModel contact = new LOC_ContactModel();
+                var vModel = new Tuple<BookingModel, LOC_ContactModel>(booking, contact);
+                return View("UserSideContactAdd", vModel);
             }
+            
         }
     }
 }

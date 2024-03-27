@@ -1,0 +1,85 @@
+﻿@using Hotel_Management.BAL;
+@{
+    bool isAdmin = false;
+    bool isManager = false;
+    if (CommonVariables.IsAdmin() || CommonVariables.IsManager())
+    {
+        isAdmin = true;
+        isManager = true;
+    }
+}
+<!-- Header Start -->
+<div class="container-fluid bg-dark px-0">
+    <div class="row gx-0">
+        <div class="col-lg-3 bg-dark d-none d-lg-block">
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                <h1 class="m-0 text-primary text-uppercase">Hotelier</h1>
+            </a>
+        </div>
+        <div class="col-lg-9">
+            <div class="row gx-0 bg-white d-none d-lg-flex">
+                <div class="col-lg-7 px-5 text-start">
+                    <div class="h-100 d-inline-flex align-items-center py-2 me-4">
+                        <i class="fa fa-envelope text-primary me-2"></i>
+                        <p class="mb-0">info@example.com</p>
+                    </div>
+                    <div class="h-100 d-inline-flex align-items-center py-2">
+                        <i class="fa fa-phone-alt text-primary me-2"></i>
+                        <p class="mb-0">+012 345 6789</p>
+                    </div>
+                </div>
+                <div class="col-lg-5 px-5 text-end">
+                    <div class="d-inline-flex align-items-center py-2">
+                        <a class="me-3" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="me-3" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="me-3" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="me-3" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="" href=""><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
+                <a href="index.html" class="navbar-brand d-block d-lg-none">
+                    <h1 class="m-0 text-primary text-uppercase">Hotelier</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto py-0">
+                        <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-item nav-link">Home</a>
+                        <a asp-area="" asp-controller="Hotel" asp-action="About" class="nav-item nav-link">About</a>
+                        <a asp-area="" asp-controller="Hotel" asp-action="Servise" class="nav-item nav-link">Services</a>
+                        <a asp-area="Room" asp-controller="LOC_UserSideRoom" asp-action="UserSideRoomView" class="nav-item nav-link">Rooms</a>
+                        <a asp-area="Booking" asp-controller="LOC_UserSideBooking" asp-action="BookingDetail" class="nav-item nav-link">Booking</a>
+                        <a asp-area="Staff" asp-controller="LOC_UserSideStaff" asp-action="UserSideStaffView" class="nav-item nav-link">Our Team</a>
+                        <a asp-area="Contact" asp-controller="LOC_UserSideContact" asp-action="UserSideContactAdd" class="nav-item nav-link">Contact</a>
+                        @if (isAdmin == true || isManager == true)
+                        {
+                            <a asp-area="" asp-controller="Home" asp-action="AdminPannel" class="nav-item nav-link">Admin</a>
+                        }
+                        @if (CommonVariables.UserID() != null)
+                        {
+                            <a asp-area="User" asp-controller="SEC_User" asp-action="Logout" class="nav-item nav-link" style="float-end">Logout</a>
+                            <div class="nav-item dropdown">
+                                <div class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profile</div>
+                                <div class="dropdown-menu rounded-0 m-0">
+                                    <h6 class="dropdown-item">@CommonVariables.UserName()</h6>
+                                    <h6 class="dropdown-item">@CommonVariables.UserEmail()</h6>
+                                    <h6 class="dropdown-item">@CommonVariables.UserNumber()</h6>
+                                    <a class="dropdown-item text-primary" asp-area="User" asp-controller="SEC_User" asp-action="SignUp" asp-route-UserID="@CommonVariables.UserID()">Edit profile</a>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <a asp-area="User" asp-controller="SEC_User" asp-action="Login" class="nav-item nav-link" style="float-end">Login</a>
+                            <a asp-area="User" asp-controller="SEC_User" asp-action="SignUp" class=" nav-link float-right">Register</a>
+                        }
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Header End -->

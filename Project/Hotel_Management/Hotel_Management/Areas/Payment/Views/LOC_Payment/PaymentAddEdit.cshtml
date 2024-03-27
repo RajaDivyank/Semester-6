@@ -36,142 +36,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Other fields omitted for brevity -->
-                <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Type</label>
-                    <div class="col-sm-9">
-                        <select class="form-control border border-dark" id="paymentMethod" asp-for="PaymentMethodID">
-                            <option value="none" selected disabled hidden>Select Type</option>
-                            @foreach (var abc in Model.paymentmethods)
-                            {
-                                <option class="bg-light text-dark" value="@abc.PaymentMethodID">@abc.Method</option>
-                            }
-                        </select>
-                    </div>
-                </div>
-                <div id="cardInfo" style="display: none;">
-                    <!-- Card Information fields go here -->
-                    <div class="form-group">
-                        <label>Card Number</label>
-                        <input type="text" class="form-control" name="cardNumber" />
-                    </div>
-
-                    <h1>Divyank</h1>
-                </div>
-                <button type="submit" class="btn btn-primary mr-2">Save</button>
-                <button class="btn btn-info" onclick="history.back()">Cancel</button>
-            </form>
-        </div>
-    </div>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#paymentMethod').change(function () {
-            var selectedMethod = $(this).val();
-            if (selectedMethod === '2') { // Assuming '2' is the value for credit card in your model
-                $('#cardInfo').show();
-            } else {
-                $('#cardInfo').hide();
-            }
-        });
-    });
-</script>
-
-@* @{
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
-}
-@model Hotel_Management.Areas.Payment.Models.LOC_PaymentModel;
-<div class="col-12 grid-margin">
-    <div class="card">
-        <div class="card-body">
-            @if (Model.PaymentID == 0)
-            {
-                <h4 class="card-title">Payment Add</h4>
-            }
-            else
-            {
-                <h4 class="card-title">Payment Edit</h4>
-            }
-            <form class="form-sample" method="post" asp-area="Payment" asp-controller="LOC_Payment" asp-action="SaveForAddEdit">
-                <input type="hidden" asp-for="@Model.PaymentID" />
-                <input type="hidden" asp-for="@Model.BookingID"/>
-                <input type="hidden" asp-for="@Model.paymentmethods" />
-                <input type="hidden" asp-for="@Model.Amount" />
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Name</label>
-                            <div class="col-sm-9">
-                                <div class="form-control border border-dark">@Model.RegistrationName</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Mobile Number</label>
-                            <div class="col-sm-9">
-                                <div class="form-control border border-dark">@Model.MobileNumber</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Type of Room</label>
-                            <div class="col-sm-9">
-                                <div class="form-control border border-dark">@Model.TypeName</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Price per Day</label>
-                            <div class="col-sm-9">
-                                <div class="form-control border border-dark">@Model.PricePerDay</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Total Days</label>
-                            <div class="col-sm-9">
-                                <div class="form-control border border-dark">@Model.TotalDays</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Amount</label>
-                            <div class="col-sm-9">
-                                <div class="form-control border border-dark">@Model.Amount</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Check In Date</label>
-                            <div class="col-sm-9">
-                                <div class="form-control border border-dark">@Model.CheckIn</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Check Out Date</label>
-                            <div class="col-sm-9">
-                                <div class="form-control border border-dark">@Model.CheckOut</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group row">
+                @* <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Type</label>
                     <div class="col-sm-9">
                         <select class="form-control border border-dark" asp-for="PaymentMethodID">
@@ -182,10 +47,46 @@
                             }
                         </select>
                     </div>
+                </div> *@
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Type</label>
+                    <div class="col-sm-9">
+                        <select class="form-control border border-dark"  asp-for="PaymentMethodID">
+                            <option value="none">Select Type</option>
+                            @foreach (var abc in Model.paymentmethods)
+                            {
+                                <option class="bg-light text-dark" value="@abc.PaymentMethodID">@abc.Method</option>
+                            }
+                        </select>
+                    </div>
                 </div>
+                @* <div id="creditCardFields" style="display: none;">
+                    <label for="card_number">Card Number:</label>
+                    <input type="text" id="card_number" name="card_number" maxlength="16" required />
+                    <br />
+                    <label for="expiration_date">Expiration Date:</label>
+                    <input type="text" id="expiration_date" name="expiration_date" placeholder="MM/YY" maxlength="5" required />
+                    <br />
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" maxlength="3" required />
+                    <br />
+                </div> *@
                 <button type="submit" class="btn btn-primary mr-2">Save</button>
                 <button class="btn btn-info" onclick="history.back()">Cancel</button>
             </form>
         </div>
     </div>
-</div> *@
+</div>
+@* @section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#paymentMethod').change(function () {
+                if ($(this).val() === 'credit_card') {
+                    $('#creditCardFields').show();
+                } else {
+                    $('#creditCardFields').hide();
+                }
+            });
+        });
+    </script>
+} *@

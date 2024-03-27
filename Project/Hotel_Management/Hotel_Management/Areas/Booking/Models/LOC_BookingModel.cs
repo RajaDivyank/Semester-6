@@ -16,6 +16,7 @@ namespace Hotel_Management.Areas.Booking.Models
         public double? PricePerDay { get; set; }
         public string? BookingStatus { get; set; }
         public string? SpecialRequest { get; set; }
+        public decimal? Amount { get; set; }
 
         [Required(ErrorMessage = "Check-in date is required")]
         [DataType(DataType.Date)]

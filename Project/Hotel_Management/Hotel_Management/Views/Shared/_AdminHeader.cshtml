@@ -1,0 +1,61 @@
+﻿@using Hotel_Management.BAL;
+
+<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <div class="navbar-brand-wrapper d-flex justify-content-center bg-gradient-primary text-white">
+        <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand brand-logo p-4 my-4" style="color: white; text-decoration: none;">
+                <h3 class="m-0">Admin</h3>
+            </a>
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                <span class="typcn typcn-th-menu" style="color: white;"></span>
+            </button>
+        </div>
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <ul class="navbar-nav mr-lg-2">
+            <li class="nav-item nav-profile dropdown">
+                <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
+                    <span id="profileInitial" class="nav-profile-initial rounded-circle" style="color:white; background-color: rebeccapurple; display: inline-block; width: 40px; height: 40px; line-height: 40px; text-align: center;"></span>
+                    <span class="nav-profile-name">@CommonVariables.UserName()</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                    <a class="dropdown-item" asp-area="User" asp-controller="SEC_User" asp-action="SignUp" asp-route-UserID="@CommonVariables.UserID()">
+                        <i class="typcn typcn-cog-outline text-primary"></i>
+                        Edit profile
+                    </a>
+                    <a class="dropdown-item" asp-area="User" asp-controller="SEC_User" asp-action="Logout">
+                        <i class="typcn typcn-eject text-primary"></i>
+                        Logout
+                    </a>
+                </div>
+            </li>
+
+        </ul>
+        <!--Date-->
+        <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item nav-date">
+                <div class="current-date-time nav-link d-flex justify-content-center align-items-center">
+                    <!-- Placeholder for current date and time -->
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<script>
+    //first chracter of name
+    var usernameElement = document.querySelector('.nav-profile-name');
+    var username = usernameElement.textContent.trim();
+    var firstCharacter = username.charAt(0);
+    var profileInitial = document.getElementById('profileInitial');
+    profileInitial.textContent = firstCharacter;
+
+    // Function to update current date and time
+    function updateDateTime() {
+        var currentDate = new Date();
+        var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+        var formattedDate = currentDate.toLocaleDateString('en-US', options);
+        document.querySelector('.current-date-time').textContent = formattedDate;
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+</script>

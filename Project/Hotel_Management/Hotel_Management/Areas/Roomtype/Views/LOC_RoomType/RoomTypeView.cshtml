@@ -23,7 +23,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Room Type Search</h5>
-                <input id="filter-text" class="form-control me-2 m-3 border border-info" onkeyup="filterTable(this)" placeholder="Search" type="text" fdprocessedid="ee7wrj">
+                <input class="col form-control me-2 m-3 border border-info" type="text" id="Status" placeholder="Filter by Status" oninput="filtertypes()" />
                 @* <form method="post" asp-controller="LOC_RoomType" asp-action="RoomTypeSearch" asp-area="Roomtype" class="d-flex w-80" role="search">
                 <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Type" name="TypeName" />
                 <input class="form-control me-2 m-3 border border-info" type="text" placeholder="Price" name="PricePerDay" />
@@ -41,10 +41,10 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
+                            <tbody>
                         @foreach (var row in Model)
                         {
-                            <tbody id="ItemTableBody">
-                                <tr>
+                                <tr class="type-item" data-type="@row.TypeName">
                                     <td>@row.RoomTypeID</td>
                                     <td>@row.TypeName</td>
                                     <td>@row.PricePerDay</td>
@@ -53,18 +53,16 @@
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <a asp-area="Roomtype" asp-controller="LOC_RoomType" asp-action="RoomTypeAddEdit" asp-route-RoomTypeID="@row.RoomTypeID" class="btn btn-success btn-sm btn-icon-text mr-3">
-                                                Edit
                                                 <i class="typcn typcn-edit btn-icon-append"></i>
                                             </a>
                                             <a onclick="return confirmDelete();" asp-area="Roomtype" asp-controller="LOC_RoomType" asp-action="DeleteByRoomTypeID" asp-route-RoomTypeID="@row.RoomTypeID" class="btn btn-danger btn-sm btn-icon-text">
-                                                Delete
-                                                <i class="typcn typcn-delete-outline btn-icon-append"></i>
+                                                <i class="bi bi-trash3"></i>
                                             </a>
                                         </div>
                                     </td>
                                 </tr>
-                            </tbody>
                         }
+                            </tbody>
                     </table>
                 </div>
             </div>
@@ -75,22 +73,16 @@
     <a asp-area="Roomtype" asp-controller="LOC_RoomType" asp-action="RoomTypeAddEdit"><div class="floating-button">+</div></a>
 </div>
 <script>
-    function filterTable(searchText) {
-        console.log(searchText.value);
-        var stext = searchText.value.toLowerCase();
-        $('#ItemTableBody tr').each(function () {
-            var row = $(this);
-            var id = row.find('td:eq(0)').text().toLowerCase();
-            var type = row.find('td:eq(1)').text().toLowerCase();
-            var price = row.find('td:eq(2)').text().toLowerCase();
-            var created = row.find('td:eq(3)').text().toLowerCase();
-            var modified = row.find('td:eq(4)').text().toLowerCase();
-
-            if (id.includes(stext) || type.includes(stext) || price.includes(stext) || created.includes(stext) || modified.includes(stext)) {
-                row.show();
-            } else {
-                row.hide();
-            }
-        });
+    function filtertypes() {
+        var inputTypes = document.getElementById('Status').value.toUpperCase();
+        var types = document.getElementsByClassName('type-item');
+        for (var i = 0; i < types.length; i++) {
+            var TypeName = types[i].getAttribute('data-type').toUpperCase();
+            var display = (TypeName.indexOf(inputTypes) > -1) ? 'table-row' : 'none';
+            types[i].style.display = display;
+        }
+    }
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete this Role");
     }
 </script>
