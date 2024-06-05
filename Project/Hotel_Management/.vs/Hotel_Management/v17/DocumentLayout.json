@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "D:\\Semester-6\\Project\\Hotel_Management\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C30415C4-43AD-444F-BA46-5201002F2238}|Hotel_Management\\Hotel_Management.csproj|d:\\semester-6\\project\\hotel_management\\hotel_management\\areas\\booking\\views\\loc_booking\\bookingview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C30415C4-43AD-444F-BA46-5201002F2238}|Hotel_Management\\Hotel_Management.csproj|solutionrelative:hotel_management\\areas\\booking\\views\\loc_booking\\bookingview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C30415C4-43AD-444F-BA46-5201002F2238}|Hotel_Management\\Hotel_Management.csproj|d:\\semester-6\\project\\hotel_management\\hotel_management\\bal\\checkaccessadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C30415C4-43AD-444F-BA46-5201002F2238}|Hotel_Management\\Hotel_Management.csproj|solutionrelative:hotel_management\\bal\\checkaccessadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C30415C4-43AD-444F-BA46-5201002F2238}|Hotel_Management\\Hotel_Management.csproj|d:\\semester-6\\project\\hotel_management\\hotel_management\\dal\\booking_dalbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C30415C4-43AD-444F-BA46-5201002F2238}|Hotel_Management\\Hotel_Management.csproj|solutionrelative:hotel_management\\dal\\booking_dalbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C30415C4-43AD-444F-BA46-5201002F2238}|Hotel_Management\\Hotel_Management.csproj|d:\\semester-6\\project\\hotel_management\\hotel_management\\areas\\payment\\views\\loc_payment\\paymentaddedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C30415C4-43AD-444F-BA46-5201002F2238}|Hotel_Management\\Hotel_Management.csproj|solutionrelative:hotel_management\\areas\\payment\\views\\loc_payment\\paymentaddedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C30415C4-43AD-444F-BA46-5201002F2238}|Hotel_Management\\Hotel_Management.csproj|d:\\semester-6\\project\\hotel_management\\hotel_management\\areas\\booking\\controllers\\loc_bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C30415C4-43AD-444F-BA46-5201002F2238}|Hotel_Management\\Hotel_Management.csproj|solutionrelative:hotel_management\\areas\\booking\\controllers\\loc_bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C30415C4-43AD-444F-BA46-5201002F2238}|Hotel_Management\\Hotel_Management.csproj|d:\\semester-6\\project\\hotel_management\\hotel_management\\areas\\user\\views\\sec_user\\edituser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C30415C4-43AD-444F-BA46-5201002F2238}|Hotel_Management\\Hotel_Management.csproj|solutionrelative:hotel_management\\areas\\user\\views\\sec_user\\edituser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C30415C4-43AD-444F-BA46-5201002F2238}|Hotel_Management\\Hotel_Management.csproj|d:\\semester-6\\project\\hotel_management\\hotel_management\\areas\\booking\\models\\loc_bookingmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C30415C4-43AD-444F-BA46-5201002F2238}|Hotel_Management\\Hotel_Management.csproj|solutionrelative:hotel_management\\areas\\booking\\models\\loc_bookingmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C30415C4-43AD-444F-BA46-5201002F2238}|Hotel_Management\\Hotel_Management.csproj|d:\\semester-6\\project\\hotel_management\\hotel_management\\areas\\roomtype\\views\\loc_roomtype\\roomtypeview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C30415C4-43AD-444F-BA46-5201002F2238}|Hotel_Management\\Hotel_Management.csproj|solutionrelative:hotel_management\\areas\\roomtype\\views\\loc_roomtype\\roomtypeview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C30415C4-43AD-444F-BA46-5201002F2238}|Hotel_Management\\Hotel_Management.csproj|d:\\semester-6\\project\\hotel_management\\hotel_management\\areas\\payment\\views\\loc_payment\\paymentview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C30415C4-43AD-444F-BA46-5201002F2238}|Hotel_Management\\Hotel_Management.csproj|solutionrelative:hotel_management\\areas\\payment\\views\\loc_payment\\paymentview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,22 +26,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RoomTypeView.cshtml",
-              "DocumentMoniker": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\Areas\\Roomtype\\Views\\LOC_RoomType\\RoomTypeView.cshtml",
-              "RelativeDocumentMoniker": "Hotel_Management\\Areas\\Roomtype\\Views\\LOC_RoomType\\RoomTypeView.cshtml",
-              "ToolTip": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\Areas\\Roomtype\\Views\\LOC_RoomType\\RoomTypeView.cshtml",
-              "RelativeToolTip": "Hotel_Management\\Areas\\Roomtype\\Views\\LOC_RoomType\\RoomTypeView.cshtml",
-              "ViewState": "AQIAACUAAAAAAAAAAAAAAC4AAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-27T16:57:24.72Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -56,55 +38,53 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LOC_BookingController.cs",
-              "DocumentMoniker": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\Areas\\Booking\\Controllers\\LOC_BookingController.cs",
-              "RelativeDocumentMoniker": "Hotel_Management\\Areas\\Booking\\Controllers\\LOC_BookingController.cs",
-              "ToolTip": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\Areas\\Booking\\Controllers\\LOC_BookingController.cs",
-              "RelativeToolTip": "Hotel_Management\\Areas\\Booking\\Controllers\\LOC_BookingController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAJAAAA",
+              "DocumentIndex": 0,
+              "Title": "CheckAccessAdmin.cs",
+              "DocumentMoniker": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\BAL\\CheckAccessAdmin.cs",
+              "RelativeDocumentMoniker": "Hotel_Management\\BAL\\CheckAccessAdmin.cs",
+              "ToolTip": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\BAL\\CheckAccessAdmin.cs",
+              "RelativeToolTip": "Hotel_Management\\BAL\\CheckAccessAdmin.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAzwBIAAABOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T17:26:33.28Z",
+              "WhenOpened": "2024-03-30T02:56:41.857Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EditUser.cshtml",
+              "DocumentMoniker": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\Areas\\User\\Views\\SEC_User\\EditUser.cshtml",
+              "RelativeDocumentMoniker": "Hotel_Management\\Areas\\User\\Views\\SEC_User\\EditUser.cshtml",
+              "ToolTip": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\Areas\\User\\Views\\SEC_User\\EditUser.cshtml",
+              "RelativeToolTip": "Hotel_Management\\Areas\\User\\Views\\SEC_User\\EditUser.cshtml",
+              "ViewState": "AQIAADYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-28T05:44:32.657Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Booking_DALBase.cs",
-              "DocumentMoniker": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\DAL\\Booking_DALBase.cs",
-              "RelativeDocumentMoniker": "Hotel_Management\\DAL\\Booking_DALBase.cs",
-              "ToolTip": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\DAL\\Booking_DALBase.cs",
-              "RelativeToolTip": "Hotel_Management\\DAL\\Booking_DALBase.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAAwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T17:23:40.271Z",
+              "Title": "PaymentAddEdit.cshtml",
+              "DocumentMoniker": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\Areas\\Payment\\Views\\LOC_Payment\\PaymentAddEdit.cshtml",
+              "RelativeDocumentMoniker": "Hotel_Management\\Areas\\Payment\\Views\\LOC_Payment\\PaymentAddEdit.cshtml",
+              "ToolTip": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\Areas\\Payment\\Views\\LOC_Payment\\PaymentAddEdit.cshtml",
+              "RelativeToolTip": "Hotel_Management\\Areas\\Payment\\Views\\LOC_Payment\\PaymentAddEdit.cshtml",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAAADkAAABOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-28T05:40:58.754Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "LOC_BookingModel.cs",
-              "DocumentMoniker": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\Areas\\Booking\\Models\\LOC_BookingModel.cs",
-              "RelativeDocumentMoniker": "Hotel_Management\\Areas\\Booking\\Models\\LOC_BookingModel.cs",
-              "ToolTip": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\Areas\\Booking\\Models\\LOC_BookingModel.cs",
-              "RelativeToolTip": "Hotel_Management\\Areas\\Booking\\Models\\LOC_BookingModel.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABIAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T17:22:35.649Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BookingView.cshtml",
-              "DocumentMoniker": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\Areas\\Booking\\Views\\LOC_Booking\\BookingView.cshtml",
-              "RelativeDocumentMoniker": "Hotel_Management\\Areas\\Booking\\Views\\LOC_Booking\\BookingView.cshtml",
-              "ToolTip": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\Areas\\Booking\\Views\\LOC_Booking\\BookingView.cshtml",
-              "RelativeToolTip": "Hotel_Management\\Areas\\Booking\\Views\\LOC_Booking\\BookingView.cshtml",
-              "ViewState": "AQIAACUAAAAAAAAAAAAAADoAAAAnAAAA",
+              "Title": "PaymentView.cshtml",
+              "DocumentMoniker": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\Areas\\Payment\\Views\\LOC_Payment\\PaymentView.cshtml",
+              "RelativeDocumentMoniker": "Hotel_Management\\Areas\\Payment\\Views\\LOC_Payment\\PaymentView.cshtml",
+              "ToolTip": "D:\\Semester-6\\Project\\Hotel_Management\\Hotel_Management\\Areas\\Payment\\Views\\LOC_Payment\\PaymentView.cshtml",
+              "RelativeToolTip": "Hotel_Management\\Areas\\Payment\\Views\\LOC_Payment\\PaymentView.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-27T17:05:51.211Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-28T05:40:57.134Z"
             }
           ]
         }

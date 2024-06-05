@@ -37,56 +37,70 @@
                     </div>
                 </div>
                 @* <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Type</label>
-                    <div class="col-sm-9">
-                        <select class="form-control border border-dark" asp-for="PaymentMethodID">
-                            <option value="none" selected disabled hidden>Select Type</option>
-                            @foreach (var abc in Model.paymentmethods)
-                            {
-                                <option class="bg-light text-dark" value="@abc.PaymentMethodID">@abc.Method</option>
-                            }
-                        </select>
-                    </div>
+                <label class="col-sm-3 col-form-label">Type</label>
+                <div class="col-sm-9">
+                <select class="form-control border border-dark"  asp-for="PaymentMethodID">
+                <option value="none">Select Type</option>
+                @foreach (var abc in Model.paymentmethods)
+                {
+                <option class="bg-light text-dark" value="@abc.PaymentMethodID">@abc.Method</option>
+                }
+                </select>
+                </div>
                 </div> *@
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Type</label>
                     <div class="col-sm-9">
-                        <select class="form-control border border-dark"  asp-for="PaymentMethodID">
-                            <option value="none">Select Type</option>
-                            @foreach (var abc in Model.paymentmethods)
-                            {
-                                <option class="bg-light text-dark" value="@abc.PaymentMethodID">@abc.Method</option>
-                            }
-                        </select>
+                        @foreach (var abc in Model.paymentmethods)
+                        {
+                            bool isSelected = abc.PaymentMethodID == Model.PaymentMethodID;
+                            <div class="form-check">
+                                <input @* onchange="showCreditCardFields()" *@ class="form-check-input" type="radio" name="PaymentMethodID" id="@("paymentMethod_" + abc.PaymentMethodID)" value="@abc.PaymentMethodID" @(isSelected ? "checked" : "")>
+                                <label class="form-check-label" for="@("paymentMethod_" + abc.PaymentMethodID)">
+                                    @abc.Method
+                                </label>
+                            </div>
+                        }
                     </div>
                 </div>
+
                 @* <div id="creditCardFields" style="display: none;">
                     <label for="card_number">Card Number:</label>
-                    <input type="text" id="card_number" name="card_number" maxlength="16" required />
+                    <input type="text"
+                           maxlength="16"
+                           required />
                     <br />
                     <label for="expiration_date">Expiration Date:</label>
-                    <input type="text" id="expiration_date" name="expiration_date" placeholder="MM/YY" maxlength="5" required />
+                    <input type="text"
+                           placeholder="MM/YY"
+                           maxlength="5"
+                           required />
                     <br />
                     <label for="cvv">CVV:</label>
-                    <input type="text" id="cvv" name="cvv" maxlength="3" required />
-                    <br />
+                    <input type="text" maxlength="3" required />
                 </div> *@
+
+
                 <button type="submit" class="btn btn-primary mr-2">Save</button>
                 <button class="btn btn-info" onclick="history.back()">Cancel</button>
             </form>
         </div>
     </div>
 </div>
-@* @section Scripts {
-    <script>
-        $(document).ready(function () {
-            $('#paymentMethod').change(function () {
-                if ($(this).val() === 'credit_card') {
-                    $('#creditCardFields').show();
-                } else {
-                    $('#creditCardFields').hide();
-                }
-            });
-        });
-    </script>
-} *@
+@* <script>
+    function showCreditCardFields() {
+        var paymentMethod = document.querySelector('input[name="PaymentMethodID"]:checked');
+        var creditCardFields = document.getElementById('creditCardFields');
+
+        if (paymentMethod === "credit_card") {
+            creditCardFields.style.display = 'block';
+        } else {
+            creditCardFields.style.display = 'none';
+        }
+
+        return true; // Allow form submission
+    }
+
+    // Call the function initially to set the initial state
+    showCreditCardFields();
+</script> *@

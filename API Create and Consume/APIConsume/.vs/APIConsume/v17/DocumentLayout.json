@@ -1,0 +1,77 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Semester-6\\API Create and Consume\\APIConsume\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3435A52D-4697-45F1-9B08-09345E2A83CC}|APIConsume\\APIConsume.csproj|d:\\semester-6\\api create and consume\\apiconsume\\apiconsume\\controllers\\personcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3435A52D-4697-45F1-9B08-09345E2A83CC}|APIConsume\\APIConsume.csproj|solutionrelative:apiconsume\\controllers\\personcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3435A52D-4697-45F1-9B08-09345E2A83CC}|APIConsume\\APIConsume.csproj|d:\\semester-6\\api create and consume\\apiconsume\\apiconsume\\views\\person\\addedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3435A52D-4697-45F1-9B08-09345E2A83CC}|APIConsume\\APIConsume.csproj|solutionrelative:apiconsume\\views\\person\\addedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3435A52D-4697-45F1-9B08-09345E2A83CC}|APIConsume\\APIConsume.csproj|d:\\semester-6\\api create and consume\\apiconsume\\apiconsume\\models\\personmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3435A52D-4697-45F1-9B08-09345E2A83CC}|APIConsume\\APIConsume.csproj|solutionrelative:apiconsume\\models\\personmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PersonController.cs",
+              "DocumentMoniker": "D:\\Semester-6\\API Create and Consume\\APIConsume\\APIConsume\\Controllers\\PersonController.cs",
+              "RelativeDocumentMoniker": "APIConsume\\Controllers\\PersonController.cs",
+              "ToolTip": "D:\\Semester-6\\API Create and Consume\\APIConsume\\APIConsume\\Controllers\\PersonController.cs",
+              "RelativeToolTip": "APIConsume\\Controllers\\PersonController.cs",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAowCMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T18:39:14.762Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AddEdit.cshtml",
+              "DocumentMoniker": "D:\\Semester-6\\API Create and Consume\\APIConsume\\APIConsume\\Views\\Person\\AddEdit.cshtml",
+              "RelativeDocumentMoniker": "APIConsume\\Views\\Person\\AddEdit.cshtml",
+              "ToolTip": "D:\\Semester-6\\API Create and Consume\\APIConsume\\APIConsume\\Views\\Person\\AddEdit.cshtml",
+              "RelativeToolTip": "APIConsume\\Views\\Person\\AddEdit.cshtml",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAD8AAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-14T18:38:54.787Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PersonModel.cs",
+              "DocumentMoniker": "D:\\Semester-6\\API Create and Consume\\APIConsume\\APIConsume\\Models\\PersonModel.cs",
+              "RelativeDocumentMoniker": "APIConsume\\Models\\PersonModel.cs",
+              "ToolTip": "D:\\Semester-6\\API Create and Consume\\APIConsume\\APIConsume\\Models\\PersonModel.cs",
+              "RelativeToolTip": "APIConsume\\Models\\PersonModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T18:38:54.803Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
